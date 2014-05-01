@@ -2,59 +2,10 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>上移下移</title>
-<script>
-function nextNode(o){return o.nextElementSibling||o.nextSibling}
-function prevNode(o){return o.previousElementSibling||o.previousSibling}
-// window.onload=function(){
-// 	var oUl=document.getElementsByTagName('ul')[0];
-// 	var aLi=document.getElementsByTagName('li');
-// 	for(var i=0; i<aLi.length; i++){
-// 		var oUp = aLi[i].getElementsByTagName('a')[0];
-// 		var oDown = aLi[i].getElementsByTagName('a')[1];
-// 		oUp.onclick=function(){
-// 			var oPrev = prevNode(this.parentNode);
-// 			oPrev.nodeType==1 ? oUl.insertBefore(this.parentNode,oPrev) : alert('已经是第一行了~');
-// 		};
-// 		oDown.onclick=function(){
-// 			var oNext = nextNode(this.parentNode);
-// 			oNext.nodeType==1 ? oUl.insertBefore(this.parentNode,nextNode(oNext)) : alert('已经是最后一行了~');
-// 		};
-// 	}
-// };
-window.onload=function(){
-	var oUl=document.getElementsByTagName('ul')[0];
-	var aA=document.getElementsByTagName('a');
-	for(var i=0; i<aA.length; i++){
-		if(i%2){
-			aA[i].onclick=function(){
-				if(oUl.children[oUl.children.length-1]==this.parentNode){
-					alert('已经是最后一行了\n不能再移动');
-					return;
-				}
-				oUl.insertBefore(this.parentNode,nextNode(nextNode(this.parentNode)));
-			};
-		}else{
-			aA[i].onclick=function(){
-				if(oUl.children[0]==this.parentNode){
-					alert('已经是第一行了\n不能再移动');
-					return;
-				}
-				oUl.insertBefore(this.parentNode,prevNode(this.parentNode))
-			};
-		}
-	}
-};
-</script>
+	<title>MG的GitHub主页</title>
+
 </head>
 <body>
-<ul>
-	<li><a href="javascript:;">上移</a> 1 1 1 1 <a href="javascript:;">下移</a></li>
-	<li><a href="javascript:;">上移</a> 2 2 2 2 <a href="javascript:;">下移</a></li>
-	<li><a href="javascript:;">上移</a> 3 3 3 3 <a href="javascript:;">下移</a></li>
-	<li><a href="javascript:;">上移</a> 4 4 4 4 <a href="javascript:;">下移</a></li>
-	<li><a href="javascript:;">上移</a> 5 5 5 5 <a href="javascript:;">下移</a></li>
-	<li><a href="javascript:;">上移</a> 6 6 6 6 <a href="javascript:;">下移</a></li>
-</ul>
+<h1>MG的GitHub主页-开张</h1>
 </body>
 </html>
