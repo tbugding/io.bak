@@ -4,7 +4,6 @@
 <meta charset="utf-8">
 <title>360°旋转</title>
 <style>
-body{ width: 100%;}
 .div{ width:640px; height:378px; position:absolute; left:50%; margin-left:-320px; z-index:1; top:50%; margin-top:-189px;}
 img{}
 a{ position:absolute; top:0; background:red; width:50%; height:100%; z-index:2; opacity:0; filter:alpha(opacity:0);}
@@ -15,14 +14,14 @@ a{ position:absolute; top:0; background:red; width:50%; height:100%; z-index:2; 
 </style>
 <script>
 window.onload=function(){
-	var oBar=document.getElementById('bar');
-	var count=0;
-	var oImg=document.getElementById('img1');
-	var oLeft=document.getElementById('left');
-	var oRight=document.getElementById('right');
-	var oMask=document.getElementById('mask');
-	var i=0;
-	var timer=null;
+	var oBar=document.getElementById('bar'),
+	    oImg=document.getElementById('img1'),
+	    oLeft=document.getElementById('left'),
+	    oRight=document.getElementById('right'),
+	    oMask=document.getElementById('mask'),
+	    count=0,
+	    i=0,
+	    timer=null;
 	for(var j=0; j<77; j++){
 		var aImg=new Image();
 		aImg.onload=function(){
@@ -38,20 +37,16 @@ window.onload=function(){
 	oLeft.onmouseover=function(){
 		timer=setInterval(function(){
 			i++;
-			if(i==77){
-				i=0;	
-			}
+			i==77&&(i=0);	
 			oImg.src='img/roll/'+i+'.jpg';
-		},30);	
+		},40);	
 	};
 	oRight.onmouseover=function(){
 		timer=setInterval(function(){
 			i--;
-			if(i==-1){
-				i=76;	
-			}
+			i==-1&&(i=76);
 			oImg.src='img/roll/'+i+'.jpg';
-		},30);	
+		},40);	
 	};	
 	oLeft.onmouseout=oRight.onmouseout=function(){
 		clearInterval(timer);
