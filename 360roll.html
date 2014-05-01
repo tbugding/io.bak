@@ -4,19 +4,39 @@
 <meta charset="utf-8">
 <title>360°旋转</title>
 <style>
-div{ width:640px; height:378px; position:absolute; left:50%; margin-left:-320px; z-index:1; top:50%; margin-top:-189px;}
+body{ width: 100%;}
+.div{ width:640px; height:378px; position:absolute; left:50%; margin-left:-320px; z-index:1; top:50%; margin-top:-189px;}
 img{}
 a{ position:absolute; top:0; background:red; width:50%; height:100%; z-index:2; opacity:0; filter:alpha(opacity:0);}
 #left{ left:0; background:red;}
 #right{ right:0; background:blue;}
+#bar{width:0;height: 3px; position: fixed; top: 0; left: 0; background: red; z-index: 100; box-shadow: 0 0 5px #333;}
+#mask{width:100%; height: 100%; opacity:.5; filter:alpha(opacity:50);position: fixed; top: 0; left: 0; background: #000; z-index: 10;}
 </style>
 <script>
 window.onload=function(){
+	var oBar=document.getElementById('bar');
+	var count=0;
 	var oImg=document.getElementById('img1');
 	var oLeft=document.getElementById('left');
 	var oRight=document.getElementById('right');
+	var oMask=document.getElementById('mask');
 	var i=0;
 	var timer=null;
+	for(var j=0; j<77; j++){
+		var oImg=new Image();
+		oImg.onload=function(){
+			count++;
+			oBar.style.width=100*count/77+'%';
+			if(count==77){
+				oMask.style.display='none';
+				oBar.style.display='none';
+			}
+				
+		};
+		oImg.src='img/roll/'+j+'.jpg';
+			
+	}
 	oLeft.onmouseover=function(){
 		clearInterval(timer);
 		timer=setInterval(function(){
@@ -42,11 +62,14 @@ window.onload=function(){
 		clearInterval(timer);
 	}
 }
+
 </script>
 </head>
 
 <body>
-<div>
+<div id="bar"></div>
+<div id="mask"></div>
+<div class="div">
 	<a href="javascript:;" id="left"></a>
 	<a href="javascript:;" id="right"></a>
 	<img src="img/roll/0.jpg" id="img1">
