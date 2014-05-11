@@ -3,15 +3,25 @@
 <head>
 	<meta charset="UTF-8">
 	<link rel="shortcut icon" href="http://m-g-.github.io/favicon.ico">
-	<title>MG的GitHub主页</title>
+	<title>MG的案例索引</title>
+<style>
+*{margin: 0; padding: 0; list-style: none;}
+body{background: url(img/bg.png);}
+.title{ }
+.list{ width: 500px; position: absolute; top: 100px; left: 50%; margin-left: -250px;}
+.list li{ float: left;}
+.list a{ display: block; height: 30px; padding: 0 10px; margin: 20px 0 0 20px; background: url(img/bg2.png); border: 1px solid #000; box-shadow: 0 0 10px #333; font: 14px/30px microsoft yahei; color: #fff; text-decoration: none; transition:all .5s;}
+.list a:hover{ box-shadow: 0 0 5px #00D2FF; transition:all .5s; color:#00D2FF;}
+.list .on{ color:#FF9433;}
+.list .dis{ color:#999;}
+</style>
 </head>
 <body>
-<h1>MG的GitHub主页-开张</h1>
-<ul>
+<ul class="list">
+	<li><a class="on" href="puzzle/index.html">Puzzle v1.0</a></li>
 	<li><a href="360roll.html">360°旋转</a></li>
-	<li><a href="demo1/index.html">H5 Demo1</a></li>
 	<li><a href="mgZoom/demo3.html">mgZoom</a></li>
-	<li><a href="puzzle/index.html">Puzzle v1.0</a></li>
+	<li><a class="dis" href="demo1/index.html">H5 Demo</a></li>
 </ul>
 </body>
 </html>
