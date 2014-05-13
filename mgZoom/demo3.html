@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>放大镜</title>
+	<title>放大镜-组件</title>
 <style>
 *{margin: 0; padding: 0; list-style: none;}
 body img{ display: block}
 #div1{ width: 300px; height: 572px; margin: 50px 10px 0 200px; float: left; border: 1px solid #666; position: relative;}
-.div2{ width: 300px; height: 300px; border: 1px solid #666; overflow: hidden; position: absolute; top: -1px; right: -310px; display: none;}
-#div2{ width: 300px; height: 300px; margin: 50px 10px 0 400px; float: left; border: 1px solid #666; position: relative;}
-.div3{ width: 300px; height: 300px; border: 1px solid #666; overflow: hidden; position: absolute; top: 310px; left: -1px; display: none;}
+.div2{ width: 300px; height: 260px; border: 1px solid #666; overflow: hidden; position: absolute; top: -1px; right: -313px; display: none;}
+#div2{ width: 300px; height: 300px; margin: 322px 10px 0 0; float: left; border: 1px solid #666; position: relative;}
+.div3{ width: 300px; height: 300px; border: 1px solid #666; overflow: hidden; position: absolute; right: -313px; top: -1px; display: none;}
 </style>
 <script>
 function getPos(obj){
@@ -21,6 +21,13 @@ function getPos(obj){
 		obj=obj.offsetParent;
 	}
 	return {left:l,top:t}
+}
+function isChild(oParent,obj){
+	while(obj){
+		if(oParent==obj)return true;
+		obj=obj.parentNode;
+	}
+	return false;
 }
 // function getImgSize(img, callback) {
 //     var w, h;
@@ -90,7 +97,10 @@ function mg_imgZoom(id){
 		oDiv2.style.display='block';
 		oMask.style.display='block';
 	}
-	oDiv1.onmouseout=function(){
+	oDiv1.onmouseout=function(ev){
+		var oEvent=ev||event;
+		var to=oEvent.toElement||oEvent.relatedTarget;
+		if(isChild(oDiv1,to))return; //解决ie下的抖动
 		oDiv2.style.display='none';
 		oMask.style.display='none';
 	}
@@ -101,8 +111,6 @@ window.onload=function(){
 }
 </script>
 </head>
-
-
 <body>
 <div id="div1">
 	<img src="small2.jpg" alt="">
@@ -112,8 +120,5 @@ window.onload=function(){
 	<img src="small.gif" alt="">
 	<div class="div3"><img src="big.gif" alt=""></div>
 </div>
-
-
-
 </body>
 </html>

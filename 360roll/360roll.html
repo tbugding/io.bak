@@ -33,20 +33,20 @@ window.onload=function(){
 				oBar.style.display='none';
 			}
 		};
-		aImg.src='img/roll/'+j+'.jpg';
+		aImg.src='img/'+j+'.jpg';
 	}
 	oLeft.onmouseover=function(){
 		timer=setInterval(function(){
 			i++;
 			i==77&&(i=0);	
-			oImg.src='img/roll/'+i+'.jpg';
+			oImg.src='img/'+i+'.jpg';
 		},40);	
 	};
 	oRight.onmouseover=function(){
 		timer=setInterval(function(){
 			i--;
 			i==-1&&(i=76);
-			oImg.src='img/roll/'+i+'.jpg';
+			oImg.src='img/'+i+'.jpg';
 		},40);	
 	};	
 	oLeft.onmouseout=oRight.onmouseout=function(){
@@ -63,7 +63,7 @@ window.onload=function(){
 <div class="div">
 	<a href="javascript:;" id="left"></a>
 	<a href="javascript:;" id="right"></a>
-	<img src="img/roll/0.jpg" id="img1">
+	<img src="img/0.jpg" id="img1">
 </div>
 </body>
 </html>
