@@ -20,6 +20,7 @@ function isInArry(n,arr){	//数组里是否有某个数
 	}
 	return false;
 }
+
 function start(n){
 	var oCont=document.getElementById('wall');	//拼图容器
 	oCont.className='start'+n;	//通过给容器加class切换关卡
@@ -41,7 +42,6 @@ function start(n){
 		}
 	}
 	oCont.appendChild(aLi);
-
 
 	//给拼图块添加拖拽和换位
 	var aDiv=oCont.children;
