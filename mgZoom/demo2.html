@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>放大镜</title>
+<style>
+*{margin: 0; padding: 0; list-style: none;}
+#div1{ width: 300px; height: 572px; margin: 50px 10px 0 200px; float: left; border: 1px solid #666; position: relative; cursor: move;}
+#div2{ width: 300px; height: 300px; margin-top: 50px; border: 1px solid #666; float: left; overflow: hidden; position: relative; display: none;}
+#div2 img{position: absolute; top: 0; left: 0;}
+#mask{ background:#000; opacity: .4; filter:alpha(opacity=40); position: absolute; top: 0; left: 0; display: none;}
+</style>
+<script>
+function getPos(obj){
+	var l=0;
+	var t=0;
+	while(obj){
+		l+=obj.offsetLeft;
+		t+=obj.offsetTop;
+		obj=obj.offsetParent;
+	}
+	return {left:l,top:t}
+}
+// function getImgSize(img, callback) {
+//     var w, h;
+//     if (img.naturalWidth) { // 现代浏览器
+//         w = img.naturalWidth
+//         h = img.naturalHeight
+//     } else { // IE6/7/8
+//         var oImg = new Image()
+//         oImg.src = img.src
+//         oImg.onload = function() {
+//             callback(oImg.width, oImg.height)
+//         }
+//     }
+//     return {width:w,height:h}
+// }
+function getImgSize(oImg) {
+    var img = new Image();
+    img.src = oImg.src;
+    return {width:img.width,height:img.height}
+}
+function getStyle(o,a){return o.currentStyle?o.currentStyle[a]:getComputedStyle(o,false)[a]}
+window.onload=function(){
+	var oDiv1=document.getElementById('div1');
+	var oDiv2=document.getElementById('div2');
+	var oMask=document.getElementById('mask');
+	var oImg=oDiv2.getElementsByTagName('img')[0];
+
+	var smallW=parseInt(getStyle(oDiv1,'width'));
+	var smallH=parseInt(getStyle(oDiv1,'height'));
+	var zoomW=parseInt(getStyle(oDiv2,'width'));
+	var zoomH=parseInt(getStyle(oDiv2,'height'));
+	var imgW=getImgSize(oImg).width;
+	var imgH=getImgSize(oImg).height;
+	
+	var maskW=parseInt(zoomW*smallW/imgW);
+	var maskH=parseInt(zoomH*smallH/imgH);
+	oMask.style.width=maskW+'px';
+	oMask.style.height=maskH+'px';
+	div1.onmousemove=function(e){
+		var oEvent=e||event;
+
+		//遮罩鼠标跟随，并防止遮罩移出小图片
+		var l=oEvent.clientX-oMask.offsetWidth/2-getPos(oDiv1).left;
+		var t=oEvent.clientY-oMask.offsetHeight/2-getPos(oDiv1).top;
+		if(l<=0)l=0;
+		if(l>=smallW-maskW)l=smallW-maskW;
+		if(t<=0)t=0;
+		if(t>=smallH-maskH)t=smallH-maskH;
+		oMask.style.left=l+'px';
+		oMask.style.top=t+'px';
+
+		//移动大图片，并防止出现一像素空白
+		var _l=l*imgW/smallW;
+		var _t=t*imgH/smallH;
+		if(l*imgW/smallW>=imgW-zoomW)_l=imgW-zoomW;
+		if(t*imgH/smallH>=imgH-zoomH)_t=imgH-zoomH;
+		oImg.style.left=-_l+'px';
+		oImg.style.top=-_t+'px';
+	}
+	oDiv1.onmouseover=function(){
+		oDiv2.style.display='block';
+		oMask.style.display='block';
+	}
+	oDiv1.onmouseout=function(){
+		oDiv2.style.display='none';
+		oMask.style.display='none';
+	}
+}
+</script>
+</head>
+
+
+<body>
+<div id="div1">
+	<img src="small2.jpg" alt="">
+	<div id="mask"></div>
+</div>
+<div id="div2"><img src="big2.jpg" alt=""></div>
+
+
+</body>
+</html>
