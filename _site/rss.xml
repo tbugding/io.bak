@@ -5,8 +5,8 @@
         <description>MG-UED笔记 - Mango</description>
         <link>http://M-G-.github.io</link>
         <link>http://M-G-.github.io</link>
-        <lastBuildDate>2014-06-14T20:07:49+08:00</lastBuildDate>
-        <pubDate>2014-06-14T20:07:49+08:00</pubDate>
+        <lastBuildDate>2014-06-15T14:35:46+08:00</lastBuildDate>
+        <pubDate>2014-06-15T14:35:46+08:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -14,7 +14,8 @@
                 <title>测试页面，博客施工中···</title>
                 <description>
 &lt;!--break--&gt;
-&lt;p&gt;###测试页面，博客施工中···&lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;测试页面，博客施工中···&lt;/h3&gt;
 </description>
                 <link>http://M-G-.github.io/lessons/2014/06/14/test-page</link>
                 <guid>http://M-G-.github.io/lessons/2014/06/14/test-page</guid>

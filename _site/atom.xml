@@ -4,7 +4,7 @@
  <title>MG-UED笔记</title>
  <link href="http://M-G-.github.io/" rel="self"/>
  <link href="http://M-G-.github.io"/>
- <updated>2014-06-14T20:07:49+08:00</updated>
+ <updated>2014-06-15T14:35:46+08:00</updated>
  <id>http://M-G-.github.io</id>
  <author>
    <name>Mango</name>
@@ -19,7 +19,8 @@
    <id>http://M-G-.github.io/lessons/2014/06/14/test-page</id>
    <content type="html">
 &lt;!--break--&gt;
-&lt;p&gt;###测试页面，博客施工中···&lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;测试页面，博客施工中···&lt;/h3&gt;
 </content>
  </entry>
  

@@ -1,7 +1,6 @@
 
 http://M-G-.github.io/atom.xml
 http://M-G-.github.io/index.html
-http://M-G-.github.io/index.html
 http://M-G-.github.io/p1_archive.html
 http://M-G-.github.io/p2_categories.html
 http://M-G-.github.io/p3_tags.html
