@@ -17,12 +17,14 @@ input:focus{outline: none;}
 
 .startRoute_btn{width: 80%; margin: 20px auto 0 auto;}
 .startRoute_btn li{ width: 33.3%; float: left; text-align: center; height: 40px;}
-.startRoute_btn li span{ width: 80%; height: 100%; display: block; margin: 0 auto;   background: #eee; border-radius: 4px; font:14px/40px "Heiti SC","Droid Sans","Helvetica Neue","Microsoft YaHei",Helvetica,Arial,sans-serif; color: #333;}
+.startRoute_btn li span{ width: 80%; height: 100%; display: block; margin: 0 auto;   background: #eee; border-radius: 3px; font:14px/40px "Heiti SC","Droid Sans","Helvetica Neue","Microsoft YaHei",Helvetica,Arial,sans-serif; color: #333;}
 
 .harfMap{height: 60% !important;}
 
 .changeCity_top,.search_top{width: 80%; height: 40px; margin: 30px auto;}
 #changeCity_input,#search_input{ float:left; width: 70%; height: 100%;  border: none; border-bottom: 1px solid #999; background: none;}
-#changeCity_submit,#search_submit{ width: 26%; height: 100%; float: right; background: #eee; font: 14px/40px  "Heiti SC","Droid Sans","Helvetica Neue","Microsoft YaHei",Helvetica,Arial,sans-serif; color: #333; text-align: center; border-radius: 4px;}
+#changeCity_submit,#search_submit{ width: 26%; height: 100%; float: right; background: #eee; font: 14px/40px  "Heiti SC","Droid Sans","Helvetica Neue","Microsoft YaHei",Helvetica,Arial,sans-serif; color: #333; text-align: center; border-radius: 3px;}
 #changeCity_city{width: 80%; height: 40px; margin: 0px auto;}
-#changeCity_city li{ float: left; padding: 0px 10px; margin: 10px 13px 0 0; font: 12px/26px "Heiti SC","Droid Sans","Helvetica Neue","Microsoft YaHei",Helvetica,Arial,sans-serif; color: #333; background: #eee; border-radius: 4px;}
+#changeCity_city li{ float: left; padding: 0px 10px; margin: 10px 13px 0 0; font: 12px/26px "Heiti SC","Droid Sans","Helvetica Neue","Microsoft YaHei",Helvetica,Arial,sans-serif; color: #333; background: #eee; border-radius: 3px;}
+
+#changeCity_submit:active,#search_submit:active,#changeCity_city li:active,.startRoute_btn li span:active{ background: #999;}
