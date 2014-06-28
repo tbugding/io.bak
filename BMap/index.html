@@ -4,23 +4,26 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />  
 <title>地图</title>
-<script type="text/javascript" src="http://api.map.baidu.com/api?type=quick&ak=67b7597e85d21e3280f990ee7a3e3372&v=1.0"></script>  
-<style type="text/css">
-*{margin:0; padding: 0;}
-body, html{width: 100%;height: 100%;}
-ul,li,ol,dl,dd,dt{list-style: none;}
-#wrap{ width: 100%; height: 100%;overflow: hidden;}
-#l-map{ width: 100%; height: 90%;}
-#nav{ width: 100%; height: 10%; position: fixed; bottom: 0; display: table; background: #333;background:linear-gradient(#333,#000); border-top: 1px solid #000;}
-#nav li{ width: 25%; height: 100%; font:16px "Heiti SC","Droid Sans","Helvetica Neue","Microsoft YaHei",Helvetica,Arial,sans-serif; color: #fff; text-align: center; display: table-cell; vertical-align: middle;}
-#nav li.current{ background: #333;background:linear-gradient(#000,#333); box-shadow: inset 0 0 2px #666}
-/*.anchorBL{display: none;}*/
-#TrafficControl{height: 35px; width: 35px; background: rgba(255,255,255,.8); box-shadow: 1px 1px 2px rgba(0,0,0,0.4); font:14px/35px "Heiti SC","Droid Sans","Helvetica Neue","Microsoft YaHei",Helvetica,Arial,sans-serif; text-align: center;}
-</style>
-</head>  
+<link rel="stylesheet" href="css/map.css">
+<script type="text/javascript" src="http://api.map.baidu.com/api?type=quick&ak=67b7597e85d21e3280f990ee7a3e3372&v=1.0"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/control.js"></script>
+</head>
 <body>
 	<div id="wrap">
-		<div id="l-map"></div>
+		<div id="main">
+			<div id="mapWrap"></div>
+			<div id="startRoute">
+				<input class="startRoute_input" type="text" placeholder="输入起点...">
+				<input class="startRoute_input" type="text" placeholder="输入终点...">
+				<ul class="startRoute_btn">
+					<li><span style="float:left; margin:0;">公交</span></li>
+					<li><span>驾车</span></li>
+					<li><span style="float:right; margin:0;">步行</span></li>
+				</ul>
+			</div>
+		</div>
+		
 		<ul id="nav">
 			<li class="current">地图</li>
 			<li>路线</li>
@@ -29,64 +32,6 @@ ul,li,ol,dl,dd,dt{list-style: none;}
 		</ul>
 	</div>
 </body>
-</html>  
-<script type="text/javascript">
-var map = new BMap.Map("l-map");
-map.centerAndZoom('北京');
-
-var zoomControl=new BMap.ZoomControl();
-map.addControl(zoomControl);
-
-var ScaleControl=new BMap.ScaleControl({offset:new BMap.Size(90,6)});
-map.addControl(ScaleControl);
-
-
-
-
-var traffic=null;
-
-function TrafficControl(){
-	this.defaultAnchor = BMAP_ANCHOR_BOTTOM_RIGHT;      
-	this.defaultOffset = new BMap.Size(8, 150);
-}
-
-TrafficControl.prototype = new BMap.Control();
-
-TrafficControl.prototype.initialize = function(map){      
-	var div = document.createElement("div");      
-	div.appendChild(document.createTextNode("交"));
-	div.setAttribute('id','TrafficControl'); 
-
-
-	div.onclick = function(e){
-		if(traffic){
-			map.removeTileLayer(traffic);
-			traffic=null;
-		}else{
-			traffic = new BMap.TrafficLayer();  
-			map.addTileLayer(traffic);
-		}
-		
-	}
-
-	map.getContainer().appendChild(div);    
-	return div;    
-}
-
-var Traffic=new TrafficControl({offset:new BMap.Size(90,7)});
-map.addControl(Traffic);
-
-var aNav=document.getElementById('nav').children;
-for(var i=0,length=aNav.length; i<length; i++){
-	(function(index){
-		aNav[index].onclick=function(){
-			for(var i=0,length=aNav.length; i<length; i++){
-				aNav[i].className='';
-			}
-			this.className='current';
-		};
-	})(i);
-}
-</script>
+</html>
 
 
