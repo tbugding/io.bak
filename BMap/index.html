@@ -30,8 +30,10 @@ ul,li,ol,dl,dd,dt{list-style: none;}
 </body>
 </html>  
 <script type="text/javascript">
-var map = new BMap.Map("l-map");      
+var MapOptions={enableHighResolution:true}
+var map = new BMap.Map("l-map",MapOptions);
 map.centerAndZoom('北京');
+map.highResolutionEnabled()
 var zoomControl=new BMap.ZoomControl();
 map.addControl(zoomControl);
 
