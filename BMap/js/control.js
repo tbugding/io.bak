@@ -35,7 +35,6 @@ window.onload=function(){
 					case 1:
 						oMap.style.height='60%';
 						oStartRoute.style.display='block';
-						//Rout('史各庄','北苑',BMAP_MODE_TRANSIT,'北京')
 						break;
 					case 2:
 						alert('城市');
@@ -51,7 +50,7 @@ window.onload=function(){
 
 
 	//导航
-	var routeMode=[BMAP_MODE_TRANSIT,BMAP_MODE_DRIVING,BMAP_MODE_WALKING]
+	var routeMode=[BMAP_MODE_TRANSIT,BMAP_MODE_DRIVING,BMAP_MODE_WALKING];
 	for(var j=0,lengthJ=aStartRouteBtn.length; j<lengthJ; j++){
 		(function(index){
 			aStartRouteBtn[j].onclick=function(){
@@ -60,7 +59,7 @@ window.onload=function(){
 				var mode=routeMode[index];
 				// alert(mode+' | '+start+' | '+end+' | '+initCity)
 				if(start && end){
-					route(start,end,mode,initCity)
+					route(start,end,mode,initCity);
 				}
 			};
 		})(j)

@@ -47,12 +47,12 @@ GeolocationControl.prototype.initialize = function(map){
 function route(start,end,mode,region){
 	var routeSearch=new BMap.RouteSearch();  
 	var start = {  
-		latlng:new BMap.Point(116.404, 39.915),  
-		name:start
+		latlng: getRoutepoint(start),
+		name: start
 	  }  
 	var end = {  
-		latlng:new BMap.Point(116.380825,39.915455),  
-		name:end
+		latlng: getRoutepoint(end),
+		name: end
 	  }  
 	var opts = {  
 		mode:mode,
@@ -62,4 +62,13 @@ function route(start,end,mode,region){
 	  }  
 	var ss = new BMap.RouteSearch();  
 	routeSearch.routeCall(start,end,opts);
+}
+
+function getRoutepoint(str){
+	var myGeo = new BMap.Geocoder();      
+	myGeo.getPoint(str, function(point){      
+		if (point) {      
+			return point;
+		}      
+	},initCity);
 }
