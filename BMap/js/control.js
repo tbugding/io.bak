@@ -28,6 +28,13 @@ window.onload=function(){
 	//初始化地图
 	var map = new BMap.Map("mapWrap");
 	map.centerAndZoom(initCity,12);
+	map.addEventListener('click',function(){
+		fnAllHide();
+		for(var i=0,length=aNav.length; i<length; i++){
+			aNav[i].className='';
+		}
+		aNav[0].className='current';
+	})
 
 	//添加缩放控件
 	var zoomControl=new BMap.ZoomControl();
