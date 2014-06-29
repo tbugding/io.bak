@@ -5,10 +5,25 @@ tagline: Supporting tagline
 ---
 {% include JB/setup %}
 
-<a href="{{ BASE_PATH }}{{ post.url }}"><img src="{{ ASSET_PATH }}img/list/BMap.jpg" /></a>
 <ul class="posts">
   {% for post in site.posts %}
-    <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}"><img src="{{ ASSET_PATH }}img/list/BMap.jpg" /><p>{{ post.title }}</p></a>{{ post.content  | | split:'<!--break-->' | first }}</li>
+    <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a>{{ post.content  | | split:'<!--break-->' | first }}</li>
   {% endfor %}
 </ul>
 
+**案例**
+<style>
+.homePage_list{ width: 500px; position: absolute; top: 100px; left: 50%; margin-left: -250px;}
+.homePage_list li{ float: left;}
+.homePage_list a{ display: block; height: 30px; padding: 0 10px; margin: 20px 0 0 20px; background: url({{ ASSET_PATH }}img/bg2.png); border: 1px solid #000; box-shadow: 0 0 10px #333; font: 14px/30px microsoft yahei; color: #fff; text-decoration: none; transition:all .5s;}
+.homePage_list a:hover{ box-shadow: 0 0 5px #00D2FF; transition:all .5s; color:#00D2FF;}
+.homePage_list .on{ color:#FF9433;}
+.homePage_list .dis{ color:#999;}
+</style>
+<ul class="homePage_list">
+	<li><a class="on" href="demo/puzzle2/index.html">拼图游戏</a></li>
+	<li><a href="demo/fireworks/fireworks.html">烟花</a></li>
+	<li><a href="demo/mgZoom/demo3.html">商城放大镜</a></li>
+	<li><a href="demo/360roll/360roll.html">360°旋转</a></li>
+	<li><a class="dis" href="demo/demo1/index.html">H5 Demo</a></li>
+</ul>

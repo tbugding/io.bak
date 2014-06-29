@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>放大镜-组件</title>
+<style>
+*{margin: 0; padding: 0; list-style: none;}
+body img{ display: block}
+#div1{ width: 300px; height: 572px; margin: 50px 10px 0 200px; float: left; border: 1px solid #666; position: relative;}
+.div2{ width: 300px; height: 260px; border: 1px solid #666; overflow: hidden; position: absolute; top: -1px; right: -313px; display: none;}
+#div2{ width: 300px; height: 300px; margin: 322px 10px 0 0; float: left; border: 1px solid #666; position: relative;}
+.div3{ width: 300px; height: 300px; border: 1px solid #666; overflow: hidden; position: absolute; right: -313px; top: -1px; display: none;}
+</style>
+<script>
+function getPos(obj){
+	var l=0;
+	var t=0;
+	while(obj){
+		l+=obj.offsetLeft;
+		t+=obj.offsetTop;
+		obj=obj.offsetParent;
+	}
+	return {left:l,top:t}
+}
+function isChild(oParent,obj){
+	while(obj){
+		if(oParent==obj)return true;
+		obj=obj.parentNode;
+	}
+	return false;
+}
+// function getImgSize(img, callback) {
+//     var w, h;
+//     if (img.naturalWidth) { // 现代浏览器
+//         w = img.naturalWidth
+//         h = img.naturalHeight
+//     } else { // IE6/7/8
+//         var oImg = new Image()
+//         oImg.src = img.src
+//         oImg.onload = function() {
+//             callback(oImg.width, oImg.height)
+//         }
+//     }
+//     return {width:w,height:h}
+// }
+function getImgSize(oImg) {
+    var img = new Image();
+    img.src = oImg.src;
+    return {width:img.width,height:img.height}
+}
+function getStyle(o,a){return o.currentStyle?o.currentStyle[a]:getComputedStyle(o,false)[a]}
+function mg_imgZoom(id){
+	var oDiv1=document.getElementById(id);
+	var oDiv2=oDiv1.getElementsByTagName('div')[0];
+	var oImg=oDiv2.getElementsByTagName('img')[0];
+	var oMask=document.createElement('div');
+	oMask.style.cssText='background:#000; opacity: .4; filter:alpha(opacity=40); position: absolute; top: 0; left: 0; display: none;';
+	oImg.style.cssText='position: absolute; top: 0; left: 0; display: block;';
+	oDiv1.style.cursor='move';
+	oDiv1.appendChild(oMask);
+
+	var smallW=parseInt(getStyle(oDiv1,'width'));
+	var smallH=parseInt(getStyle(oDiv1,'height'));
+	var zoomW=parseInt(getStyle(oDiv2,'width'));
+	var zoomH=parseInt(getStyle(oDiv2,'height'));
+	var imgW=getImgSize(oImg).width;
+	var imgH=getImgSize(oImg).height;
+
+	var maskW=parseInt(zoomW*smallW/imgW);
+	var maskH=parseInt(zoomH*smallH/imgH);
+	oMask.style.width=maskW+'px';
+	oMask.style.height=maskH+'px';
+	oDiv1.onmousemove=function(e){
+		var oEvent=e||event;
+
+		//遮罩鼠标跟随，并防止遮罩移出小图片
+		var scrollL=document.documentElement.scrollLeft||document.body.scrollLeft;
+		var scrollT=document.documentElement.scrollTop||document.body.scrollTop;
+		var l=oEvent.clientX-oMask.offsetWidth/2-getPos(oDiv1).left+scrollL;
+		var t=oEvent.clientY-oMask.offsetHeight/2-getPos(oDiv1).top+scrollT;
+		if(l<=0)l=0;
+		if(l>=smallW-maskW)l=smallW-maskW;
+		if(t<=0)t=0;
+		if(t>=smallH-maskH)t=smallH-maskH;
+		oMask.style.left=l+'px';
+		oMask.style.top=t+'px';
+
+		//移动大图片，并防止出现一像素空白
+		var _l=l*imgW/smallW;
+		var _t=t*imgH/smallH;
+		if(l*imgW/smallW>=imgW-zoomW)_l=imgW-zoomW;
+		if(t*imgH/smallH>=imgH-zoomH)_t=imgH-zoomH;
+		oImg.style.left=-_l+'px';
+		oImg.style.top=-_t+'px';
+	}
+	oDiv1.onmouseover=function(){
+		oDiv2.style.display='block';
+		oMask.style.display='block';
+	}
+	oDiv1.onmouseout=function(ev){
+		var oEvent=ev||event;
+		var to=oEvent.toElement||oEvent.relatedTarget;
+		if(isChild(oDiv1,to))return; //解决ie下的抖动
+		oDiv2.style.display='none';
+		oMask.style.display='none';
+	}
+}
+window.onload=function(){
+	mg_imgZoom('div1');
+	mg_imgZoom('div2');
+}
+</script>
+</head>
+<body>
+<div id="div1">
+	<img src="small2.jpg" alt="">
+	<div class="div2"><img src="big2.jpg" alt=""></div>
+</div>
+<div id="div2">
+	<img src="small.gif" alt="">
+	<div class="div3"><img src="big.gif" alt=""></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="shortcut icon" href="http://m-g-.github.io/favicon.ico">
+<title>360°旋转</title>
+<style>
+.div{ width:640px; height:378px; position:absolute; left:50%; margin-left:-320px; z-index:1; top:50%; margin-top:-189px;}
+img{}
+a{ position:absolute; top:0; background:red; width:50%; height:100%; z-index:2; opacity:0; filter:alpha(opacity:0);}
+#left{ left:0; background:red;}
+#right{ right:0; background:blue;}
+#bar{width:0;height: 3px; position: fixed; top: 0; left: 0; background: red; z-index: 100; box-shadow: 0 0 5px #333;}
+#mask{width:100%; height: 100%; opacity:.5; filter:alpha(opacity:50);position: fixed; top: 0; left: 0; background: #000; z-index: 10;}
+</style>
+<script>
+window.onload=function(){
+	var oBar=document.getElementById('bar'),
+	    oImg=document.getElementById('img1'),
+	    oLeft=document.getElementById('left'),
+	    oRight=document.getElementById('right'),
+	    oMask=document.getElementById('mask'),
+	    count=0,
+	    i=0,
+	    timer=null;
+	for(var j=0; j<77; j++){
+		var aImg=new Image();
+		aImg.onload=function(){
+			count++;
+			oBar.style.width=100*count/77+'%';
+			if(count==77){
+				oMask.style.display='none';
+				oBar.style.display='none';
+			}
+		};
+		aImg.src='img/'+j+'.jpg';
+	}
+	oLeft.onmouseover=function(){
+		timer=setInterval(function(){
+			i++;
+			i==77&&(i=0);	
+			oImg.src='img/'+i+'.jpg';
+		},40);	
+	};
+	oRight.onmouseover=function(){
+		timer=setInterval(function(){
+			i--;
+			i==-1&&(i=76);
+			oImg.src='img/'+i+'.jpg';
+		},40);	
+	};	
+	oLeft.onmouseout=oRight.onmouseout=function(){
+		clearInterval(timer);
+	}
+}
+
+</script>
+</head>
+
+<body>
+<div id="bar"></div>
+<div id="mask"></div>
+<div class="div">
+	<a href="javascript:;" id="left"></a>
+	<a href="javascript:;" id="right"></a>
+	<img src="img/0.jpg" id="img1">
+</div>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>index</title>
+<style>
+*{margin: 0; padding: 0; list-style: none;}
+body{ background: url(img/bg2.png); overflow: hidden}
+#window{overflow: hidden; width: 100%; position: relative;}
+
+#sen1{ position: absolute; width: 3000px; height: 100%;}
+#sen1_side{ height: 100%; background: url(img/BG01.png) right top no-repeat; float: left;}
+#sen1_main{ width: 2000px; height: 100%; background: url(img/BG01rp.png) left 1px; float: left;}
+
+#sen2{ position: absolute; width: 3000px; height: 100%;}
+#sen2_side{ height: 100%; background: url(img/BG02.png) left bottom no-repeat; float: left;}
+#sen2_main{ width: 2000px; height: 100%; background: url(img/BG02rp.png) left 1px; float: left;}
+
+#sen3{ position: absolute; width: 3000px; height: 100%;}
+#sen3_side{ height: 100%; background: url(img/BG03.png) left bottom no-repeat; float: left;}
+#sen3_main{ width: 2000px; height: 100%; background: url(img/BG03rp.png) left 1px; float: left;}
+
+#sen4{ position: absolute; width: 3000px; height: 100%;}
+#sen4_side{ height: 100%; background: url(img/BG04.png) left bottom no-repeat; float: left;}
+#sen4_main{ width: 2000px; height: 100%; background: url(img/BG04rp.png) left 1px; float: left;}
+
+#sen5{ position: absolute; width: 3000px; height: 100%;}
+#sen5_side{ height: 100%; background: url(img/BG05.png) left bottom no-repeat; float: left;}
+#sen5_main{ width: 2000px; height: 100%; background: url(img/BG05rp.png) left 1px; float: left;}
+</style>
+</head>
+<script>
+function getStyle(o,a){return o.currentStyle?o.currentStyle[a]:getComputedStyle(o,false)[a]}
+function startMove(obj,json,speed,fn){clearInterval(obj.timer); obj.timer=setInterval(function(){var bAllEnd=true; for(var name in json){var iTarget=json[name]; if(name=='opacity'){var iCur=Math.round(parseFloat(getStyle(obj,name)*100)); if(isNaN(iCur))iCur=100; }else{var iCur=parseInt(getStyle(obj,name))||0; } var iSpeed=(iTarget-iCur)/speed; iSpeed=iSpeed>0?Math.ceil(iSpeed):Math.floor(iSpeed); if(iCur!=iTarget){bAllEnd=false; } if(name=='opacity'){obj.style.opacity=(iCur+iSpeed)/100; obj.style.filter='alpah(opacity:'+(iCur+iSpeed)+')'; }else{obj.style[name]=iCur+iSpeed+'px'; } } if(bAllEnd){clearInterval(obj.timer); fn&&fn(); } },30); } 
+
+window.onload=function(){
+	var iSen=5;
+	var oWin=document.getElementById('window');
+	var clientW,clientH;
+	setWin()
+	function setWin(){
+		clientW=document.documentElement.clientWidth;
+		clientH=document.documentElement.clientHeight;
+		oWin.style.height=clientH+'px';
+	}
+	window.onresize=function(){
+		setWin();
+		setTimeout(function(){startMove(aSen[4],{left:Math.round(clientW*0.8)},8)},100);
+		setTimeout(function(){startMove(aSen[3],{left:Math.round(clientW*0.8)-50},8)},200);
+		setTimeout(function(){startMove(aSen[2],{left:Math.round(clientW*0.8)-100},8)},300);
+		setTimeout(function(){startMove(aSen[1],{left:Math.round(clientW*0.8)-150},8)},400);
+
+		for(var i=0;i<5;i++){
+			if(i>0){
+				aSen[i].getElementsByTagName('div')[0].style.width=clientH+'px';
+			}
+			
+			aSen[i].getElementsByTagName('div')[1].style.width=clientW+'px';
+		}
+		startMove(aSen[0],{left:Math.round(300-clientH+(clientW/iSen)*0)},8)
+
+		
+
+		startMove(aSen[0].getElementsByTagName('div')[0],{width:clientH},8)
+		document.title=clientW+' | '+clientH;
+	}
+
+	var aSen=[];
+	for(var i=0;i<5;i++){
+		aSen[i]=document.getElementById('sen'+(i+1)+'');
+		aSen[i].style.left=clientW+100*(i+1)+'px';
+		// aSen[i].style.height=clientH+'px';
+		aSen[i].style.display='block';
+		aSen[i].getElementsByTagName('div')[0].style.width=clientH+'px';
+		aSen[i].getElementsByTagName('div')[1].style.width=clientW+'px';
+	}
+
+
+
+	function animate1(){
+		for(var i=0;i<iSen;i++){
+			(function(index){
+				setTimeout(function(){
+					startMove(aSen[index],{left:Math.round(300-clientH+(clientW/iSen)*index)},8)
+				},200*(index+1));
+			})(i);
+			
+		}
+		
+
+		// setTimeout(function(){startMove(aSen[4],{left:clientW-220},8)},2100);
+		// setTimeout(function(){startMove(aSen[3],{left:clientW-250},8)},2200);
+		// setTimeout(function(){startMove(aSen[2],{left:clientW-280},8)},2300);
+		// setTimeout(function(){startMove(aSen[1],{left:clientW-310},8)},2400);
+
+		setTimeout(function(){startMove(aSen[4],{left:Math.round(clientW*0.8)-0},8)},2100);
+		setTimeout(function(){startMove(aSen[3],{left:Math.round(clientW*0.8)-50},8)},2200);
+		setTimeout(function(){startMove(aSen[2],{left:Math.round(clientW*0.8)-100},8)},2300);
+		setTimeout(function(){startMove(aSen[1],{left:Math.round(clientW*0.8)-150},8)},2400);
+	}
+	animate1();
+
+
+
+	// document.body.style.width=clientW+'px';
+	// document.onmousewheel=function(){return false;}
+	
+};
+</script>
+<body>
+<div id="window">
+	<div id="sen1">
+		<div id="sen1_side"></div>
+		<div id="sen1_main"></div>
+	</div>
+	<div id="sen2">
+		<div id="sen2_side"></div>
+		<div id="sen2_main"></div>
+	</div>
+	<div id="sen3">
+		<div id="sen3_side"></div>
+		<div id="sen3_main"></div>
+	</div>
+	<div id="sen4">
+		<div id="sen4_side"></div>
+		<div id="sen4_main"></div>
+	</div>
+	<div id="sen5">
+		<div id="sen5_side"></div>
+		<div id="sen5_main"></div>
+	</div>
+
+</div>
+
+</body>
+</html>
