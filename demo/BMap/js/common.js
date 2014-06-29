@@ -45,7 +45,7 @@ GeolocationControl.prototype.initialize = function(map){
 			alert("Geolocation is not supported by this browser.")
 		}
 
-		if(marker){
+		if(lng && lat){
 			zoomToLocation();
 		}
 	}
@@ -59,20 +59,20 @@ GeolocationControl.prototype.initialize = function(map){
 			marker = new BMap.Marker(new BMap.Point(lng, lat));
 			map.addOverlay(marker);
 		}else{
-			marker = new BMap.Marker(new BMap.Point(position.coords.longitude, position.coords.latitude));
+			marker = new BMap.Marker(new BMap.Point(lng, lat));
 			map.addOverlay(marker);
 		}
 	}
 	function zoomToLocation(){
 		map.panTo(new BMap.Point(lng, lat));
-		map.setZoom(16)
+		map.setZoom(16);
 	}
 	return oDiv;    
 }
 
 
 
-
+//导航
 function route(start,end,mode,region){
 	var routeSearch=new BMap.RouteSearch();  
 	var start = {  

@@ -1,3 +1,4 @@
+@charset "utf-8";
 
 *{margin:0; padding: 0;}
 body, html{width: 100%;height: 100%;}
@@ -11,20 +12,15 @@ input:focus{outline: none;}
 #nav{ width: 100%; height: 10%; position: fixed; bottom: 0; display: table; background: #333;background:linear-gradient(#333,#000); border-top: 1px solid #000;}
 #nav li{ width: 25%; height: 100%; font:16px "Heiti SC","Droid Sans","Helvetica Neue","Microsoft YaHei",Helvetica,Arial,sans-serif; color: #fff; text-align: center; display: table-cell; vertical-align: middle;letter-spacing: 3px;}
 #nav li.current{ background: #333;background:linear-gradient(#000,#333); box-shadow: inset 0 0 2px #666}
-/*.anchorBL{display: none;}*/
 #TrafficControl,#GeolocationControl{height: 35px; width: 35px; background: rgba(255,255,255,.8); box-shadow: 1px 1px 2px rgba(0,0,0,0.4); font:14px/35px "Heiti SC","Droid Sans","Helvetica Neue","Microsoft YaHei",Helvetica,Arial,sans-serif; text-align: center;}
 .startRoute_input{ display: block; width: 80%; height: 30px; border: none; border-bottom: 1px solid #999; margin: 20px auto 0 auto; background: none;}
-
 .startRoute_btn{width: 80%; margin: 20px auto 0 auto;}
 .startRoute_btn li{ width: 33.3%; float: left; text-align: center; height: 40px;}
 .startRoute_btn li span{ width: 80%; height: 100%; display: block; margin: 0 auto;   background: #eee; border-radius: 3px; font:14px/40px "Heiti SC","Droid Sans","Helvetica Neue","Microsoft YaHei",Helvetica,Arial,sans-serif; color: #333;}
-
 .harfMap{height: 60% !important;}
-
 .changeCity_top,.search_top{width: 80%; height: 40px; margin: 30px auto;}
 #changeCity_input,#search_input{ float:left; width: 70%; height: 100%;  border: none; border-bottom: 1px solid #999; background: none;}
 #changeCity_submit,#search_submit{ width: 26%; height: 100%; float: right; background: #eee; font: 14px/40px  "Heiti SC","Droid Sans","Helvetica Neue","Microsoft YaHei",Helvetica,Arial,sans-serif; color: #333; text-align: center; border-radius: 3px;}
 #changeCity_city{width: 80%; height: 40px; margin: 0px auto;}
 #changeCity_city li{ float: left; padding: 0px 10px; margin: 10px 13px 0 0; font: 12px/26px "Heiti SC","Droid Sans","Helvetica Neue","Microsoft YaHei",Helvetica,Arial,sans-serif; color: #333; background: #eee; border-radius: 3px;}
-
 #changeCity_submit:active,#search_submit:active,#changeCity_city li:active,.startRoute_btn li span:active{ background: #999;}
