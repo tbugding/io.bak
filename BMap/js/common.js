@@ -35,13 +35,29 @@ GeolocationControl.prototype.initialize = function(map){
 	var oDiv = document.createElement("div");      
 	oDiv.appendChild(document.createTextNode("定"));
 	oDiv.setAttribute('id','GeolocationControl');
+	var marker=null;
 	oDiv.onclick = function(e){
-		var marker = new BMap.Marker(new BMap.Point(116.404, 39.915)); 
-		map.addOverlay(marker);
+		if (navigator.geolocation){
+			navigator.geolocation.getCurrentPosition(markLocation);
+		}else{
+			alert("Geolocation is not supported by this browser.")
+		}
 	}
-	map.getContainer().appendChild(oDiv);    
+	map.getContainer().appendChild(oDiv);
+	function markLocation(position){
+		if(marker){
+			map.removeOverlay(marker);
+			marker = new BMap.Marker(new BMap.Point(position.coords.longitude, position.coords.latitude));
+			map.addOverlay(marker);
+		}else{
+			marker = new BMap.Marker(new BMap.Point(position.coords.longitude, position.coords.latitude));
+			map.addOverlay(marker);
+		}
+	}
 	return oDiv;    
 }
+
+
 
 
 function route(start,end,mode,region){
