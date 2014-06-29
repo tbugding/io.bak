@@ -101,6 +101,7 @@ window.onload=function(){
 				// alert(mode+' | '+start+' | '+end+' | '+initCity)
 				if(start && end){
 					route(start,end,mode,initCity);
+					fnAllHide();
 				}
 			};
 		})(j)
