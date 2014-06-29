@@ -64,8 +64,8 @@ GeolocationControl.prototype.initialize = function(map){
 		}
 	}
 	function zoomToLocation(){
-		map.panTo(new BMap.Point(lng, lat));
 		map.setZoom(16);
+		map.panTo(new BMap.Point(lng, lat));
 	}
 	return oDiv;    
 }
