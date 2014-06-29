@@ -27,8 +27,7 @@ window.onload=function(){
 
 	//初始化地图
 	var map = new BMap.Map("mapWrap");
-	// map.centerAndZoom(initCity,12);
-	map.centerAndZoom(new BMap.Point(116.2751595,40.1015728),12);
+	map.centerAndZoom(initCity,12);
 	map.addEventListener('click',function(){
 		fnAllHide();
 		for(var i=0,length=aNav.length; i<length; i++){
