@@ -36,23 +36,35 @@ GeolocationControl.prototype.initialize = function(map){
 	oDiv.appendChild(document.createTextNode("定"));
 	oDiv.setAttribute('id','GeolocationControl');
 	var marker=null;
+	var lng=null;
+	var lat=null;
 	oDiv.onclick = function(e){
 		if (navigator.geolocation){
 			navigator.geolocation.getCurrentPosition(markLocation);
 		}else{
 			alert("Geolocation is not supported by this browser.")
 		}
+
+		if(marker){
+			zoomToLocation();
+		}
 	}
 	map.getContainer().appendChild(oDiv);
 	function markLocation(position){
+		lng=position.coords.longitude;
+		lat=position.coords.latitude;
+		zoomToLocation();
 		if(marker){
 			map.removeOverlay(marker);
-			marker = new BMap.Marker(new BMap.Point(position.coords.longitude, position.coords.latitude));
+			marker = new BMap.Marker(new BMap.Point(lng, lat));
 			map.addOverlay(marker);
 		}else{
 			marker = new BMap.Marker(new BMap.Point(position.coords.longitude, position.coords.latitude));
 			map.addOverlay(marker);
 		}
+	}
+	function zoomToLocation(){
+		map.panTo(new BMap.Point(lng, lat))
 	}
 	return oDiv;    
 }
