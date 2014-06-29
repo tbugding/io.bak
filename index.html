@@ -7,17 +7,17 @@ tagline: Supporting tagline
 
 <img src="{{ ASSET_PATH }}img/header.jpg" style="width:100%" />
 
-### 文章
+<h3>文章</h3>
 <ul class="posts">
   {% for post in site.posts %}
     <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a>{{ post.content  | | split:'<!--break-->' | first }}</li>
   {% endfor %}
 </ul>
 
-### 案例
+<h3>案例</h3>
 
 <style>
-.homePage_list{ width: 500px; position: absolute; top: 100px; left: 50%; margin-left: -250px; list-style: none;}
+.homePage_list{list-style: none;}
 .homePage_list li{ float: left; list-style: none;}
 .homePage_list a{ display: block; height: 30px; padding: 0 10px; margin: 20px 0 0 20px; background: url({{ ASSET_PATH }}img/bg2.png); border: 1px solid #000; box-shadow: 0 0 10px #333; font: 14px/30px microsoft yahei; color: #fff; text-decoration: none; transition:all .5s;}
 .homePage_list a:hover{ box-shadow: 0 0 5px #00D2FF; transition:all .5s; color:#00D2FF;}
