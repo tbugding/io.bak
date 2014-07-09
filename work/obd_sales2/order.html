@@ -3,10 +3,10 @@
 <head>
 	<meta charset="utf-8">
 	<title>图吧汽车卫士-填写订单</title>
-	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
 	<link rel="stylesheet" type="text/css" href="style/base.css">
 	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
-	<script type="text/javascript" src="js/linkageSelect.js"></script>
+	<!--<script type="text/javascript" src="js/linkageSelect.js"></script>-->
 	<script type="text/javascript" src="js/appframework.js"></script>
 <style>
 body{ background: #f7fafb; color: #5d6368;}
@@ -31,7 +31,12 @@ ul{list-style: none; margin: 0; padding: 0;}
 .order_form2 .right{ float: right;}
 .order_form2 select{ border: none; background: none; height: 2em; line-height: 2em;}
 </style>
-
+<script>
+$(function(){
+	console.log(document.referrer)
+	// console.log(123)
+})
+</script>
 </head>
 <body>
 <div id="content">
