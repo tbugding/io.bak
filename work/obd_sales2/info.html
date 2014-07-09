@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>图吧汽车卫士-填写基本信息</title>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport">
+	<link rel="stylesheet" type="text/css" href="style/base.css">
+	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="js/linkageSelect.js"></script>
+	<script type="text/javascript" src="js/appframework.js"></script>
+<style>
+		.yt{text-align: left; width: 90%; margin: 1em auto; color: #5d6368;}
+		.yt p {
+			margin: 0;
+			text-indent: 2em;
+			line-height: 1.6em;
+			padding-top: 0.5em;
+			 font-size: 1.4em;
+		}
+
+		.titleS {
+			background: url("img/submittitle.png") no-repeat 0px bottom;
+			border-bottom: 2px solid #FF672B;
+			color: #FF672B;
+			display: inline-block;
+			padding: 2px 18px 3px 16px;
+			font-size: 1.8em;
+			margin:0.4em 0 0.2em 0;
+		}
+
+		.co1 {
+			font-size: 1.6em;
+			color: #999999;
+			width: 90%;
+			margin-left: auto;
+			margin-right: auto; 
+		}
+		.info {
+			padding: 0;
+			list-style: none;
+			display: inline-block;
+			margin: 0 auto;
+			width: 90%;
+		}
+
+		.info li {
+			border-bottom: 1px solid #B6BCC3;
+			position: relative;
+			padding-left: 2.3em;
+			padding-top: 1em
+		}
+
+		.info li  img {
+			position: absolute;
+			left: 0;
+			width: 1.5em;
+			bottom: 0.5em;
+
+		}
+
+		.info input {
+			width: 100%;
+			vertical-align: bottom;
+			height: 2.2em;
+			border: 0;
+			text-align: left
+		}
+
+		.info select {
+			width: 100%;
+			border: 0;
+			padding-top: 1em;
+		}
+
+		.info .br{ border-bottom: 1px solid #B6BCC3; }
+
+</style>
+
+</head>
+<body>
+<div id="content">
+	<div class="block">
+		<img class="block_img" src="img/info_01.png">
+		
+	</div>
+	<div class="block yt">
+		<div class="titleS">99元优惠价</div>
+		<p>真实填写下面信息，购买汽车卫士（高配版4. 0,现价138），享受99元超低价，另送价值58元图吧导航离线数据和增强版电子眼。</p>
+	</div>
+	<div class="block co1">
+		<ul class="info">
+			<li>
+				<img src="img/ad2_08.png">
+				<input type="text" id="name" placeholder="  姓     名">
+			</li>
+			<li>
+				<img src="img/ad2_13.png">
+				<input type="text" id="phone" placeholder=" 手机号码">
+			</li>
+			<li>
+				<img src="img/ad2_17.png">
+				<input type="text" id="QQ" placeholder="  QQ号码">
+			</li>
+			<li style="border:0;padding-top:0;">
+				<img src="img/ad2_21.png" style="top:0.5em">
+				<div id="list_carType">
+					<select id="fBrand">
+						<option value="undefined">--请选择车型--</option>
+					</select><div class="br"></div>
+					<select id="tBrand">
+						<option value="undefined">--请选择车系--</option>
+					</select><div class="br"></div>
+					<select id="yModel">
+						<option value="undefined">--请选择年款--</option>
+					</select><div class="br"></div>
+				</div>
+			</li>
+		</ul>
+		<a href="#" id="submit" style="margin-top:1.5em;margin-bottom:1.5em;" class="btn btn_normal">提交信息</a>
+	</div>
+</div>
+
+</body>
+</html>
