@@ -19,16 +19,10 @@ $(function(){
 	$('#submit').on('click',submit);
 
 })
-var n=0
-setInterval(function(){
-	n++;
-	document.title=n;
-},200)
 function submit(){
 	// var data=$('form').serialize();
-	window.location.search='name=mango&pw=123456'
 	setTimeout(function(){
-		window.location.href='http://m-g-.github.io/work/obd_sales2/order.html'
+		window.location.href='http://m-g-.github.io/work/obd_sales2/order.html?name=mango&pw=123456'
 	},3000)
 	// $('#submit').off('click',submit);
 }
