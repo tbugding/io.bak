@@ -1,5 +1,5 @@
-//var postIp = 'http://obd.mapbar.com/';
-var postIp = 'http://192.168.0.164:6445/';
+var postIp = 'http://obd.mapbar.com/';
+// var postIp = 'http://192.168.0.164:6445/';
 
 $(function () {
     var domOut = $("#list_carType").children("select");
