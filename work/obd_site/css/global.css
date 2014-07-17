@@ -1,0 +1,49 @@
+/*reset*/
+html, button, input, select, textarea {color: #333; }
+html {font-size: 1em; line-height: 1.4; }
+::-moz-selection {background: #b3d4fc; text-shadow: none; }
+::selection {background: #b3d4fc; text-shadow: none; }
+hr {display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0; }
+audio, canvas, img, video {vertical-align: middle; }
+fieldset {border: 0; margin: 0; padding: 0; }
+textarea {resize: vertical; } .ir {background-color: transparent; border: 0; overflow: hidden; *text-indent: -9999px; }
+input,button,select,textarea,a{outline:none;} 
+input:focus,button:focus,select:focus,textarea:focus,a:focus{outline:none;}
+
+/*oo*/
+.ir:before {content: ""; display: block; width: 0; height: 150%; }
+.hidden {display: none;}
+.invisible {visibility: hidden; }
+.clearfix:before,.clearfix:after {content: " "; display: table; }
+.clearfix:after {clear: both; }
+.clearfix {*zoom: 1; }
+.border_b{ border-bottom: 1px solid #e5e5e5;}/*#e5e5e5*/
+.bc{margin-left: auto; margin-right: auto;}
+.cb{clear: both;}
+.hideText{ text-indent: -9000em;}
+.absolute{ position: absolute;}
+.relative{ position: relative;}
+.imgBlock{ display: block; margin: 0; padding: 0;}
+.fl{float: left;}
+.fr{float: right;}
+.wrap100{width: 100%;}
+.pageW{width:1280px;}
+/*_width:expression((document.documentElement.clientWidth||document.body.clientWidth)<1280?"1280":"");overflow:hidden;*/
+
+/*头部*/
+#header{ height: 60px;}
+.nav{ float: right; margin-right: 2em;}
+.nav a{ display: inline-block; border-top: 4px solid #fff; padding: 0 12px; font:0.875em/3em microsoft yahei; color: #888; text-decoration: none; transition:all .3s;}
+.nav a:hover,.nav .active{ border-top: 4px solid #23d4c6; transition:all .3s;}
+
+/*底部*/
+#footer{ width: 100%; height: 140px; background: #4a525e;}
+.footer_logo{ padding: 2.5em 0 0 0.9em ;}
+.footer_nav{ list-style: none; margin: 48px 40px 0 0;}
+.footer_nav li{ float: left;}
+.footer_nav li a{ display: block; font: 14px/30px microsoft yahei; color: #81868f; text-decoration: none; margin: 0 13px;}
+.footer_nav li a:hover{ color: #e8e8e8;}
+.footer_nav li a:active{ color: #2e3643;}
+.footer_nav li .btnBuy{ width: 86px; height: 30px; background: url(../img/btn_footer_buy.png); text-align: center;}
+.footer_nav li .btnBuy:hover{ background-position: 0 -30px;}
+.footer_nav li .btnBuy:active{ background-position: 0 -60px;}
