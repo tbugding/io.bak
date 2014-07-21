@@ -57,8 +57,8 @@ input:focus,button:focus,select:focus,textarea:focus,a:focus{outline:none;}*/
 /*底部*/
 #footer{ width: 100%; height: 140px; background: #4a525e;}
 .footer_inner{ height: 100%; background: #4a525e;}
-.footer_logo{ padding: 2.5em 0 0 0.9em ;}
-.footer_nav{ list-style: none; margin: 48px 40px 0 0;}
+.footer_logo{ padding: 2.5em 0 0 2% ;}
+.footer_nav{ list-style: none; margin: 48px 4% 0 0;}
 .footer_nav li{ float: left;}
 .footer_nav li a{ display: block; font: 14px/30px microsoft yahei; color: #81868f; text-decoration: none; margin: 0 13px;}
 .footer_nav li a:hover{ color: #e8e8e8;}

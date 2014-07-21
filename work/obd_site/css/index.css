@@ -4,6 +4,8 @@ color: #666}
 .index_t1{font:44px/50px microsoft yahei; color:#555;}
 .index_t2{font:22px/38px microsoft yahei; color:#666; margin-top: 27px;}
 
+
+
 /*顶部banner*/
 .banner{}
 .banner_slogan{ height: 287px; /*_background: url(../img/index_banner_top.png) center top no-repeat;*/ position: relative; z-index: 2; text-align: center;}
@@ -16,21 +18,19 @@ color: #666}
 .banner_t2{font:35px/72px microsoft yahei; color:#333; margin:-10px 0 0 0;}
 .banner_t3{font:18px/50px microsoft yahei; color:#999; margin:0}
 
-@media all and (max-width: 768px){
-	.banner_t1 {font-size: 42px ; line-height:80px;}
-	.banner_t2 {font-size: 29px ; line-height:60px;}
-}
+
 
 /*板块1-App链接*/
-.index_b1_t{ height: 118px; /*_background: url(../img/index_t01.png) center top no-repeat;*/ margin-top: 6em; text-align: center;}
-.index_dlWrap{ height: 225px;}
-.index_dlBtn{ position: absolute; width: 220px; height: 66px;font: 1.3em/66px Verdana, Geneva, 'microsoft yahei', sans-serif; color: #fff; text-decoration: none; top: 50%; left: 50%; margin-top: -33px;}
+.index_b1_t{ padding: 0 1em; /*_background: url(../img/index_t01.png) center top no-repeat;*/ margin-top: 10%; text-align: center;}
+.index_dlWrap{ padding: 2% 0 7% 0;}
+.index_dlBtn{ display: block; width: 220px; height: 66px; margin: 2em auto 0 auto !important; font: 1.4em/66px Verdana, Geneva, 'microsoft yahei', sans-serif; color: #fff; text-decoration: none; }
 .index_dlBtn span{font-size: 0.9em; vertical-align: 1px; font-family: microsoft yahei;}
-.index_dlAndroid{ background: url(../img/index_btn_android.png); margin-left: -250px; text-indent: 70px;}
-.index_dlIphone{ background: url(../img/index_btn_iphone.png); margin-left: 30px; text-indent: 90px;}
+.index_dlAndroid{ background: url(../img/index_btn_android.png); text-indent: 70px;}
+.index_dlIphone{ background: url(../img/index_btn_iphone.png); text-indent: 80px;}
 .qrCode_IOS{ position: absolute; border: 1px solid #ddd; padding-bottom: 2px; background: #fff; left: 50%; margin-left: 280px; margin-top: 10px; display: none;}
-.index_dlAndroid:hover,.index_dlIphone:hover{ background-position:0 -66px;}
+.index_dlAndroid:hover,.index_dlIphone:hover{ background-position:0 -66px; color: #fff; text-decoration: none;}
 .index_dlAndroid:active,.index_dlIphone:active{ background-position:0 -132px;}
+.index_b1_img{ width: 100%;}
 
 /*板块2-360全车体检*/
 .index_b2_top{ padding: 7em 0 0 7em;}
@@ -172,3 +172,16 @@ color: #666}
 .index_b10_list .ico04:active{ background-position: -400px -600px;}
 .index_b10_list p{ font: 1.25em/3em 'microsoft yahei'; color: #7b8286;}
 .index_qrCode{ position: absolute; top: -260px; left: 50%; margin-left: -101px;}
+
+
+
+@media all and (max-width: 768px){
+	.banner_t1 {font-size: 42px ; line-height:80px;}
+	.banner_t2 {font-size: 29px ; line-height:60px;}
+	.index_t1{font:34px/50px microsoft yahei; color:#555;}
+	.index_t2{ display: none;}
+}
+@media all and (min-width: 1440px){
+	.container{ width: 1280px;}
+	.container-fluid{ width: 1280px;}
+}
