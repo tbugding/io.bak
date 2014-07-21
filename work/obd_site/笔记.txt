@@ -1,0 +1,30 @@
+
+1.
+Respond.js 与 跨域（cross-domain） CSS 的问题
+如果 Respond.js 和 CSS 文件被放在不同的域名或子域名下面（例如，使用CDN）时需要一些额外的设置。请参考 Respond.js 文档 获取详细信息。
+
+
+2.
+Safari 对百分比数字凑整的问题
+从 OS X 版 Safari v7.0.1 和 iOS 版 Safari v7.0.1 开始，Safari 的页面绘制引擎对于处理 .col-*-1 类所对应的很长的百分比小数存在 bug。也就是说，如果你在一行（row）之中定义了12个单独的列（.col-*-1），你就会看到这一行比其他行要短一些。我们目前解决不了这个问题 (Bug 编号 #9282)，但是你可以避免：
+为最后一列添加 .pull-right 类，将其暴力向右对齐
+手动调整百分比数字，让其针对Safari表现更好（这比第一种方式更困难）
+
+
+3.
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+
+4.
+.container 类用于固定宽度并支持响应式布局的容器。
+.container-fluid 类用于 100% 宽度，占据全部视口（viewport）的容器。
+这两种 容器类不能互相嵌套。
+
+
+5.
+栅格系统：行（row）与列（column）
+  “行（row）”必须包含在 .container （固定宽度）或 .container-fluid （100% 宽度）中
+  你的内容应当放置于“列（column）”内，并且，只有“列（column）”可以作为行（row）”的直接子元素。
+  类似 .row 和 .col-xs-4 这种预定义的类，可以用来快速创建栅格布局。Bootstrap 源码中定义的 mixin 也可以用来创建语义化的布局。
+  通过为“列（column）”设置 padding 属性，从而创建列与列之间的间隔（gutter）。通过为 .row 元素设置负值 margin 从而抵消掉为 .container 元素设置的 padding，也就间接为“行（row）”所包含的“列（column）”抵消掉了padding。
+  .col-md-  .col-lg-
