@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>新</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="js/images/common.css">
+	<link rel="stylesheet" href="ckls/treeview/jquery.treeview.css">
+	<link rel="stylesheet" type="text/css" href="js/loading-plugins/style/style.css"/>
+	<script type="text/javascript" src="ckls/ckls.js"></script>
+	<style type="text/css">
+		#c-left{width: 400px; position: absolute;left: 0;}
+		#c-right{margin-left:600px;}
+		#outputTXTData {width:350px;height: 400px;}
+		#scanvas{-webkit-transform-origin: 0% 0%;}
+		#treeViewContent {overflow-y: scroll;}
+		.stateBar{padding:5px;border: 1px solid #cccccc}
+	</style>
+</head>
+<body>
+<div id="c-left">
+	<div class="left-c">
+		<ul class="dataTop">
+			<li class="dataLi ov">经纬度数据</li>
+			<li class="processLi">处理</li>
+			<li class="reslutLi">结果</li>
+		</ul>
+	</div>
+	<div class="leftCont leftCont2">
+		<div class="data">
+			<textarea id="mbData"></textarea><br>
+			<input type="submit" id="attachData" title="Ctrl+Enter" value="分析数据">
+			&nbsp&nbsp&nbsp&nbsp<input type="button" value="生成" id="test2">
+		</div>
+		<div class="process" style="display: none">
+			<input type="button" value="生成" id="outPutData"><br>
+			<div class="stateBar">
+				<input id="startBtn" type="button" value="start"/>
+				<div id="numValue">0%</div>
+				错误数:<span id="errorNum"></span> 正确数:<span id="rightNum"></span> 已检查:<span id="txt_checked"></span> 总数:<span id="totle"></span>
+				<div id="treeViewContent"><ul id="browser" class="filetree"></ul></div>
+			</div>
+		</div>
+		<div class="reslut" style="display: none"><textarea id="outputTXTData"></textarea></div>
+	</div>
+</div>
+<div id="c-right">
+<a href="javascript:void(0)" id="zoomIn">放大</a> <a href="javascript:void(0)" id="zoomOut">缩小</a>
+<div id="canvasP">
+	<canvas width="256" height="256" id="scanvas" style="-webkit-transform:scale(2)"></canvas>
+</div>
+</div>
+</body>
+</html>

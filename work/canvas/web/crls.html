@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>图片验证</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+	<style type="text/css">
+		.left{width:250px;position: fixed;left:0;top:0;border-left:1px solid #cccccc;padding:10px;}
+		.right{margin-left:240px; }
+		ol {
+			counter-reset: li;
+			list-style: none;
+			font: 15px 'trebuchet MS', 'lucida sans';
+			padding: 0;
+			margin-bottom: 4em;
+			text-shadow: 0 1px 0 rgba(255,255,255,.5);
+		}
+		ul li {
+			list-style-type: none;display: inline-block;
+		}
+		ol li {margin-left: 1.3em;}
+		canvas {border:2px solid #ccc;margin: 10px;cursor: crosshair}
+		textarea {
+			border: 2px inset #E2E2E2;
+		}
+		#mbData,#outPutDataTxt {
+			width:230px;
+			height:400px;
+		}
+		.rounded-list a {
+			position: relative;
+			cursor: pointer;
+			display: block;
+			padding: .4em .4em .4em 2em;
+			margin: .5em 0;
+			background: #ddd;
+			color: #444;
+			text-decoration: none;
+			border-radius: 1em;
+			transition: all .3s ease-out;
+			text-align: left;
+		}
+		.rounded-list a:hover{
+
+			background: #eee;
+
+		}
+		.rounded-list a:hover:before{
+
+			transform: rotate(360deg);
+
+		}
+
+		.rounded-list a:before {
+			 content: counter(li);
+			 counter-increment: li;
+			 position: absolute;
+			 left: -1.3em;
+			 top: 50%;
+			 margin-top: -1.3em;
+			 background: #87ceeb;
+			 height: 2em;
+			 width: 2em;
+			 line-height: 2em;
+			 border: .3em solid #fff;
+			 text-align: center;
+			 font-weight: bold;
+			 border-radius: 2em;
+			 transition: all .3s ease-out;
+		 }
+	</style>
+	<link rel="stylesheet" type="text/css" href="js/loading-plugins/style/style.css"/>
+	<script type="text/javascript" src="js/common/jquery-2.0.3.min.js"></script>
+	<script type="text/javascript" src="crls/crls.js"></script>
+</head>
+<body>
+<div class="left">
+	<textarea id="mbData"></textarea>
+	<input type="submit" id="attachToMap" title="Ctrl+Enter" value="分析数据"/>
+	<textarea id="outPutDataTxt" style="display: none"></textarea>
+</div>
+<div class="right">
+<ol id="pointList" class="rounded-list"></ol>
+</div>
+<input type="submit" id="outPutData" title="Ctrl+Enter" value="分析数据"/>
+</body>
+</html>

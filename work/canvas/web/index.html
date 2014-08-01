@@ -1,0 +1,120 @@
+<!DOCTYPE >
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+	<link rel="stylesheet" type="text/css" href="js/images/common.css"/>
+	<link rel="stylesheet" type="text/css" href="js/loading-plugins/style/style.css"/>
+	<link href="js/map/TrafficControl_min.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="js/map/BMap1.4.js" ></script>
+	<script type="text/javascript" src="js/map/TrafficControl_min.js?v=20130220" ></script>
+	<script type="text/javascript">var fullScrollMap = 1</script>
+	<script type="text/javascript" src=""></script>
+	<!--<script type="text/javascript" src="http://localhost:8080/Merged_JS.jsp"></script>-->
+	<script type="text/javascript" src="js/TMCs.js"></script>
+	<title>TMC2.5.5</title>
+</head>
+<body>
+<div id="left">
+	<div id="topOption">
+		<input id="cbTraffic" checked="checked" type="checkbox" title="z"><label for="cbTraffic" title="z">显示路况</label>
+		<input id="cbCenter" checked="checked" type="checkbox" title="x"><label for="cbCenter" title="x">显示十字线</label>
+		<input id="cbMk" type="checkbox" title="a"><label for="cbMk" title="a">显示标注</label>
+		<input id="removeError" type="checkbox" checked="checked" title="f"><label for="removeError" title="f">过滤</label>
+	</div>
+	<div class="left-c">
+		<ul class="dataTop">
+			<li class="dataLi ov"><a class="arrow-down"></a><div id="latLngT" style="display: block;">经纬度数据</div><div id="photoT" style="display: none;">删格图数据</div></li>
+			<li class="processLi">处理</li>
+			<li class="reslutLi">结果</li>
+		</ul>
+		<div class="leftCont">
+			<div class="letd data">
+				<textarea id="mbData"></textarea>
+				<div class="paramT">
+					<input id="strict" type="checkbox" checked="checked"/>
+					<label for="strict">严格检查</label> 地图缩放级别:
+					<select name="changLevel" id="changLevel">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+						<option value="11">11</option>
+						<option value="12">12</option>
+						<option value="13">13</option>
+						<option value="14" selected>14</option>
+						<option value="15">15</option>
+						<option value="16">16</option>
+						<option value="17">17</option>
+						<option value="18">18</option>
+						<option value="19">19</option>
+					</select>
+				</div>
+				<input type="submit" id="attachToMap" title="Ctrl+Enter" value="分析数据"/>
+			</div>
+			<div class="letd process" style="display: none;">
+				<table id="psIt">
+					<tbody>
+					<tr>
+						<td colspan="2">错误<span id="errorNum" _tmc>0</span>检查<span id="checkNum" _tmc>0</span>勾选<span
+								id="checkedNum" _tmc>0</span>未勾选<span id="noCheckedNum" _tmc>0</span>
+							<br/>总数<span id="totle" _tmc></span><br/><!--<span id="addDB" _tmc></span> <span
+										id="addDBStatus" _tmc></span>--></td>
+					</tr>
+					<tr>
+						<td>
+							<div class="psLevel">地图缩放级别: <span id="showLevel" _tmc></span></div>
+						</td>
+						<td align="right">
+							<input id="BtnExport" type="button" title="Ctrl+Enter" value="输出">
+							<input id="BtnCorrect" type="button" value="修正" title="Enter"></td>
+					</tr>
+					</tbody>
+				</table>
+				<div id="processTb">
+					<table class="processT" style="display: none;">
+						<tbody>
+						<tr class="title">
+							<td class="tbId">MapbarID</td>
+							<td class="tbDirection">Direction</td>
+							<td class="tbLeft">Left</td>
+							<td class="tbTop">Top</td>
+							<td class="ckInput"></td>
+						</tr>
+						</tbody>
+					</table>
+					<div class='taP'>
+						<table id='TbBody'></table>
+					</div>
+				</div>
+				<div id="pager"></div>
+				<input id="delTable" type="button" value="清空数据">
+			</div>
+			<div class="letd result" style="display: none;">
+				<textarea id="feedBackTocopy" disabled></textarea>
+				<textarea id="resultTocopy" disabled></textarea>
+				<div class="fRe"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="right">
+	<div id="container">
+		<div _tmc="posterity">
+			<div class="h"></div>
+			<div class="v"></div>
+		</div>
+		<div _tmc="posterity" id="mapContainer" style="-webkit-transform : scale(1);position: relative;float: left; ">
+			<div _tmc="bMap"  id="mapContenter"></div>
+		</div>
+	</div>
+</div>
+<canvas id="myCanvas" width="256" height="256"></canvas>
+<a href="ckls.html" id="crls">图片数据验证</a>
+</body>
+</html>

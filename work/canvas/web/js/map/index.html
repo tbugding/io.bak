@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="实时路况" />
+<meta name="description" content="各路段的实时路况、指定时间路况预测、途经线路路况展示、实时展示各类交通事件，是您行前规划、出行避堵的好帮手。目前已包含：北京、上海、广州、杭州、长春、沈阳、大连、天津、青岛、乌鲁木齐、成都、重庆、石家庄、南京、深圳、武汉、长沙、宁波、福州、厦门、泉州等31座城市的路况服务。" />
+<title>百度地图-实时路况</title>
+<link href="TrafficControl_min.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="getscript.js" ></script>
+<script type="text/javascript" src="TrafficControl_min.js?v=20130220" ></script>
+<script type="text/javascript">var fullScrollMap = 1</script>
+<script type="text/javascript" src="traffic.js?v=20130220"></script>
+</head>
+<body>
+  <div class="logo"><a href="http://map.baidu.com" title="百度地图" target="_blank"></a></div>
+  <div class="nav" id="navigation">
+    <!-- 城市切换 -->
+      <div class="sel_city" >
+          <span id="toolCurCity" class="cur_city">北京市</span>&#91;  
+          <a id="btnSelCity" href="javascript:void(0)" onclick="selectSubCity(this);return false;" title="选择城市">选择城市</a>&#93;  
+      </div>    
+  </div>
+  <div style="width:100%;height:388px;border:#ddd solid 1px;" id="mapContenter"></div>
+  <script>
+	  init();
+  </script>
+</body>
+</html>
+

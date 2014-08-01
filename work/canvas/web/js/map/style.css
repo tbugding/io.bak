@@ -1,0 +1,104 @@
+@charset "utf-8";
+html, body {
+    overflow:hidden;
+}
+body, a, input {
+    font-size:12px;
+    font-family:Arial, sans-serif;
+}
+body {
+    margin:0;
+    color:#333;
+    background:#fff;
+}
+form, p, ol, ul, li, dl, dt, dd, h1, h2, h3, h4, td, tr, th {
+    margin:0;
+    padding:0;
+}
+ul, ol {
+    list-style:none;
+}
+img, table {
+    border:0;
+}
+a {
+    color:#00c;
+    text-decoration:underline;
+    outline:none;
+}
+
+.logo{
+    height:67px;
+    background:url(img/logo.gif) no-repeat 10px 10px;
+    overflow:hidden;
+}
+.logo a{display:block;width:139px;height:57px;margin:10px;}
+.nav{
+    height: 30px;
+    border-right: 1px solid #dcdcdc;
+    background: url(img/bg_y.gif) repeat-x 0 -97px;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #ccc;
+    line-height: 30px;
+}
+.nav_left{margin-left:10px;}
+
+/*城市切换 by fms*/
+.sel_city{
+    font-size: 12px;  
+    color: #4c4c4c;  
+    text-decoration: none;  
+    height: 15px;
+    margin-left: 15px;
+}
+.sel_city .cur_city{
+    font-size: 12px;
+    color: #4c4c4c;
+    text-decoration: none;
+    height: 15px;
+    margin-right: 4px;
+}
+.sel_city a {
+    text-decoration:none;
+    color: #3d6dcc;
+    margin: auto 3px;
+}
+#curCity{
+    border-bottom: 1px solid #CCC;
+    margin-bottom: 10px;
+    margin:auto 5px;
+    line-height:40px;
+    padding-left: 15px;
+}
+
+.city_cont{
+  margin: 10px 15px 10px 22px;
+  padding: 0;
+}
+.city_cont a{
+    text-decoration: none;
+    float:left;
+    display:block;
+    white-space:nowrap;
+    margin-right: 8px;
+    line-height: 22px  
+}
+.city_cont a:hover {
+   color: #3d6dcc;
+   text-decoration: underline;
+}
+
+/*map浮动层*/
+.map_popup{ position:absolute;z-index:99997}
+.map_popup .popup_main{
+    border:1px solid #999; z-index:2; position:absolute;width:100%; height:100%; background:#FFF; overflow:hidden
+}
+.map_popup .poput_shadow{
+    width:100%;height:100%;background:#505050;border:1px solid #505050;position:absolute;left:2px;top:3px;z-index:1;opacity:0.05;filter:alpha(opacity=5);
+}
+.map_popup .title{ 
+    background:#f9f9f9; height:25px; border-bottom: 1px solid #dadada; line-height:25px; font-size:12px; color:#4c4c4c; padding-left:7px
+}
+.map_popup button{ 
+    position:absolute; z-index:50;top:7px; right:4px; width:12px; height:12px; background:url(img/iw_close.gif) no-repeat; border:0;cursor:pointer
+}

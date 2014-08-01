@@ -1,0 +1,489 @@
+/* CSS Document */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "微软雅黑";
+}
+
+#topOption {
+    border-bottom: 1px solid #fff;
+    height: 30px;
+    line-height: 30px;
+    font-size: 13px;
+}
+
+#prog {
+    width: 150px;
+}
+
+#left {
+    float: left;
+    width: 316px;
+    /*overflow: hidden;*/
+    background: url(error-ico.png) no-repeat 0 -100px, url(right-ico.png) no-repeat 0px -100px, url(loading.gif) no-repeat 0px -150px, url(loading-s.gif) no-repeat 0px -150px;
+}
+
+textarea {
+    border: 2px inset #E2E2E2;
+}
+
+.taP {
+    margin-bottom: 5px;
+}
+
+#mbData {
+    width: 290px;
+    height: 300px;
+}
+
+#right {
+    border-left: 4px solid #cccccc;
+    position: relative;
+    overflow: hidden
+}
+
+.dataTop {
+    padding: 10px 0 0 0;
+    width: 100%;
+    display: inline-block;
+    margin: 0;
+    top: 0;
+    background: #E2E2E2;
+}
+
+.dataLi {
+    margin-left: 25px;
+}
+
+#pagerUl {
+    padding: 0;
+    margin: 0px 0 10px 0;
+    float: left;
+}
+
+#pager a {
+    border: 1px solid #B0B1B2;
+    margin-left: 3px;
+    text-align: center;
+    text-decoration: none;
+    font-family: '宋体';
+    color: #000000;
+    width: 24px;
+    display: block;
+    float: left;
+}
+
+#pager a.on {
+    background: #66686B;
+    color: #ffffff;
+}
+
+.numList {
+    display: inline;
+}
+
+#pager a:hover {
+    background-color: #BEBEBE;
+    text-decoration: underline;
+}
+a.arrow-down {
+    background: url(tab.png) no-repeat;
+    background-position: top;
+    cursor: pointer;
+    width: 11px;
+    height: 13px;
+    font-size: 0px;
+    line-height: 0px;
+    position: absolute;
+    top: 7px;
+    right: 5px;
+}
+
+.ov a.arrow-down {
+    background-position: 0 -13px;
+}
+
+.dataLi a.arrow-down:hover {
+    background-position: bottom;
+}
+
+.dataLi a.arrow-down:active {
+    background-position: top;
+}
+
+.dataTop li.dataLi {
+    padding-right: 20px
+}
+
+.dataTop li {
+    float: left;
+    border: 2px solid #B0B1B2;
+    border-bottom: 2px solid #66686B;
+    list-style: none;
+    padding: 2px 15px;
+    margin-right: 4px;
+    background-color: #fff;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    cursor: pointer;
+    color: #B0B1B2;
+    position: relative;
+}
+
+#delTable {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+.dataTop li.ov {
+    background-color: #fff;
+    border: 2px solid #66686B;
+    border-bottom: 2px solid #fff;
+
+    z-index: 4;
+    color: #66686B;
+}
+
+.h, .v {
+    background-color: #00F;
+    position: absolute;
+    font-size: 0;
+    z-index: 999;
+}
+
+.h {
+    width: 100%;
+    height: 1px;
+    top: 50%;
+    left: 0;
+}
+
+.v {
+    height: 100%;
+    width: 1px;
+    top: 0;
+    left: 50%;
+}
+
+#buffter {
+    z-index: 999999999999999999999;
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #cccccc;
+    opacity: 0.5;
+    background-image: url(loading.gif);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+}
+
+#processTb, .processT {
+    border-collapse: collapse;
+}
+
+#processTb td {
+    overflow: hidden;
+    word-break: break-all
+}
+
+.dataTop li.locked {
+    border: 2px solid #E2E2E2;
+    border-bottom: #E2E2E2;
+    background-color: #C0C0C0;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+}
+
+#processTb table {
+    border-collapse: collapse;
+}
+
+.tbId {
+    width: 92px;
+
+}
+
+.tbDirection {
+    width: 70px
+}
+
+.tbLeft {
+    width: 40px
+}
+
+.tbTop {
+    width: 40px
+}
+
+.ckInput {
+    width: 20px
+}
+
+#processTc {
+    position: absolute;
+    right: 2px;
+    top: 0px;
+}
+
+.taP, .taT {
+    position: relative;
+}
+
+div.ckAll {
+    position: absolute;
+    right: 2px;
+    top: 2px;
+}
+
+#processTb #TbBody tr.right, #processTb #TbBody tr.error {
+    cursor: pointer;
+}
+
+#processTb #TbBody tr.on, #processTb #TbBody tr.on, #processTb #TbBody tr.afterChanges.on {
+    background-color: #29FF00;
+}
+
+.ckytl {
+    padding-top: 3px;
+    height: 22px;
+}
+
+.leftCont, .dataTop {
+    position: absolute;
+}
+
+.left-c {
+    position: relative;
+}
+
+.leftCont {
+    top: 37px;
+    border-top: 2px solid #66686B;
+    padding: 5px 3px 3px 7px;
+}
+
+table.processT tr.title {
+    background-color: #3D3939;
+    color: #FFFFFF;
+}
+
+.taP tr.hover {
+    background-color: rgb(178, 224, 169);
+}
+
+.anchorBL {
+    display: none
+}
+
+table#processTb tr.right {
+    background-color: #ffffff;
+}
+
+#processTb td, .processT td {
+    border: 1px solid #999;
+}
+
+#processTb tr {
+    color: #7E7C7C;
+    height: 25px;
+}
+
+input {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.rangeid {
+    background-color: #cccccc;
+}
+
+.rangeid h4 {
+    margin: 3px;
+}
+
+.rangeid input[type=range]:before {
+    content: attr(min);
+    padding-right: 5px;
+    color: #444444
+}
+
+a.tbUrl:hover {
+    color: red;
+    text-decoration: underline;
+}
+
+a.tbUrl {
+    text-decoration: none;
+    padding: 1px;
+}
+
+.rangeid input[type=range]:after {
+    content: attr(max);
+    padding-left: 0px;
+    color: #444444
+}
+
+.OutPut {
+    display: block;
+    margin-left: 120px;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.taP {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: 303px;
+}
+
+#resultTocopy {
+    width: 290px;
+    height: 300px;
+    display: inline-block;
+}
+
+#feedBackTocopy {
+    width: 290px;
+    height: 100px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.rangev {
+    width: 99%;
+}
+
+.BMap_pop, .BMap_shadow {
+    display: none;
+}
+
+#psIt {
+    border: 1px solid #797979;
+    font-size: 14px;
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+
+#processTb tr.error.afterChanges, #processTb tr.afterChanges, #processTb tr.right.afterChanges, #processTb tr.on.afterChanges {
+    color: blue;
+    text-shadow: 1px 2px 2px #000000;
+}
+
+#processTb tr.on.afterChanges.error {
+    color: blue;
+    text-shadow: 1px 2px 2px #000000;
+}
+
+#processTb tr.on.afterChanges.right {
+    color: blue;
+    text-shadow: 1px 2px 2px #000000;
+
+}
+
+#processTb tr.loading .tbId,#browser .loading{
+    background-image: url(loading-s.gif);
+    background-repeat: no-repeat;
+    background-position: 0px center;
+}
+
+.processT tr .tbId {
+    width: 103px;
+}
+
+#TbBody tr .tbId {
+    padding-left: 16px;
+}
+
+#TbBody tr:hover {
+    background-color: rgb(178, 224, 169);
+}
+
+#processTb tr.error .tbId,#browser .error{
+    background-image: url(error-ico.png);
+    background-repeat: no-repeat;
+    background-position: 2px center;
+}
+
+#processTb tr.right .tbId,#browser .right {
+    background-image: url(right-ico.png);
+    background-repeat: no-repeat;
+    background-position: 3px center;
+}
+#browser .right,#browser .error{
+    padding-left:15px;
+}
+.psLevel {
+}
+
+#errorNum, #checkNum, #totle, #checkedNum, #noCheckedNum {
+    padding: 0 10px 0 5px;
+}
+
+.fRe {
+    padding-top: 5px;
+}
+
+#errorNum {
+    color: red;
+}
+
+.cbMk {
+    background-color: white;
+    text-align: center
+}
+
+.ckAll {
+    background-color: white;
+    text-align: center
+}
+
+.ckAll a {
+    color: #002bb8;
+    text-decoration: none;
+    font-size: 10px;
+}
+
+.ckAll a:hover {
+    color: #002bb8;
+    text-decoration: underline;
+}
+
+.mapLab {
+    width: 1px;
+    height: 1px;
+    cursor: pointer;
+    display: block;
+}
+
+.mapLab.hover {
+    opacity: 0.8;
+    background-color: #cccccc
+}
+
+#myCanvas {
+    width: 256px;
+    height: 256px;
+    border: 1px solid #d3d3d3;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background: #ffffff;
+}
+#canvasPoint {
+    bottom: 0;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    position: fixed;
+    z-index: 10000;
+}
+#crls{position: fixed;bottom:2px;left:100px;}
+#browser{font-size: 14px;line-height: 14px;}
+#browser .selected{ background-color: #cccccc;}
+
