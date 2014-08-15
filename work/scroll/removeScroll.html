@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>scroll</title>
+<style>
+*{margin: 0; padding: 0; list-style: none;}
+body{overflow: hidden;}
+#nav{width: 100%; height: 30px; _box-shadow: 0 0 5px #000; border-bottom: 1px solid #000; background: rgba(0,0,0,.8); position: fixed; z-index: 1}
+#view{ width: 100%; position: absolute;}
+#box1{width: 100%; background: url(header.jpg);}
+#box2{width: 100%; background: #82F960;}
+#box3{width: 100%; background: #6B92F5;}
+#box4{width: 100%; background: #F7595E;}
+</style>
+<script>
+function getStyle(obj,attr){
+	if(obj.currentStyle){
+		return obj.currentStyle[attr]; //ie7及一下
+	}else{
+		return getComputedStyle(obj,false)[attr]; //其他浏览器，false获取伪类（已废弃）
+	}
+}
+//运动框架2
+function startMove(obj,json,options){
+	clearInterval(obj.timer);
+
+	options=options||{};
+	options.time=options.time||400;
+	options.type=options.type||'ease-out';
+	options.interval=options.interval||30;
+	
+	var start={};
+	var dis={};
+	var n=0;
+	var count=Math.floor(options.time/30);
+
+	for(var name in json){
+		if(name=='opacity'){
+			start[name]=Math.round(parseFloat(getStyle(obj,name))*100)||0;
+		}else{
+			start[name]=parseInt(getStyle(obj,name))||0;
+		}
+		dis[name]=json[name]-start[name];
+	}
+	
+	obj.timer=setInterval(function(){
+		n++;
+		for(var name in json){
+			switch(options.type){
+				case 'linear':
+					var a=n/count;
+					var cur=start[name]+dis[name]*a;
+					break;
+				case 'ease-out':
+					var a=1-n/count;
+					var cur=start[name]+dis[name]*(1-a*a*a);
+					break;
+				case 'ease-in':
+					var a=n/count;
+					var cur=start[name]+dis[name]*a*a*a;
+					break;
+			}
+			if(name=='opacity'){
+				obj.style.opacity=cur/100;
+				obj.style.filter='alpha(opacity='+cur+')';
+			}else{
+				obj.style[name]=cur+'px';
+			}
+		}
+		if(n==count){
+			clearInterval(obj.timer);
+			options.end && options.end();
+		}
+	},options.interval)
+}
+function addEvent(obj,sEvent,fn){
+	if(obj.addEventListener){
+		obj.addEventListener(sEvent,fn,false)
+	}else{
+		obj.attachEvent('on'+sEvent,fn)
+	}
+}
+//解绑事件
+function removeEvent(obj,sEv,fn){
+	obj.removeEventListener?obj.removeEventListener(sEv,fn,false):obj.detachEvent('on'+sEv,fn);
+}
+
+
+function addWheel(obj,fn){
+	obj.getDown=function(ev){
+		var oEvent=ev||event;
+		var beDown=false;
+		beDown=oEvent.wheelDelta?oEvent.wheelDelta<0:oEvent.detail>0;
+		fn && fn(beDown);
+		oEvent.preventDefault && oEvent.preventDefault();
+		return false;
+	}
+	if(window.navigator.userAgent.indexOf('Firefox')!=-1){
+		obj.addEventListener('DOMMouseScroll',obj.getDown,false);
+	}else{
+		addEvent(obj,'mousewheel',obj.getDown);
+	}
+}
+
+
+window.onload=function(){
+	clientH=document.documentElement.clientHeight;
+	var oBody=document.getElementById('body');
+	var oView=document.getElementById('view');
+	var oBox=oView.children;
+	setView();
+	scrollable=true;
+	iNow=0;
+	addWheel(document,function(beDown){
+		if(beDown && scrollable){
+			scrollable=false;
+			iNow++;
+			if(iNow<oBox.length){
+				startMove(oView,{top:-iNow*clientH},{time:1400,interval:15,end:function(){scrollable=true;}});
+			}else{
+				iNow=oBox.length-1;
+				scrollable=true;
+			}
+		}
+		if(!beDown && scrollable){
+			scrollable=false;
+			iNow--;
+			if(iNow==-1){
+				iNow=0;
+				scrollable=true;
+			}else{
+				startMove(oView,{top:-iNow*clientH},{time:2000,interval:15,end:function(){scrollable=true;}});
+			}
+		}
+	})
+	window.onresize=function(){
+		clientH=document.documentElement.clientHeight;
+		setView();
+		oView.style.top=-iNow*clientH+'px';
+	};
+	function setView(){
+		for(var i=0;i<oBox.length;i++){
+			oBody.style.height=clientH+'px';
+			oBox[i].style.height=clientH+'px';
+		}
+	}
+};
+
+</script>
+</head>
+<body id="body">
+<div id="nav"></div>
+<div id="view">
+	<div id="box1"></div>
+	<div id="box2"></div>
+	<div id="box3"></div>
+	<div id="box4"></div>
+</div>
+</body>
+</html>
