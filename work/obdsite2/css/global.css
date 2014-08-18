@@ -37,7 +37,7 @@ input:focus,button:focus,select:focus,textarea:focus,a:focus{outline:none;}
 .noMargin{margin: 0;}
 .tc{text-align: center;}
 .wrap100{width: 100%;}
-.pageW{width:1280px;}
+
 /*_width:expression((document.documentElement.clientWidth||document.body.clientWidth)<1280?"1280":"");overflow:hidden;*/
 
 /*头部*/
