@@ -113,8 +113,8 @@
 	.index_b1_t{ margin-top: 3em;}
 	.index_t1{font:30px/60px microsoft yahei; color:#555;}
 	.index_t2{ display: none;}
-	.br{display: block;}
-	.comma{ display: none;}
+	.index_b1_t .br{display: block;}
+	.index_b1_t .comma{ display: none;}
 	.index_dlBtn{ position: static; margin-top: 0; display: block; margin: 2em auto 0 auto;}
 	.index_dlAndroid{ margin-left:auto;}
 	.index_dlIphone{ margin-left:auto; }
@@ -382,11 +382,108 @@
 .index_b4_list .i3{ background-position: -240px -240px;}
 .index_b4_list .i4{ background-position: -360px -240px;}
 .index_b4_list p{ text-align: center; font-family: 'microsoft yahei'; color: #666; float: left; line-height: 101px; margin:0 0 0 1.5em;}
-
+@media all and (max-width: 1440px){
+	.index_b4_img{ width: 50%;}
+	.index_b4_img img{ width: 100%; margin: 0;}
+	.index_b4_right{ width: 50%; position: absolute; bottom: 0; margin-bottom: 2em;}
+	.index_b4_right .b1{ 
+		-webkit-transform:scale(0.55);
+		-ms-transform:scale(0.55);
+		-moz-transform:scale(0.55);
+		-o-transform:scale(0.55);
+		transform:scale(0.55);
+		margin: 8px auto 0 auto;
+	}
+	.index_b4_right .b2{ width: 80%; height: auto; margin: 0 auto; padding: 0;}
+	.index_b4_list{ width: 100%; margin:1.5em auto 0 auto; list-style: none; padding: 0; }
+	.index_b4_list li{ width: 50%; height: auto; margin-top: 2em;}
+	.index_b4_list i{ width: 81px; height: 81px; background-image: url(../img/index_icos960.png); float: left; margin-left: 10px;}
+	.index_b4_list p{ line-height: 81px; margin:0 0 0 1.5em;}
+}
+@media all and (max-width: 960px){
+	.index_b4_img{ display: none;}
+	.index_b4_right{ width: 80%; padding: 0 10%; position: static;}
+	.index_b4_list li{ width: 50%; height: auto; margin-top: 2em;}
+	.index_b4_list i{ float: none; margin-left: 0; margin: 0 auto; }
+	.index_b4_list p{ line-height: 30px; margin:0; float: none; text-align: center;}
+}
+@media all and (max-width: 640px){
+	.index_b4_right .b1{margin: 0 auto;}
+	.index_b4_right .b2 .index_t1{ font-size: 26px; line-height: 50px; margin-top: -15px;}
+	.index_b4_list li{ margin-top: 1.5em;}
+	.index_b4_list{ margin-top: 0em;}
+	.index_b4_right .comma{ display: none;}
+	.index_b4_right .br{ display: block;}
+}
+@media all and (max-width: 320px){
+	.index_b4_right{ width: 100%; padding: 0;}
+	.index_b4_right .b1{margin:-10px auto 0 auto;}
+	.index_b4_right .b2 .index_t1{ font-size: 20px; line-height: 38px; margin-top: -24px;}
+	.index_b4_list li{ margin-top: 1em;}
+	.index_b4_list{ margin-top: -2px; width: 90%;  padding: 0 5%;}
+	.index_b4_list p{ font-size: 14px; line-height: 22px; margin:0; float: none; text-align: center;}
+	.index_b4_right .comma{ display: inline;}
+	.index_b4_right .br{ display: none;}
+}
 
 /*板块5-超酷便捷显示*/
+.index_b5_img{ width: 55%;}
+.index_b5_img img{ position: absolute; bottom: 0; left: 0;}
+.index_b5_right{ width: 45%; height: 100%;}
+.index_b5_right .b1{ width: 170px; height: 170px; margin: 8em 9em 0;}
+.index_b5_right .b2{ position: absolute; right: 2em; width: 604px; height: 216px; margin-top: 1.5em;}
+.index_b5_list{ position: absolute; top: 610px; padding: 0 ;right: 3em; list-style: none;}
+.index_b5_list li{ float: left; width: 250px; height: 154px; overflow: hidden;}
+.index_b5_list i{ display: block; width: 101px; height: 101px; background-image: url(../img/index_icos.png); margin:0 auto; float: left;}
+.index_b5_list .i1{ background-position: 0 -360px;}
+.index_b5_list .i2{ background-position: -120px -360px;}
+.index_b5_list .i3{ background-position: -240px -360px;}
+.index_b5_list .i4{ background-position: -360px -360px;}
+.index_b5_list p{ text-align: center; font-family: 'microsoft yahei'; color: #666; float: left; line-height: 86px; margin:0 0 0 1.5em;}
 
-
+@media all and (max-width: 1440px){
+	.index_b5_img{ width: 50%;}
+	.index_b5_img img{ width: 50%; margin: 0;}
+	.index_b5_right{ width: 50%; height: auto; position: absolute; bottom: 0; right: 0; margin-bottom: 2em;}
+	.index_b5_right .b1{ 
+		-webkit-transform:scale(0.55);
+		-ms-transform:scale(0.55);
+		-moz-transform:scale(0.55);
+		-o-transform:scale(0.55);
+		transform:scale(0.55);
+		margin: 8px auto 0 auto;
+	}
+	.index_b5_right .b2{ width: 80%; height: auto; margin: 0 auto; padding: 0; position: static;}
+	.index_b5_list{ width: 100%; margin:1.5em auto 0 auto; list-style: none; padding: 0; position: static;}
+	.index_b5_list li{ width: 50%; height: auto; margin-top: 2em;}
+	.index_b5_list i{ width: 81px; height: 81px; background-image: url(../img/index_icos960.png); float: left; margin-left: 10px;}
+	.index_b5_list p{ line-height: 76px; margin:0 0 0 0;}
+}
+@media all and (max-width: 960px){
+	.index_b5_img{ display: none;}
+	.index_b5_right{ width: 80%; padding: 0 10%; position: static;}
+	.index_b5_list li{ width: 50%; height: auto; margin-top: 2em;}
+	.index_b5_list i{ float: none; margin-left: 0; margin: 0 auto; }
+	.index_b5_list p{ line-height: 30px; margin:0; float: none; text-align: center;}
+}
+@media all and (max-width: 640px){
+	.index_b5_right .b1{margin: 0 auto;}
+	.index_b5_right .b2 .index_t1{ font-size: 26px; line-height: 50px; margin-top: -15px;}
+	.index_b5_list li{ margin-top: 1.5em;}
+	.index_b5_list{ margin-top: 0em;}
+	.index_b5_right .comma{ display: none;}
+	.index_b5_right .br{ display: block;}
+}
+@media all and (max-width: 320px){
+	.index_b5_right{ width: 100%; padding: 0;}
+	.index_b5_right .b1{margin:-10px auto 0 auto;}
+	.index_b5_right .b2 .index_t1{ font-size: 20px; line-height: 38px; margin-top: -24px;}
+	.index_b5_list li{ margin-top: 1em;}
+	.index_b5_list{ margin-top: -2px; width: 90%;  padding: 0 5%;}
+	.index_b5_list p{ font-size: 14px; line-height: 22px; margin:0; float: none; text-align: center;}
+	.index_b5_right .comma{ display: inline;}
+	.index_b5_right .br{ display: none;}
+}
 /*板块6-卫士盒子*/
 
 
