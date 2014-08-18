@@ -8,18 +8,18 @@ $(function(){
 		afterRender: function(){
 			animate01();
 		},
-		onLeave: function(i){
-			switch(i){
-				case 1:
+		onLeave: function(i,n){
+			switch(n){
+				case 2:
 					animate02();
 					break;
-				case 2:
+				case 3:
 					animate03();
 					break;
-				case 3:
+				case 4:
 					
 					break;
-				case 4:
+				case 5:
 					
 					break;
 			}
