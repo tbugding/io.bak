@@ -7,7 +7,7 @@
 
 /*顶部banner*/
 .banner_slogan{ height: 287px; position: relative; z-index: 3; text-align: center;}
-.banner_logo{ width: 98px; height: 97px; background: url(../img/index_ico_logo.png); transform:translate(0, 60px); opacity: 0; transition:all 1s;}
+.banner_logo{ width: 98px; height: 97px; background: url(../img/index_ico_logo.png);}
 /*.banner_buy{ display: block; width: 230px; height: 60px; background: url(../img/index_btn01.png); font: 1.75em/60px 'microsoft yahei'; text-align: center; margin-top:1.2em; text-decoration: none; color: #fff; position: relative; z-index: 2}
 .banner_buy:hover{background-position: 0 -60px;}
 .banner_buy:active{background-position: 0 -120px;}*/
@@ -25,7 +25,7 @@
 	.banner_t1 {font-size: 34px ; line-height:80px;}
 	.banner_t2 {font-size: 24px ; line-height:60px;}
 	.banner_t3 {font-size: 14px ; line-height:60px;}
-	.banner_bg{ background-image: url(../img/index_banner960.jpg);  background-size: auto;}
+	.banner_bg{ background-image: url(../img/index_banner960.jpg);  background-size: contain;}
 	.banner_bg_black{ display: block;}
 }
 @media all and (max-width: 960px){
@@ -34,15 +34,43 @@
 	.banner_t1 {font-size: 40px ; line-height:110px;}
 	.banner_t2 {font-size: 28px ; line-height:70px;}
 	.banner_t3 { display: none;}
-	.banner_bg{ background-size: 130%;}
+	/*.banner_bg{ background-size: 130%;}*/
 	.banner_bg_black{ display: none;}
 }
-.animate.banner_logo{transform:translate(0, 0); opacity: 1;}
-.animate.banner_t1{transform:translate(0, 0); opacity: 1;}
-.animate.banner_t2{transform:translate(0, 0); opacity: 1;}
-.animate.banner_t3{transform:translate(0, 0); opacity: 1;}
-.animate.banner_bg_black{transform:translate(0, 0); opacity: 1;}
-.animate.banner_bg{transform:translate(0, 0); opacity: 1;}
+.banner_logo,
+.banner_t1,
+.banner_t2,
+.banner_t3,
+.banner_bg_black,
+.banner_bg{
+	-webkit-transform:translate(0, 60px);
+	-ms-transform:translate(0, 60px);
+	-moz-transform:translate(0, 60px);
+	-o-transform:translate(0, 60px);
+	transform:translate(0, 60px);
+
+	-webkit-transition:all 1s;
+	-ms-transition:all 1s;
+	-moz-transition:all 1s;
+	-o-transition:all 1s;
+	transition:all 1s;
+
+	opacity: 0; 
+}
+.animate.banner_logo,
+.animate.banner_t1,
+.animate.banner_t2,
+.animate.banner_t3,
+.animate.banner_bg_black,
+.animate.banner_bg{
+	-webkit-transform:translate(0, 0); 
+	-ms-transform:translate(0, 0); 
+	-moz-transform:translate(0, 0); 
+	-o-transform:translate(0, 0); 
+	transform:translate(0, 0); 
+	
+	opacity: 1;
+}
 
 
 /*板块1-App链接*/

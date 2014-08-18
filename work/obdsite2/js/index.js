@@ -18,12 +18,13 @@ $(function(){
 			setTimeout(function(){
 				$('.banner_t3').addClass('animate')
 			},700);
-			setTimeout(function(){
-				$('.banner_bg_black').addClass('animate')
-			},900);
+			
 			setTimeout(function(){
 				$('.banner_bg').addClass('animate')
 			},900);
+			setTimeout(function(){
+				$('.banner_bg_black').addClass('animate')
+			},1900);
 		}
 	})
 	// fullpage.on('afterRender',function(){
