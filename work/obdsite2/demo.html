@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>fullpage</title>
+	<link rel="stylesheet" type="text/css" href="js/vendor/jquery.fullPage.css" />
+	<script src="js/vendor/jquery-1.11.1.min.js"></script>
+	<script src="js/vendor/jquery.easings.min.js"></script>
+	<script src="js/vendor/jquery.fullPage.min.js"></script>
+</head>
+<body>
+<div id="fullpage">
+	<div class="section">
+		<div class="slide">
+			<h1>Methods</h1>
+			<ul>
+				<li>moveSectionUp()</li>
+				<li>moveSectionDown()</li>
+				<li>moveTo(section, slide)</li>
+				<li>moveSlideRight()</li>
+				<li>moveSlideLeft()</li>
+				<li>setAutoScrolling(boolean)</li>
+				<li>setAllowScrolling(boolean)</li>
+				<li>setKeyboardScrolling(boolean)</li>
+				<li>setScrollingSpeed(milliseconds)</li>
+				<li>destroy(type)</li>
+				<li>reBuild()</li>
+			</ul>
+		</div>
+		<div class="slide">
+			<h1>Property</h1>
+			<ul>
+				<li>verticalCentered: true, //文字垂直居中 ie7失效</li>
+				<li>resize : true, //?</li>
+				<li>sectionsColor : ['#fae9c8', '#cffac8', '#c8f9fa', '#c8d0fa', '#fac8e4'], //背景色 默认无</li>
+				<li>anchors:['firstSlide', 'secondSlide'], //设置锚点，默认无</li>
+				<li>scrollingSpeed: 700, //滚动时长</li>
+				<li>easing: 'easeInQuart', //easingJs效果</li>
+				<li>menu: false,  //?</li>
+				<li>navigation: true, //主块导航</li>
+				<li>navigationTooltips: ['块1', '块2', '块3', '块4', '块5'], //导航提示字 默认无</li>
+				<li>navigationPosition: 'right', //导航方向</li>
+				<li>slidesNavigation: false, //横滑导航</li>
+				<li>slidesNavPosition: 'bottom', //导航方向</li>
+				<li>loopBottom: false, //向下滑能回到顶部</li>
+				<li>loopTop: false, //向上滑能回到底部</li>
+				<li>continuousVertical: false, //loopBottom,loopTop同时为false</li>
+				<li>loopHorizontal: true, //横向滑动是否循环</li>
+				<li>autoScrolling: true, //?</li>
+				<li>scrollOverflow: false,  //?</li>
+				<li>css3: true,  //css3动画 默认</li>
+				<li>paddingTop: 0, //padding  用于fix的导航 下同</li>
+				<li>paddingBottom: 0,</li>
+				<li>normalScrollElements: '#element1, .element2', //? 默认无</li>
+				<li>normalScrollElementTouchThreshold: 5,  //?</li>
+				<li>fixedElements: '', //?</li>
+				<li>keyboardScrolling: true,  //方向键控制滚动</li>
+				<li>touchSensitivity: 5,  //触屏触发滑动的阀值</li>
+				<li>animateAnchor: true, //?</li>
+				<li>sectionSelector: '.section', //主块</li>
+				<li>slideSelector: '.slide', //横向滑动</li>
+			</ul>
+			
+		</div>
+		<div class="slide">
+			<h1>Events</h1>
+			<ul>
+				<li>onLeave: function(index, nextIndex, direction){//滑动开始时触发 当前块索引，下一块索引，滑动方向up/down}</li>
+				<li>afterLoad: function(anchorLink, index){//滑动结束触发锚链接，到达块索引}</li>
+				<li>afterRender: function(){//渲染完成触发 （加载页面完成？）}</li>
+				<li>afterResize: function(){//调整窗口后触发}</li>
+				<li>afterSlideLoad: function(anchorLink, index, slideAnchor, slideIndex){//横向滚动结束触发}</li>
+				<li>onSlideLeave: function(anchorLink, index, slideIndex, direction){//横向滚动开始触发}</li>
+			</ul>
+		</div>
+		<div class="slide">slide4</div>
+	</div>
+	<div class="section">2</div>
+	<div class="section">3</div>
+	<div class="section">4</div>
+	<div class="section">5</div>
+</div>
+
+<script>
+$(function(){
+	$('#fullpage').fullpage({
+        verticalCentered: false, //文字垂直居中 默认true ie7失效
+        // resize : true, //? 默认 
+        sectionsColor : ['#fae9c8', '#cffac8', '#c8f9fa', '#c8d0fa', '#fac8e4'], //背景色
+        // anchors:['firstSlide', 'secondSlide'], //设置锚点，默认无
+        // scrollingSpeed: 700, //滚动时长 默认
+        easing: 'easeOutQuint', //easingJs效果 默认easeInQuart
+        // menu: false,  //? 默认
+        navigation: true, //主块导航
+        //navigationPosition: 'right', //导航方向 默认
+        navigationTooltips: ['块1', '块2', '块3', '块4', '块5'], //导航提示字
+        slidesNavigation: true, //横滑导航
+        // slidesNavPosition: 'bottom', //导航方向 默认
+        loopBottom: true, //向下滑能回到顶部
+        // loopTop: true, //向上滑能回到底部
+        // continuousVertical: false, //loopBottom,loopTop同时为false  默认
+        // loopHorizontal: true, //横向滑动是否循环 默认
+        // autoScrolling: true, //? 默认
+        // scrollOverflow: false,  //? 默认
+        css3: true,  //css3动画 默认
+        // paddingTop: 0, //padding  用于fix的导航 默认0 下同
+        // paddingBottom: 0,
+        // normalScrollElements: '#element1, .element2', //?
+        // normalScrollElementTouchThreshold: 5,  //?
+        // fixedElements: '', //?
+        // keyboardScrolling: true,  //方向键控制滚动 默认
+        // touchSensitivity: 5,  //触屏触发滑动的阀值 默认
+        // animateAnchor: true, //? 默认
+        // sectionSelector: '.section', //主块 默认
+        // slideSelector: '.slide', //横向滑动 默认
+
+        //events回调
+        onLeave: function(index, nextIndex, direction){
+        	//滑动开始时触发 当前块索引，下一块索引，滑动方向up/down
+        	//console.log(index + ' - ' + nextIndex + ' - ' +direction)
+        },
+        afterLoad: function(anchorLink, index){
+        	//滑动结束触发锚链接，到达块索引
+        	//console.log(anchorLink + ' - ' + index)
+        },
+        afterRender: function(){
+        	//渲染完成触发 （加载页面完成？）
+        	//console.log('afterRender')
+        },
+        afterResize: function(){
+        	//调整窗口后触发
+        	//console.log('afterResize')
+        },
+        afterSlideLoad: function(anchorLink, index, slideAnchor, slideIndex){
+        	//横向滚动结束触发
+        	//console.log(anchorLink + ' - ' + index + ' - ' + slideAnchor + ' - ' + slideIndex)
+        },
+        onSlideLeave: function(anchorLink, index, slideIndex, direction){
+        	//横向滚动开始触发
+        	//console.log(anchorLink + ' - ' + index + ' - ' + slideIndex + ' - ' + slideIndex)
+        }
+    });
+})
+</script>
+</body>
+</html>
