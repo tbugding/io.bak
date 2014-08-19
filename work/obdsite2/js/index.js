@@ -5,8 +5,21 @@ $(function(){
 		easing: 'easeOutQuint',
 		css3: true,
 		navigation: true,
+		// scrollOverflow: true,
 		afterRender: function(){
 			animate01();
+			var b8Li = $('.index_b8_list li');
+			function b8Tab(){
+				var i = b8Li.index($(this));
+				b8Li.removeClass('current');
+				b8Li.eq(i).addClass('current')
+			}
+			if(client.width<=960){
+				b8Li.on('click',b8Tab)
+				
+			}else{
+				b8Li.off('click',b8Tab);
+			}
 		},
 		onLeave: function(i,n){
 			switch(n){
@@ -25,14 +38,7 @@ $(function(){
 			}
 		},
 		afterResize: function(){
-			// if(client.width<=960){
-			// 	slidable.addClass('slide');
-			// 	// $('#fullpage').reBuild();
-			// 	// $.fn.fullpage.destroy('all')
-			// 	$.fn.fullpage.reBuild();
-			// }else{
-			// 	// $('#slide01').destroy()
-			// }
+
 		}
 	})
 

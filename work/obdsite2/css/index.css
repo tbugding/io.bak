@@ -556,11 +556,11 @@
 @media all and (max-width: 960px){
 	.index_b7{ margin-top: 1em;}
 	.index_b7 .index_t1{ font-size: 22px;}
-	.index_b7_step li{ height: 800px; font-size: 14px; text-align: left;}
+	.index_b7_step li{ height: 800px; font-size: 14px; }
 	.index_b7_step div{}
 	.index_b7_step .b1_pic,
 	.index_b7_step .b3_pic,
-	.index_b7_step .b5_pic{  width: 50px; height: 50px; margin-right: 8px; margin-left: 8%; display: inline-block;vertical-align: -20px;}
+	.index_b7_step .b5_pic{  width: 50px; height: 50px; margin-right: 8px; display: inline-block;vertical-align: -20px;}
 	.index_b7_step .b2_pic,
 	.index_b7_step .b4_pic{ background:url(../img/index_pic07_icoDown.jpg) center center no-repeat;  height: 50px;}
 	.index_b7_step .b1,
@@ -584,7 +584,67 @@
 }
 
 /*板块8-听听用户的心声*/
-
+.index_b8{ height: 862px; background: #f1f4f7;}
+.index_b8_inner{ height: 100%; background: #f1f4f7;}
+.index_b8_tit{ height: 50px; padding: 60px 0 0 0; margin: 0;}
+.index_b8_list{ width: 94%; list-style: none; padding-left: 0; margin-top: 6em;}
+.index_b8_list li{ width: 33.333%; float: left;}
+.index_b8_list li img{ display: block; margin: 0 auto; }
+.index_b8_list li h3{ font: 1.5em/3em 'microsoft yahei'; color: #555; text-align: center; margin: 0;}
+.index_b8_list li h3 em{ font-size: 1.25em; margin-right: .5em; font-style: normal;}
+.index_b8_list li .p1{ font: 0.875em 'microsoft yahei'; color: #8695ab; text-align: center; margin: 0; }
+.index_b8_list li .p2{ width: 90%; background: #35bdb2;  margin-top: 1em; position: relative; border-radius: 28px; min-height: 200px;}
+.index_b8_list li .p2 p{ padding: 1em 1.2em; font: 1.125em/1.7em 'microsoft yahei'; color: #fff; position: relative; z-index: 2;}
+.index_b8_list .btn{ display: none;}
+@media all and (max-width: 1440px){
+	.index_b8_tit{ height: 40px; padding: 40px 0 0 0;}
+	.index_b8_list{ margin-top: 3em;}
+	.index_b8_list li img{ width: 110px; height: auto; }
+	.index_b8_list li h3{ font: 1.2em/3em 'microsoft yahei';}
+	.index_b8_list li h3 em{ font-size: 1.2em; margin-right: .5em;}
+	.index_b8_list li .p2{ width: 86%; background: #35bdb2;  margin-top: 2em; margin: 0 auto;}
+	.index_b8_list li .p2 p{ padding: 1em 1.5em; font: 14px/26px 'microsoft yahei';}
+}
+@media all and (max-width: 960px){
+	.index_b8_tit{ height: 10%; width: 100%; }
+	.index_b8_list{ height: 90%; width: 100%; margin: 0; position: relative;}
+	.index_b8_list li{ width: 100%; position: absolute; top: 0; left: 0;}
+	.index_b8_list li img{ width: 60px; height: auto;  margin-top: 20px;}
+	.index_b8_list li h3{ display: none;  font: 14px/34px 'microsoft yahei'; white-space:nowrap; }
+	.index_b8_list li h3 em{ font: 14px/34px 'microsoft yahei';}
+	.index_b8_list li .p1{ display: none;}
+	.index_b8_list li .p2{ display: none;}
+	.index_b8_list .btn{ display: block; width: 33%; height: 100%; position: absolute; z-index: 10;}
+	.index_b8_list .btn1{ left: 0;}
+	.index_b8_list .btn2{ left: 33%;}
+	.index_b8_list .btn3{ left: 66%;}
+	.index_b8_list .bb{ width: 33%; padding-top: 1em;}
+	.index_b8_list .b1{ margin-left: 0;}
+	.index_b8_list .b2{ margin-left: 33%;}
+	.index_b8_list .b3{ margin-left: 66%;}
+	
+	.index_b8_list .current{ position: relative; z-index: 2;}
+	.index_b8_list .current img{ width: 100px; margin-top: 0;}
+	.index_b8_list .current h3{ display: block;}
+	.index_b8_list .current .p2{ display: block;}
+	
+}
+@media all and (max-width: 320px){
+	.index_b8_tit{ height: 7%; padding-top: 10px; font-size: 18px;}
+	.index_b8_list{ height: 93%;}
+	.index_b8_list li img{ width: 50px; height: auto;  margin-top: 15px;}
+	.index_b8_list li h3{ display: none;  font: 12px/28px 'microsoft yahei'; }
+	.index_b8_list li h3 em{ font: 12px/28px 'microsoft yahei';}
+	.index_b8_list .bb{ width: 33%; padding-top: 0.8em;}
+	.index_b8_list .b1{ margin-left: 0;}
+	.index_b8_list .b2{ margin-left: 33%;}
+	.index_b8_list .b3{ margin-left: 66%;}
+	.index_b8_list .current img{ width: 75px; margin-top: 0;}
+	.index_b8_list .current h3{ display: block;}
+	.index_b8_list .current .p2{ display: block; font: 12px/20px microsoft yahei; margin-top: 0.5em;}
+	.index_b8_list .current .p2 p{ margin: 0;}
+	
+}
 
 /*板块9-满满安全感*/
 
