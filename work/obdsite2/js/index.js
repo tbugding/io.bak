@@ -5,21 +5,9 @@ $(function(){
 		easing: 'easeOutQuint',
 		css3: true,
 		navigation: true,
-		// scrollOverflow: true,
 		afterRender: function(){
 			animate01();
-			var b8Li = $('.index_b8_list li');
-			function b8Tab(){
-				var i = b8Li.index($(this));
-				b8Li.removeClass('current');
-				b8Li.eq(i).addClass('current')
-			}
-			if(client.width<=960){
-				b8Li.on('click',b8Tab)
-				
-			}else{
-				b8Li.off('click',b8Tab);
-			}
+			tabsB8();
 		},
 		onLeave: function(i,n){
 			switch(n){
@@ -38,12 +26,10 @@ $(function(){
 			}
 		},
 		afterResize: function(){
-
+			tabsB8();
 		}
 	})
 
-
-	
 	
 
 
@@ -56,6 +42,20 @@ $(function(){
 
 
 
+	function tabsB8(){
+		var b8Li = $('.index_b8_list li');
+		function b8Tab(){
+			var i = b8Li.index($(this));
+			b8Li.removeClass('current');
+			b8Li.eq(i).addClass('current')
+		}
+		if(client.width<=960){
+			b8Li.on('click',b8Tab)
+			
+		}else{
+			b8Li.off('click',b8Tab);
+		}
+	}
 
 	function animate01(){
 		setTimeout(function(){

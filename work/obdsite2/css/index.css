@@ -25,7 +25,7 @@
 	.banner_bg{background-size: contain;}
 }
 @media all and (max-width: 1440px){
-	.banner_logo{ margin-top: 1em; margin-bottom: 0.6em;}
+	.banner_logo{ margin-bottom: 0.6em;}
 	.banner_t1 {font-size: 30px ; line-height:70px;}
 	.banner_t2 {font-size: 21px ; line-height:50px;}
 	.banner_t3 {font-size: 14px ; line-height:50px;}
@@ -647,6 +647,54 @@
 }
 
 /*板块9-满满安全感*/
+.index_b9_tit{ height: 50px; padding: 70px 0 0 0; margin: 0;}
+.index_b9_list{ width: 96%; height: auto; margin:130px auto 0 auto; position: relative;}
+.index_b9_list .bb{ width: 32%; height: 600px; border: 1px solid #e0e0e0; box-shadow: 0 0 12px #e5e5e5; position: relative; background: #fff;}
+.index_b9_list .tit{ width: 100%; height: 150px;}
+.index_b9_list .tit h3{ font:26px/80px microsoft yahei; color: #fff; text-align: center; margin: 0;}
+.index_b9_list .b1{ position: absolute; left: 0; top: 0;}
+.index_b9_list .b2{ margin: 0 auto; position: relative;}
+.index_b9_list .b3{ position: absolute; right: 0; top: 0;}
 
+.index_b9_list .b1 .tit{ background: #0299fd;}
+.index_b9_list .b2 .tit{ background: #44d8cc;}
+.index_b9_list .b3 .tit{ background: #8b2ce4;}
+.index_b9_list .price{ width: 183px; height: 183px; border-radius: 50%; margin: -70px auto 0 auto; text-align: center; color: #fff; font: 68px/183px microsoft yahei;}
+.index_b9_list .price i{ font-size: 45px; font-style: normal;}
+.index_b9_list .b1 .price{ background: #1877e1;}
+.index_b9_list .b2 .price{ background: #00cbb5;}
+.index_b9_list .b3 .price{ background: #6a16b9;}
+.index_b9_list .list{ width: 165px; margin: 24px auto 0 auto; list-style: none; padding: 0;}
+.index_b9_list .list li{font: 1.125em/2em 'microsoft yahei'; text-indent: 2.375em; background: url(../img/index_ico.png) left 0.6em no-repeat; color: #555e64;}
+.index_b9_list .btn{ width: 246px; height: 80px; border-radius: 40px; text-align: center; font: 26px/80px microsoft yahei; color: #fff; position: absolute; bottom: 44px; left: 50%; margin-left: -123px;}
+.index_b9_list .btnWait{ background: #d7d7d7; cursor: default;}
 
+.index_b9_list .current.bb{ width: 40%; height: 666px; top: -42px; z-index: 2;}
+.index_b9_list .current .tit{ height: 180px;}
+.index_b9_list .current .tit h3{ font:30px/80px microsoft yahei;}
+.index_b9_list .current .price{ width: 216px; height: 216px;  margin: -106px auto 0 auto; font: 75px/216px microsoft yahei;}
+.index_b9_list .current .price i{ font-size: 50px;}
+.index_b9_list .current .list{ width: 205px; margin: 30px auto 0 auto; list-style: none; padding: 0;}
+.index_b9_list .current .list li{font: 1.2em/2em 'microsoft yahei'; text-indent: 2.5em; background: url(../img/index_ico2.png) left 0.6em no-repeat;}
+@media all and (max-width: 1440px){
+	.index_b9_tit{ height: 50px; padding: 40px 0 0 0; margin: 0;}
+	.index_b9_list{ width: 96%; height: auto; margin:70px auto 0 auto; position: relative;}
+	.index_b9_list .bb{ width: 32%; height: 442px;}
+	.index_b9_list .tit{ height: 108px;}
+	.index_b9_list .tit h3{ font:12px/58px microsoft yahei;}
+	.index_b9_list .price{ width: 134px; height: 134px;  margin: -50px auto 0 auto; font: 48px/134px microsoft yahei;}
+	.index_b9_list .price i{ font-size: 26px;}
+	.index_b9_list .list{ width: 127px; margin: 18px auto 0 auto;}
+	.index_b9_list .list li{font: 12px/36px 'microsoft yahei'; text-indent: 27px; background: url(../img/index_ico3.png) left 0.7em no-repeat;}
+	.index_b9_list .b3 .list li{font: 12px/30px 'microsoft yahei';}
+	.index_b9_list .btn{ width: 140px; height: 40px; border-radius: 20px; font: 12px/40px microsoft yahei;  bottom: 26px; left: 50%; margin-left: -70px;}
+
+	.index_b9_list .current.bb{ width: 40%; height: 490px; top: -33px; z-index: 2;}
+	.index_b9_list .current .tit{ height: 132px;}
+	.index_b9_list .current .tit h3{ font:14px/58px microsoft yahei;}
+	.index_b9_list .current .price{ width: 160px; height: 160px;  margin: -77px auto 0 auto; font: 53px/160px microsoft yahei;}
+	.index_b9_list .current .price i{ font-size: 28px;}
+	.index_b9_list .current .list{ width: 134px; margin: 22px auto 0 auto; list-style: none; padding: 0;}
+	.index_b9_list .current .list li{font: 14px/38px 'microsoft yahei'; text-indent: 2.5em; background: url(../img/index_ico.png) left 0.6em no-repeat;}
+}
 /*板块10-告诉小伙伴们*/
