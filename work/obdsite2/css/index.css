@@ -655,7 +655,6 @@
 .index_b9_list .b1{ position: absolute; left: 0; top: 0;}
 .index_b9_list .b2{ margin: 0 auto; position: relative;}
 .index_b9_list .b3{ position: absolute; right: 0; top: 0;}
-
 .index_b9_list .b1 .tit{ background: #0299fd;}
 .index_b9_list .b2 .tit{ background: #44d8cc;}
 .index_b9_list .b3 .tit{ background: #8b2ce4;}
@@ -696,5 +695,19 @@
 	.index_b9_list .current .price i{ font-size: 28px;}
 	.index_b9_list .current .list{ width: 134px; margin: 22px auto 0 auto; list-style: none; padding: 0;}
 	.index_b9_list .current .list li{font: 14px/38px 'microsoft yahei'; text-indent: 2.5em; background: url(../img/index_ico.png) left 0.6em no-repeat;}
+}
+@media all and (max-width: 960px){
+	.index_b9_tit{ height: 40px; padding: 20px 0 0 0; margin: 0;}
+	.index_b9_list{ width: 96%; height: auto; margin:30px auto 0 auto; position: relative;}
+	.index_b9_list .bb,.index_b9_list .current.bb{ width: 100%; height: auto; border: 1px solid #e0e0e0; box-shadow: 0 0 6px #e5e5e5; position: relative; margin-top: 1em; top: 0;}
+	.index_b9_list .b1{ position: relative;}
+	.index_b9_list .b2{ position: relative;}
+	.index_b9_list .b3{ position: relative;}
+	.index_b9_list .tit{ width: 30%; height: auto; float: left;}
+	.index_b9_list .tit h3{ font:14px/80px microsoft yahei;}
+	.index_b9_list .list{ display: none;}
+	.index_b9_list .price{ width: 10%; height: 10%;  border-radius:50%; margin: 2% 10%; font: 14px/30px microsoft yahei; position: relative; left: 0; bottom: 0}
+	.index_b9_list .price i{ font-size: 12px; }
+	.index_b9_list .btn{ width: 246px; height: 80px; float: left; border-radius: 40px; text-align: center; font: 26px/80px microsoft yahei; color: #fff; position:  static;  margin: 0;}
 }
 /*板块10-告诉小伙伴们*/
