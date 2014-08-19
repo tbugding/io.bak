@@ -10,7 +10,6 @@ function getClient(){
 	client.width = document.documentElement.clientWidth;
 	client.height = document.documentElement.clientHeight;
 	client.UA = window.navigator.userAgent;
-	// console.log('width: ' + client.width + '\n' + 'height: ' + client.height + '\n' +'UA: ' + client.UA);
 	document.title = client.width +' - '+ client.height;
 }
 $(window).on('resize',getClient);

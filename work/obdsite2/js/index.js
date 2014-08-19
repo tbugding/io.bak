@@ -1,6 +1,6 @@
 $(function(){
-	var fullpage = $('#fullpage');
-	fullpage.fullpage({
+	var slidable = $('.slidable');
+	$('#fullpage').fullpage({
 		verticalCentered: false,
 		easing: 'easeOutQuint',
 		css3: true,
@@ -23,8 +23,33 @@ $(function(){
 					
 					break;
 			}
+		},
+		afterResize: function(){
+			// if(client.width<=960){
+			// 	slidable.addClass('slide');
+			// 	// $('#fullpage').reBuild();
+			// 	// $.fn.fullpage.destroy('all')
+			// 	$.fn.fullpage.reBuild();
+			// }else{
+			// 	// $('#slide01').destroy()
+			// }
 		}
 	})
+
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+
 
 	function animate01(){
 		setTimeout(function(){
@@ -39,7 +64,6 @@ $(function(){
 		setTimeout(function(){
 			$('.banner_t3').addClass('animate')
 		},700);
-		
 		setTimeout(function(){
 			$('.banner_bg').addClass('animate')
 		},900);

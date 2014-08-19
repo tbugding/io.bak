@@ -5,6 +5,9 @@
 .index_t1{font:44px/50px microsoft yahei; color:#555;}
 .index_t2{font:22px/38px microsoft yahei; color:#666; margin-top: 27px;}
 .br{display: none;}
+.fp-controlArrow{ width: 70px !important; height: 100px !important; background-color: rgba(0,0,0,.2); background-position: center center; background-repeat: no-repeat; position: absolute; top: 50%; margin-top: -50px; z-index: 999999999999 !important; border: 0 !important;}
+	.fp-prev{ left: 50px !important; background-image: url(../img/index_pic07_ico2.png)}
+	.fp-next{ right: 50px !important; background-image: url(../img/index_pic07_ico.png)}
 
 /*顶部banner*/
 .banner_slogan{ height: 287px; position: relative; z-index: 3; text-align: center;}
@@ -214,18 +217,21 @@
 	.index_b2_list i{ display: block; width: 81px; height: 81px; background-image: url(../img/index_icos960.png); margin:0 auto; }
 	.index_b2_list p{ margin:0; margin: 0.2em 0 0.7em;  text-align: center; font-family: 'microsoft yahei'; color: #666;}
 	.index_b2_img{ display:none;}
+	.fp-controlArrow{ width: 40px !important; height: 70px !important; background-color: rgba(0,0,0,.1);  margin-top: -35px;}
+	.fp-prev{ left: 0 !important;}
+	.fp-next{ right: 0 !important;}
 }
 @media all and (max-width: 320px){
 	.index_b2_top{ padding: 0;}
 	.index_b2_top .b2 .index_t1{ font-size: 22px; line-height: 37px; margin-top: -26px;}
-	.index_b2_list{ width: 86%; padding: 1.8em 7% 0 7%; margin-top: -12px;}
+	.index_b2_list{ width: 86%; padding: 1em 7% 0 7%; margin-top: -12px;}
 	.index_b2_list li{ margin-top: -6px;}
 	.index_b2_list i{ 
-		-webkit-transform:scale(0.8);
-		-ms-transform:scale(0.8);
-		-moz-transform:scale(0.8);
-		-o-transform:scale(0.8);
-		transform:scale(0.8);
+		-webkit-transform:scale(0.6);
+		-ms-transform:scale(0.6);
+		-moz-transform:scale(0.6);
+		-o-transform:scale(0.6);
+		transform:scale(0.6);
 	}
 	.index_b2_list p{ font-size: 12px; margin:0.2em 0; margin-top: -6px;}
 }
@@ -306,11 +312,11 @@
 	.index_b2_bottom .animate.i7,
 	.index_b2_bottom .animate.i8,
 	.index_b2_bottom .animate.i9{
-		-webkit-transform:scale(0.8);
-		-ms-transform:scale(0.8);
-		-moz-transform:scale(0.8);
-		-o-transform:scale(0.8);
-		transform:scale(0.8);
+		-webkit-transform:scale(0.6);
+		-ms-transform:scale(0.6);
+		-moz-transform:scale(0.6);
+		-o-transform:scale(0.6);
+		transform:scale(0.6);
 	}
 }
 /*板块3-油耗分析*/
@@ -546,6 +552,35 @@
 	.index_b7_step li{ font: 20px microsoft yahei;}
 	.index_b7_step li p{ margin: 0 0 0 0;}
 	.index_b7_btn{ height: 100px;}
+}
+@media all and (max-width: 960px){
+	.index_b7{ margin-top: 1em;}
+	.index_b7 .index_t1{ font-size: 22px;}
+	.index_b7_step li{ height: 800px; font-size: 14px; text-align: left;}
+	.index_b7_step div{}
+	.index_b7_step .b1_pic,
+	.index_b7_step .b3_pic,
+	.index_b7_step .b5_pic{  width: 50px; height: 50px; margin-right: 8px; margin-left: 8%; display: inline-block;vertical-align: -20px;}
+	.index_b7_step .b2_pic,
+	.index_b7_step .b4_pic{ background:url(../img/index_pic07_icoDown.jpg) center center no-repeat;  height: 50px;}
+	.index_b7_step .b1,
+	.index_b7_step .b2,
+	.index_b7_step .b3,
+	.index_b7_step .b4,
+	.index_b7_step .b5{ width: 100%; margin: 0; height: auto;float: none;}
+	.index_b7_step .br{ display: none;}
+	.index_b7_step li p{ display: none;}
+	
+}
+@media all and (max-width: 320px){
+	.index_b7{ margin-top: 0.5em;}
+	.index_b7 .index_t1{ font-size: 18px;}
+	.index_b7_step .b2_pic,
+	.index_b7_step .b4_pic{ height: 40px; transform:scale(0.8);}
+	.index_b7_step .b1_pic,
+	.index_b7_step .b3_pic,
+	.index_b7_step .b5_pic{  width: 40px; height: 40px; margin-right: 8px; margin-left: 8%; display: inline-block;vertical-align: -15px;}
+	.index_b7_btn .index_dlBtn{ margin: 1em auto; }
 }
 
 /*板块8-听听用户的心声*/
