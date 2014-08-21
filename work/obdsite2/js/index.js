@@ -107,30 +107,30 @@ $(function(){
 		},500);
 		setTimeout(function(){
 			oI.eq(1).addClass('animate')
-		},650);
+		},600);
 		setTimeout(function(){
 			oI.eq(2).addClass('animate')
-		},800);
+		},700);
 		setTimeout(function(){
 			oI.eq(5).addClass('animate')
-		},950);
+		},800);
 		setTimeout(function(){
 			oI.eq(4).addClass('animate')
-		},1100);
+		},900);
 		setTimeout(function(){
 			oI.eq(3).addClass('animate')
-		},1250);
+		},1000);
 		setTimeout(function(){
 			oI.eq(6).addClass('animate')
-		},1400);
+		},1100);
 		setTimeout(function(){
 			oI.eq(7).addClass('animate')
-		},1550);
+		},1200);
 		setTimeout(function(){
 			oI.eq(8).addClass('animate')
-		},1700);
+		},1300);
 		setTimeout(function(){
 			$('.index_b2_img').addClass('animate')
-		},2000);
+		},1500);
 	}
 })
