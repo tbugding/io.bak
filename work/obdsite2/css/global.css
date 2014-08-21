@@ -50,8 +50,20 @@ input:focus,button:focus,select:focus,textarea:focus,a:focus{outline:none;}
 	#header{ height: 100%; position: absolute; right: 0; top: 0;}
 	.nav_btn{ width: 35px; height: 26px; border: 1px solid #ccc; background: #eee; border-radius: 2px; position: absolute; top: 8px; right: 8px; z-index: 2; cursor: pointer;}
 	.nav_btn i{ display: block; width: 70%; height: 2px; margin: 5px auto; background: #ccc;}
-	.nav{ width: 120px; height: 100%;  right: -120px; top: 0; background: #3fc6bb; background: rgba(49,185,174,.8); padding:48px 0 0 0; text-align: right;  transition: right .6s;}
-	.nav.show{ display: block; opacity: 1; right: 0; transition: right .6s;}
+	.nav{ width: 120px; height: 100%;  right: -120px; top: 0; background: #3fc6bb; background: rgba(49,185,174,.8); padding:48px 0 0 0; text-align: right;
+		-webkit-transition: right .6s;
+		-moz-transition: right .6s;
+		-ms-transition: right .6s;
+		-o-transition: right .6s;
+		transition: right .6s;
+	}
+	.nav.show{ display: block; opacity: 1; right: 0;
+		-webkit-transition: right .6s;
+		-moz-transition: right .6s;
+		-ms-transition: right .6s;
+		-o-transition: right .6s;
+		transition: right .6s;
+	}
 	.nav a{ display: block; border: 0; border-top:1px solid #78d7d0 !important; height: auto; padding: 5px 8px; color: #fff; font: 1em/2.2em microsoft yahei;}
 	.nav a:hover,.nav .active{ border: 0;}
 }
