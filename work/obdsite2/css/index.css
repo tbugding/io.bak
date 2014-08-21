@@ -197,7 +197,7 @@
 }
 @media all and (max-width: 960px){
 	.pageW{ max-width: 100%;}
-	.index_b2_top{ padding: 0.5em 0 0 0; height: auto;}
+	.index_b2_top{ padding: 0; height: auto;}
 	.index_b2_top .b1{
 		-webkit-transform:scale(0.55);
 		-ms-transform:scale(0.55);
@@ -361,14 +361,14 @@
 }
 @media all and (max-width: 640px){
 	.index_b3_right .b1{margin: 0 auto;}
-	.index_b3_right .b2 .index_t1{ font-size: 26px; line-height: 50px; margin-top: -15px;}
+	.index_b3_right .b2 .index_t1{ font-size: 26px; line-height: 40px; margin-top: -15px;}
 	.index_b3_list li{ margin-top: 1.5em;}
 	.index_b3_list{ margin-top: 0em;}
 }
 @media all and (max-width: 320px){
 	.index_b3_right{ width: 100%; padding: 0;}
 	.index_b3_right .b1{margin:-10px auto 0 auto;}
-	.index_b3_right .b2 .index_t1{ font-size: 20px; line-height: 38px; margin-top: -24px;}
+	.index_b3_right .b2 .index_t1{ font-size: 20px; line-height: 34px; margin-top: -24px;}
 	.index_b3_list li{ margin-top: 1em;}
 	.index_b3_list{ margin-top: -2px; width: 90%;  padding: 0 5%;}
 	.index_b3_list p{ font-size: 14px; line-height: 22px; margin:0; float: none; text-align: center;}
@@ -415,7 +415,7 @@
 }
 @media all and (max-width: 640px){
 	.index_b4_right .b1{margin: 0 auto;}
-	.index_b4_right .b2 .index_t1{ font-size: 26px; line-height: 50px; margin-top: -15px;}
+	.index_b4_right .b2 .index_t1{ font-size: 26px; line-height: 40px; margin-top: -15px;}
 	.index_b4_list li{ margin-top: 1.5em;}
 	.index_b4_list{ margin-top: 0em;}
 	.index_b4_right .comma{ display: none;}
@@ -424,7 +424,7 @@
 @media all and (max-width: 320px){
 	.index_b4_right{ width: 100%; padding: 0;}
 	.index_b4_right .b1{margin:-10px auto 0 auto;}
-	.index_b4_right .b2 .index_t1{ font-size: 20px; line-height: 38px; margin-top: -24px;}
+	.index_b4_right .b2 .index_t1{ font-size: 20px; line-height: 34px; margin-top: -24px;}
 	.index_b4_list li{ margin-top: 1em;}
 	.index_b4_list{ margin-top: -2px; width: 90%;  padding: 0 5%;}
 	.index_b4_list p{ font-size: 14px; line-height: 22px; margin:0; float: none; text-align: center;}
@@ -474,7 +474,7 @@
 }
 @media all and (max-width: 640px){
 	.index_b5_right .b1{margin: 0 auto;}
-	.index_b5_right .b2 .index_t1{ font-size: 26px; line-height: 50px; margin-top: -15px;}
+	.index_b5_right .b2 .index_t1{ font-size: 26px; line-height: 40px; margin-top: -15px;}
 	.index_b5_list li{ margin-top: 1.5em;}
 	.index_b5_list{ margin-top: 0em;}
 	.index_b5_right .comma{ display: none;}
@@ -483,7 +483,7 @@
 @media all and (max-width: 320px){
 	.index_b5_right{ width: 100%; padding: 0;}
 	.index_b5_right .b1{margin:-10px auto 0 auto;}
-	.index_b5_right .b2 .index_t1{ font-size: 20px; line-height: 38px; margin-top: -24px;}
+	.index_b5_right .b2 .index_t1{ font-size: 20px; line-height: 34px; margin-top: -24px;}
 	.index_b5_list li{ margin-top: 1em;}
 	.index_b5_list{ margin-top: -2px; width: 90%;  padding: 0 5%;}
 	.index_b5_list p{ font-size: 14px; line-height: 22px; margin:0; float: none; text-align: center;}
@@ -711,3 +711,52 @@
 	.index_b9_list .btn{ width: 246px; height: 80px; float: left; border-radius: 40px; text-align: center; font: 26px/80px microsoft yahei; color: #fff; position:  static;  margin: 0;}
 }
 /*板块10-告诉小伙伴们*/
+.index_b10_tit{ height: 50px; padding: 100px 0 0 0; margin: 0;}
+.index_b10_count{ text-align: center; font: 1.5em/3em 'microsoft yahei'; color: #7b8286;}
+.index_b10_count em{margin: 0 .5em; font-size: 1.5em; color: #f94972; font-style: normal; vertical-align: -6px;}
+.index_b10_list{ width: 94%; list-style: none; margin: 120px auto 150px auto; padding: 0;}
+.index_b10_list li{ width: 25%; *width: 24.5%; float: left; text-align: center;}
+.index_b10_list .ico{ display: block; width: 170px; height: 170px; background: url(../img/index_btn_share.png); margin: 0 auto;}
+.index_b10_list .ico01{ background-position: 0 0;}
+.index_b10_list .ico01:hover{ background-position: -200px 0;}
+.index_b10_list .ico01:active{ background-position: -400px 0;}
+.index_b10_list .ico02{ background-position: 0 -200px;}
+.index_b10_list .ico02:hover{ background-position: -200px -200px;}
+.index_b10_list .ico02:active{ background-position: -400px -200px;}
+.index_b10_list .ico03{ background-position: 0 -400px;}
+.index_b10_list .ico03:hover{ background-position: -200px -400px;}
+.index_b10_list .ico03:active{ background-position: -400px -400px;}
+.index_b10_list .ico04{ background-position: 0 -600px;}
+.index_b10_list .ico04:hover{ background-position: -200px -600px;}
+.index_b10_list .ico04:active{ background-position: -400px -600px;}
+.index_b10_list p{ font: 1.25em/3em 'microsoft yahei'; color: #7b8286;}
+.index_qrCode{ position: absolute; top: -260px; left: 50%; margin-left: -101px;}
+@media all and (max-width: 1440px){
+	.index_b10_tit{ height: 40px; padding: 80px 0 0 0;}
+	.index_b10_count{ text-align: center; font: 1em/3em 'microsoft yahei'; color: #7b8286;}
+	.index_b10_count em{ font-size: 1.4em; color: #f94972; font-style: normal; vertical-align: -3px;}
+	.index_b10_list{ width: 94%; list-style: none; margin: 70px auto 150px auto; padding: 0;}
+	.index_b10_list li{ width: 25%; float: left; text-align: center;}
+	.index_b10_list .ico{ display: block; width: 133px; height: 133px; background: url(../img/index_btn_share960.png); margin: 0 auto;}
+	.index_b10_list .ico02{ background-position: 0 -200px;}
+	.index_b10_list .ico03{ background-position: 0 -400px;}
+	.index_b10_list .ico04{ background-position: 0 -600px;}
+}
+@media all and (max-width: 960px){
+	.index_b10_tit{ height: auto; padding: 25px 0 0 0;}
+	.index_b10_count{ font: 1em/2em 'microsoft yahei'; margin: 0 auto; white-space:nowrap; }
+	.index_b10_count em{ font-size: 1.2em; color: #f94972; font-style: normal; vertical-align: -2px;}
+	.index_b10_list{ width: 84%; list-style: none; margin: 30px auto 30px auto; padding: 0;}
+	.index_b10_list li{ width: 50%; margin-top: -1.8em;}
+	.index_b10_list .ico{ transform:scale(0.7);}
+	.index_b10_list p{ font: 1em/2.4em 'microsoft yahei'; margin-top: -1.6em;}
+}
+@media all and (max-width: 960px){
+	.index_b10_tit{ height: auto; padding: 18px 0 0 0;}
+	.index_b10_count{ font: 1em/2em 'microsoft yahei'; margin: 0.4em auto; }
+	.index_b10_count em{ font-size: 1em; vertical-align:0;}
+	.index_b10_list{ width: 84%; list-style: none; margin: 30px auto 30px auto; padding: 0;}
+	.index_b10_list li{ width: 50%; margin-top: -2.2em;}
+	.index_b10_list .ico{ transform:scale(0.6);}
+	.index_b10_list p{ font: 1em/2.2em 'microsoft yahei'; margin-top: -1.8em;}
+}

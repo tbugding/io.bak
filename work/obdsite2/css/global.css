@@ -56,10 +56,10 @@ input:focus,button:focus,select:focus,textarea:focus,a:focus{outline:none;}
 }
 
 /*底部*/
-#footer{ width: 100%; height: 140px; background: #4a525e;}
-.footer_inner{ height: 100%; background: #4a525e;}
-.footer_logo{ padding: 2.5em 0 0 0.9em ;}
-.footer_nav{ list-style: none; margin: 48px 40px 0 0;}
+#footer{ width: 100%;  background: #4a525e; position: absolute;bottom: 0;}
+.footer_inner{ height: 100%; padding: 40px 0; background: #4a525e;}
+.footer_logo{ padding: 0 0 0 0.9em ;}
+.footer_nav{ list-style: none; margin: 14px 40px 0 0;}
 .footer_nav li{ float: left;}
 .footer_nav li a{ display: block; font: 14px/30px microsoft yahei; color: #81868f; text-decoration: none; margin: 0 13px;}
 .footer_nav li a:hover{ color: #e8e8e8;}
@@ -67,3 +67,20 @@ input:focus,button:focus,select:focus,textarea:focus,a:focus{outline:none;}
 .footer_nav li .btnBuy{ width: 86px; height: 30px; background: url(../img/btn_footer_buy.png); text-align: center;}
 .footer_nav li .btnBuy:hover{ background-position: 0 -30px;}
 .footer_nav li .btnBuy:active{ background-position: 0 -60px;}
+
+@media all and (max-width: 1440px){
+	.footer_inner{ padding: 20px 0;}
+}
+@media all and (max-width: 960px){
+	.footer_inner{ padding: 12px 0;}
+	.footer_logo{ padding: 0; margin: 0; float: none; text-align: center; transform:scale(0.7);}
+
+	.footer_nav{  margin: 10px 0 0 0; width: 100%;  text-align: center;}
+	.footer_nav li{ float: none; display: inline-block;}
+	.footer_nav li a{ display: inline-block; font: 14px/30px microsoft yahei; margin: 0 10px;}
+}
+@media all and (max-width: 320px){
+	.footer_inner{ padding: 4px 0 6px 0;}
+	.footer_logo{ transform:scale(0.6);}
+	.footer_nav{  margin: 0;}
+}
