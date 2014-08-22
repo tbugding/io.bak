@@ -752,7 +752,7 @@
 	.index_b10_list .ico{ transform:scale(0.7);}
 	.index_b10_list p{ font: 1em/2.4em 'microsoft yahei'; margin-top: -1.6em;}
 }
-@media all and (max-width: 960px){
+@media all and (max-width: 360px){
 	.index_b10_tit{ height: auto; padding: 18px 0 0 0;}
 	.index_b10_count{ font: 1em/2em 'microsoft yahei'; margin: 0.4em auto; }
 	.index_b10_count em{ font-size: 1em; vertical-align:0;}
