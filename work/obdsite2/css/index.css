@@ -8,7 +8,7 @@
 .fp-controlArrow{ width: 70px !important; height: 100px !important; background-color: rgba(0,0,0,.2); background-position: center center; background-repeat: no-repeat; position: absolute; top: 50%; margin-top: -50px; z-index: 999999999999 !important; border: 0 !important;}
 .fp-prev{ left: 50px !important; background-image: url(../img/index_pic07_ico2.png)}
 .fp-next{ right: 50px !important; background-image: url(../img/index_pic07_ico.png)}
-body{ font-size: 100% !important;}
+/*body{ font-size: 100% !important;}*/
 
 /*顶部banner*/
 .banner_slogan{ height: 287px; position: relative; z-index: 3; text-align: center;}
