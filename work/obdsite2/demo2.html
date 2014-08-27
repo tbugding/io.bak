@@ -14,9 +14,10 @@
 	<script src="vendors/respond.js"></script>
 <style>
 body,html{ width: 100%; height: 100%; font-size: 100% !important;}
-#phone{ width: 100%; height: 600px; background: rgba(0,0,0,.5); display: none;}
+#phone{ width: 100%; height: 100%; background: rgba(0,0,0,.5); display: none;}
 #fullpage{ display: none;}
-.destoryFullpage{ height: auto !important; overflow: auto !important; font-size: 100% !important;}
+p{margin:0;}
+/*.destoryFullpage{ height: auto !important; overflow: auto !important; font-size: 100% !important;}*/
 </style>
 </head>
 <body>
@@ -34,7 +35,7 @@ body,html{ width: 100%; height: 100%; font-size: 100% !important;}
 $(function(){
 	var $fullpage = $('#fullpage');
 	var $phone = $('#phone');
-	var option = {
+	var fullpageOpt = {
 	        verticalCentered: false,
 	        sectionsColor : ['#fae9c8', '#cffac8', '#c8f9fa', '#c8d0fa', '#fac8e4'],
 	        easing: 'easeOutQuint',
@@ -59,15 +60,13 @@ $(function(){
 			$fullpage.hide();
 			if(isFullpage){
 				$.fn.fullpage.destroy('all');
-				$('body').addClass('destoryFullpage');
 				isFullpage = false;
 			}
 		}else{
 			$fullpage.show();
 			$phone.hide();
 			if(!isFullpage){
-				$('#fullpage').fullpage(option);
-				$('body').removeClass('destoryFullpage');
+				$('#fullpage').fullpage(fullpageOpt);
 				isFullpage = true;
 			}
 		}
