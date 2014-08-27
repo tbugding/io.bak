@@ -10,6 +10,7 @@
 	<script src="vendors/jquery-1.11.1.min.js"></script>
 	<script src="vendors/jquery.easings.min.js"></script>
 	<script src="vendors/jquery.fullPage.min.js"></script>
+	<script src="vendors/modernizr-2.6.2.min.js"></script>
 	<script src="vendors/respond.js"></script>
 <style>
 body,html{ width: 100%; height: 100%; font-size: 100% !important;}
@@ -43,20 +44,12 @@ $(function(){
 	        loopBottom: true,
 	        css3: true
 	    };
-	var mode = '';
 	var isFullpage = false;
 
 	
 	
 	
-	function getClient(){
-		client = {};
-		client.width = document.documentElement.clientWidth;
-		client.height = document.documentElement.clientHeight;
-		client.UA = window.navigator.userAgent;
-		document.title = client.width +' - '+ client.height;
-		$('.clientWidth').text(client.width +' - '+ client.height)
-	}
+	
 
 	function initMode(){
 
@@ -94,7 +87,14 @@ var client = {
 	UA : ''
 };
 
-
+function getClient(){
+	client = {};
+	client.width = document.documentElement.clientWidth;
+	client.height = document.documentElement.clientHeight;
+	client.UA = window.navigator.userAgent;
+	document.title = client.width +' - '+ client.height;
+	$('.clientWidth').text(client.width +' - '+ client.height)
+}
 </script>
 </body>
 </html>
