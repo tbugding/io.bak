@@ -12,24 +12,28 @@
 	<script src="vendors/jquery.fullPage.min.js"></script>
 	<script src="vendors/modernizr-2.6.2.min.js"></script>
 	<script src="vendors/respond.js"></script>
+	<script src="htmlFullpage.js"></script>
+	<script src="htmlPhone.js"></script>
 <style>
 body,html{ width: 100%; height: 100%; font-size: 100% !important;}
-#phone{ width: 100%; height: 100%; background: rgba(0,0,0,.5); display: none;}
+#phone{ max-width: 720px; height: auto; background: rgba(0,0,0,.5); display: none;}
 #fullpage{ display: none;}
+.imgPhone{ display: block; width: 100%; height: auto}
 p{margin:0;}
+h2{margin:0;}
 /*.destoryFullpage{ height: auto !important; overflow: auto !important; font-size: 100% !important;}*/
 </style>
 </head>
 <body>
 <div id="fullpage">
-	<section class="section"><p class="clientWidth"></p></section>
+	<!-- <section class="section"><img class="imgPhone" src="01.jpg" alt=""></section>
 	<section class="section">2</section>
 	<section class="section">3</section>
 	<section class="section">4</section>
-	<section class="section">5</section>
+	<section class="section">5</section> -->
 </div>
 <div id="phone">
-	<h2>phone<p class="clientWidth"></p></h2>
+	<!-- <img class="imgPhone" src="02.jpg" alt=""> -->
 </div>
 <script>
 $(function(){
@@ -56,6 +60,9 @@ $(function(){
 
 
 		if(client.width<=720){
+			if(!$phone.children().length){
+				$(htmlPhone).appendTo($phone)
+			}
 			$phone.show();
 			$fullpage.hide();
 			if(isFullpage){
@@ -63,6 +70,9 @@ $(function(){
 				isFullpage = false;
 			}
 		}else{
+			if(!$fullpage.children().length){
+				$(htmlFullpage).appendTo($fullpage)
+			}
 			$fullpage.show();
 			$phone.hide();
 			if(!isFullpage){
@@ -92,7 +102,7 @@ function getClient(){
 	client.height = document.documentElement.clientHeight;
 	client.UA = window.navigator.userAgent;
 	document.title = client.width +' - '+ client.height;
-	$('.clientWidth').text(client.width +' - '+ client.height)
+	// $('.clientWidth').text(client.width +' - '+ client.height)
 }
 </script>
 </body>
