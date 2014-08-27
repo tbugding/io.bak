@@ -1,0 +1,1 @@
+var htmlFullpage='<section class="section"><img class="imgPhone" src="01.jpg" alt=""></section><section class="section">2</section><section class="section">3</section><section class="section">4</section><section class="section">5</section>';
