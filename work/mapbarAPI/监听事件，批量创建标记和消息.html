@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8"/>
+<title>Mapbar 地图 JavaScript API 示例</title>
+<style>
+body,html{ width: 100%; height: 100%;}
+body{margin: 0;}
+</style>
+<script type="text/javascript" src="http://union.mapbar.com/apis/maps/free?f=mapi&v=31.3&k=aCW9cItqL6d6dy4iaSWtdRDpaR1hMeJ9MeV8EeFhMYV5MeJrNIGnMeMh@YeD99eW6RJVihCnMWctM9ht6IEhhiIeehiIFhee81eLMhhMR9IhiIehJMhW9hiJE99eFFl="></script>
+<script type="text/javascript">
+// 初始化地图  
+maplet = new Maplet("mapbar");  
+maplet.centerAndZoom(new MPoint(116.42585,39.91111), 10);  
+maplet.addControl(new MStandardControl());  
+maplet.showOverview(false);  
+  
+// 秘密数据  
+var message = ["这","是","个","秘密","消息"];  
+  
+// 五个标注的经纬度  
+var latlons = ["116.40925,39.91323", "116.39897,39.91043",  
+               "116.407,39.89848", "116.443,39.89945",  
+               "116.45869,39.91381"];  
+  
+// 增加标注到地图  
+for(var i=0; i<latlons.length; i++) {  
+  
+    var newMarker = new MMarker(  
+        new MPoint(latlons[i]),  
+        new MIcon("marker.png",20,31),  
+        new MInfoWindow("<b>#" + (i+1) + "</b>","")  
+    );  
+  
+    maplet.addOverlay(newMarker);  
+  
+    newMarker.closureData = i;  
+  
+    MEvent.addListener(newMarker, "click", function(marker) {  
+  
+        // 闭包机制，在每个标注的click事件处理程序中可以访问到该  
+        // 处理函数外部的变量message。  
+        marker.info = new MInfoWindow(  
+            "<b>#" + (marker.closureData + 1) + "</b>",  
+            message[marker.closureData]  
+        );  
+  
+        marker.openInfoWindow();  
+    })  
+}  
+</script>
+</head>
+
+<body onload="initMap()">
+<div id="mapbar" style="width:900px;height:500px"></div>
+</body>
+</html>
