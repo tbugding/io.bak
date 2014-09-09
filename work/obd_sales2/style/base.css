@@ -11,8 +11,9 @@ body {
 	width: 100%;
 	max-width: 720px;
 	text-align: center;
-	line-height: 2.3em
+	line-height: 2.3em;
 }
+input:focus,a:focus{ outline: 0;}
 .cf:after,.cf:before{content: ''; display: table;}
 .cf:after{clear: both;}
 .cf{ *zoom:1;}
@@ -26,7 +27,7 @@ body {
 .btn_normal{ background: #31c5b9; color: #fff;}
 
 /*弹出框*/
-#dialogMask{ width: 100%; height: 100%; position: fixed; background: #000; opacity: 0.8; z-index: 100; top: 0; left: 0;}
+#dialogMask{ width: 100%; height: 200%; position: fixed; background: #000; opacity: 0.8; z-index: 100; top: -20%; left: 0;}
 .dialog{ width: 80%; position: fixed; top: 20%; left: 50%; margin-left: -39%; background: #fff; z-index: 1000;}
 .diaContent{ padding: 2.2em 1.4em; line-height: 1.8em; text-align: left;}
 .diaContent2{ padding: 6.54% 0; text-align: left;}
