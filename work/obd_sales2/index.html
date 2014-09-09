@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>图吧汽车卫士-首页</title>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<link rel="stylesheet" type="text/css" href="style/base.css?v=1.2.0">
+	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="js/common.js?v=1.2.0"></script>
+<style>
+.banner{}
+.bannerBtn{ background: #fbeccf; color: #f7812b; position: absolute; bottom:5%;}
+#turntablePointer{ width: 45.83%; height: 52.38%; position: absolute; top: 50%; left: 50%; margin-left: -22.91%; margin-top: -22.91%;}
+#turntableBtn{ width: 21.8%; height: 24.92%; position: absolute; top: 50%; left: 50%; margin-left: -10.9%; margin-top: -10.9%; cursor: pointer;}
+.turntableBottom{}
+.turntableBottom .p{ height: 16.35%; overflow: hidden; color: #d5a0d5; margin: 0; margin-bottom: 4.09%;}
+.turntableBottom .content{ width: 100%; height: 100%; position: absolute; top: 0; left: 0;}
+.turntableBottom .chanceBtn{ margin-left: 4.167%; margin-right: 4.167%;}
+.turntableBottom .chance1{ margin-bottom: 5.97%;}
+.turntableBottom .chance2{ margin-bottom: 3%;}
+.turntableBottom .query{ color: #fcba1e;}
+.rules{ background: #5b205b; text-align: left; color: #ffffff; padding-top: 2.1%; padding-bottom: 4%;}
+.rules h2{ margin: 0; margin-left: 4%; font:normal 1.2em /2.4em microsoft yahei;}
+.rules ol{ margin: 0; margin-right: 4%; line-height: 1.5em;}
+.rules ol li{margin-bottom: 2%;}
+#chance{ margin: 0 10px; color: #ff586e; font-size: 1.5em;}
+
+.underline{ border-bottom: 1px solid #e0e0e0;}
+.block03 .p1{ margin-top: 12%;}
+.block03 .p2{ margin-top: 15.2%;}
+.block04 .ico{ margin-top: 18%;}
+.block04 .tit{ font: 1.1em/3em microsoft yahei; margin: 0; color: #333;}
+.block04 .tit2{ font: 0.875em/2em microsoft yahei; color: #666; margin: 0;}
+.block04 .img{ margin-top: 12%;}
+</style>
+</head>
+<body>
+<div id="content">
+	<div class="block banner">
+		<img class="block_img" src="img/20140909/index_p1.png">
+		<a class="btn bannerBtn" href="http://datamobile.mapbar.com/map/mobile/app/mapbar_obd_navi.apk">下载汽车卫士APP</a>
+	</div>
+	<div class="block">
+		<img class="block_img" src="img/20140909/index_turntableTop.png">
+	</div>
+	<div id="turntable" class="block">
+		<img class="block_img" src="img/20140909/index_p6_3.png">
+		<img id="turntablePointer" src="img/20140909/index_p6_2.png" alt="">
+		<img id="turntableBtn" src="img/20140909/index_p6_1.png" alt="">
+	</div>
+	<div class="block turntableBottom">
+		<img class="block_img" src="img/20140909/index_turnTableBg.png" alt="">
+		<div class="content">
+			<p class="p">您还有<span id="chance">1</span>次抽奖机会</p>
+			<div class="chanceBtn chance1"><a href="javascript:;"><img class="block_img" src="img/20140909/index_chancebtn01.png" alt=""></a></div>
+			<div class="chanceBtn chance2"><a href="javascript:;"><img class="block_img" src="img/20140909/index_chancebtn02.png" alt=""></a></div>
+			<a class="query" href="javascript:;">查询中奖记录</a>
+		</div>
+	</div>
+	<div class="block rules">
+		<h2>活动规则</h2>
+		<ol>
+			<li>活动时间：9月18日-10月15日</li>
+			<li>购买截止日期为10月15日24:00</li>
+			<li>答题全部答对可以获得两次抽奖机会，答错可以反复进行答题。</li>
+			<li>每人仅 一次通过答题和分享获取抽奖次数的机会</li>
+			<li>本活动最终解释权归图吧汽车卫士所有</li>
+		</ol>
+	</div>
+
+	<div class="block block03 underline">
+		<img class="block_img p1" src="img/20140909/index_p7.png">
+		<img class="block_img p2" src="img/20140909/index_p8.jpg">
+	</div>
+	<div class="block block04 underline">
+		<p class="tit" style="margin-top:15%;">App连接你的爱车，开启你的智能驾驶</p>
+		<p class="tit2">迄今为止最时尚的汽车穿戴式设备<br/>让你的汽车开口说话</p>
+		<img class="img block_img" src="img/20140909/index_p9.jpg">
+	</div>
+	<div class="block block04 underline">
+		<div class="ico"><img class="block_img" src="img/20140909/index_p10_1.png"></div>
+		<p class="tit">360°全车体检  极致安全</p>
+		<img class="img block_img" style="margin-bottom:8.6%;" src="img/20140909/index_p10_2.jpg">
+	</div>
+	<div class="block block04 underline" style="margin-top:-1px;">
+		<img class="block_img" src="img/20140909/index_p11_1.png">
+		<p class="tit">增强导航</p>
+		<p class="tit2">完美解决导航时GPS卫星丢失困扰<br />导航同时监控车况，故障异常提前播报</p>
+		<img class="block_img" style="margin-top:8.6%;" src="img/20140909/index_p11_2.jpg">
+	</div>
+	<div class="block block04 underline">
+		<div class="ico"><img class="block_img" src="img/20140909/index_p12_1.png"></div>
+		<p class="tit">油耗分析省油省钱 经济出行</p>
+		<img class="img block_img" style="margin-bottom:10%;" src="img/20140909/index_p12_2.png">
+	</div>
+	<div class="block block04 underline">
+		<div class="ico"><img class="block_img" src="img/20140909/index_p13_1.png"></div>
+		<p class="tit">超酷便捷显示  智能驾驶</p>
+		<img class="img block_img" src="img/20140909/index_p13_2.jpg">
+	</div>
+	<div class="block">
+		<a class="btn btn_normal" style="margin-top:2em; margin-bottom:2em;;" href="http://datamobile.mapbar.com/map/mobile/app/mapbar_obd_navi.apk">下载汽车卫士APP</a>
+	</div>
+
+	<div id="dialogMask"></div>
+	<!-- <div id="dialog_qSucc" class="dialog">
+		<div class="diaContent">恭喜您，答对了全部问题！又获得了两次抽奖机会，快再去试试自己的运气吧！</div>
+		<div class="diaBtn cf">
+			<a class="diaBtn1" href="javascript:;">确 定</a>
+		</div>
+	</div> -->
+	<!-- <div id="dialog_qFail" class="dialog">
+		<div class="diaContent">很遗憾，您有题目没有答对，要不要重新再答一次？</div>
+		<div class="diaBtn cf">
+			<a class="diaBtn2" href="javascript:;">重新答题</a>
+			<a class="diaBtn3" href="javascript:;">不答了,138购买</a>
+		</div>
+	</div> -->
+	<!-- <div id="dialog_noChance" class="dialog">
+		<div class="diaContent">您暂无抽奖机会，请通过下方答题和分享的方式来获取抽奖机会</div>
+		<div class="diaBtn cf">
+			<a class="diaBtn1" href="javascript:;">确 定</a>
+		</div>
+	</div> -->
+	<div id="dialog_share" class="dialog">
+		<div class="diaTit">十一疯狂送豪礼 万元大奖免费拿</div>
+		<div class="diaContent2">
+			<div class="cf">
+				<div style="width:27%; float:left; margin-left:6%;"><img style="width:100%;" src="img/20140909/dialog_p1.png" alt=""></div>
+				<p style="width:56%; float:left; margin:-3px 0 0 5%; font:0.8em/1.6em microsoft yahei; color:#999ca1;">我刚刚在汽车卫士里进行抽奖,竟是100%中奖，任何人都可直接免费抽奖，快来参加吧！</p>
+			</div>
+			<input style=" width:86%; display:block; margin:0 auto; border:0; padding-top:5px;" type="text" placeholder="说些什么">
+			<div style=" width:86%; height:3px; margin:0 auto; border:1px solid #35bdb2; border-top:0;"></div>
+		</div>
+		<div class="diaBtn cf">
+			<a class="diaBtn2" href="javascript:;">取 消</a>
+			<a class="diaBtn3" href="javascript:;">分 享</a>
+		</div>
+	</div>
+</div>
+
+<!-- 弹出框 -->
+
+</body>
+</html>
