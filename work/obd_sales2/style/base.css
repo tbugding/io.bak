@@ -39,7 +39,7 @@ input:focus,select:focus,a:focus{ outline: 0;}
 .diaBtn3{ width: 50%;}
 .diaTit{ border-bottom: 2px solid #35bdb2; line-height: 3.4em;}
 @media all and (min-width: 720px){
-	.dialog{
+	.dialog,.myDialog{
 		margin-left: -283px;
 	}
 }

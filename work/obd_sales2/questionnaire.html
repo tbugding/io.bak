@@ -30,14 +30,14 @@ h2{ padding: 0; margin: 0;}
 <body>
 <div id="content">
 	<div class="block underline">
-		<ol>
+		<ol id="questionnaire">
 			<li>
 				<h2 class="qTit">问题一&nbsp;&nbsp;图吧汽车卫士的主要功能是：</h2>
 				<ol class="options cf options1">
 					<li>&nbsp;&nbsp;&nbsp;&nbsp;A .&nbsp;&nbsp;全车体检</li>
 					<li>&nbsp;&nbsp;&nbsp;&nbsp;B .&nbsp;&nbsp;行程分析</li>
-					<li class="checked">&nbsp;&nbsp;&nbsp;&nbsp;C .&nbsp;&nbsp;节省成本</li>
-					<li>&nbsp;&nbsp;&nbsp;&nbsp;D .&nbsp;&nbsp;以上全是</li>
+					<li>&nbsp;&nbsp;&nbsp;&nbsp;C .&nbsp;&nbsp;节省成本</li>
+					<li data-right="true">&nbsp;&nbsp;&nbsp;&nbsp;D .&nbsp;&nbsp;以上全是</li>
 				</ol>
 			</li>
 			<li>
@@ -46,7 +46,7 @@ h2{ padding: 0; margin: 0;}
 					<li>&nbsp;&nbsp;&nbsp;&nbsp;A .&nbsp;&nbsp;安卓与ios均可使用</li>
 					<li>&nbsp;&nbsp;&nbsp;&nbsp;B .&nbsp;&nbsp;连接速度更快更稳定</li>
 					<li>&nbsp;&nbsp;&nbsp;&nbsp;C .&nbsp;&nbsp;低功耗特别省电</li>
-					<li>&nbsp;&nbsp;&nbsp;&nbsp;D .&nbsp;&nbsp;以上全是</li>
+					<li data-right="true">&nbsp;&nbsp;&nbsp;&nbsp;D .&nbsp;&nbsp;以上全是</li>
 				</ol>
 			</li>
 			<li>
@@ -54,11 +54,11 @@ h2{ padding: 0; margin: 0;}
 				<ol class="options cf options2">
 					<li>&nbsp;&nbsp;&nbsp;&nbsp;A .&nbsp;&nbsp;解决丢星困扰</li>
 					<li>&nbsp;&nbsp;&nbsp;&nbsp;B .&nbsp;&nbsp;随时播报车况</li>
-					<li>&nbsp;&nbsp;&nbsp;&nbsp;C .&nbsp;&nbsp;以上全是</li>
+					<li data-right="true">&nbsp;&nbsp;&nbsp;&nbsp;C .&nbsp;&nbsp;以上全是</li>
 				</ol>
 			</li>
 		</ol>
-		<a class="btn btn_normal" style="margin-top:1em; margin-bottom:3em;;" href="javascript:;">提 交</a>
+		<a id="submit" class="btn btn_normal" style="margin-top:1em; margin-bottom:3em;;" href="javascript:;">提 交</a>
 	</div>
 
 	<div class="block block03 underline">
@@ -94,6 +94,46 @@ h2{ padding: 0; margin: 0;}
 	<div class="block">
 		<a class="btn btn_normal" style="margin-top:2em; margin-bottom:2em;;" href="http://datamobile.mapbar.com/map/mobile/app/mapbar_obd_navi.apk">下载汽车卫士APP</a>
 	</div>
+
+
+	<div id="dialog_qSucc" class="myDialog">
+		<div class="diaContent">恭喜您，答对了全部问题！又获得了两次抽奖机会，快再去试试自己的运气吧！</div>
+		<div class="diaBtn cf">
+			<a class="diaBtn1" href="javascript:;" onclick="closeDialog('dialog_qSucc')">确 定</a>
+		</div>
+	</div>
+
+
+	<div id="dialog_qFail" class="myDialog">
+		<div class="diaContent">很遗憾，您有题目没有答对，要不要重新再答一次？</div>
+		<div class="diaBtn cf">
+			<a class="diaBtn2" href="javascript:;" onclick="closeDialog('dialog_qFail')">重新答题</a>
+			<a class="diaBtn3" href="javascript:;" onclick="closeDialog('dialog_qFail')">不答了,138购买</a>
+		</div>
+	</div>
+
 </div>
+<script>
+$(function(){
+	var aOpts = $('#questionnaire ol li');
+	aOpts.on('click',function(){
+		$(this).addClass('checked').siblings().removeClass('checked');
+	})
+	$('#submit').on('click',function(){
+		var active = aOpts.filter('.checked');
+		var allRight = false;
+		if(active.length == 3){
+			allRight = true;
+		}
+		active.each(function(){
+			if(!$(this).data('right')){
+				allRight = false;
+			}
+		})
+
+		allRight ?　dialog('dialog_qSucc')　: dialog('dialog_qFail');
+	})
+})
+</script>
 </body>
 </html>
