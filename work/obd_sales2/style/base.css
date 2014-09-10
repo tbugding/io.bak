@@ -27,8 +27,9 @@ input:focus,select:focus,a:focus{ outline: 0;}
 .btn_normal{ background: #31c5b9; color: #fff;}
 
 /*弹出框*/
-#dialogMask{ width: 100%; height: 200%; position: fixed; background: #000; opacity: 0.8; z-index: 100; top: -20%; left: 0;}
-.dialog{ width: 80%; max-width: 566px; position: fixed; top: 20%; left: 50%; margin-left: -39%; background: #fff; z-index: 1000;}
+.dialogMask{ width: 100%; height: 200%; position: fixed; background: #000; opacity: 0.8; z-index: 100; top: -20%; left: 0;}
+.dialog,.myDialog{ width: 80%; max-width: 566px; position: fixed; top: 20%; left: 50%; margin-left: -39%; background: #fff; z-index: 1000;}
+.myDialog{ display: none;}
 .diaContent{ padding: 2.2em 1.4em; line-height: 1.8em; text-align: left;}
 .diaContent2{ padding: 6.54% 0; text-align: left;}
 .diaBtn{ border-top: 1px solid #b6b8bb;}

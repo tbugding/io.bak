@@ -51,9 +51,9 @@
 	<div class="block turntableBottom">
 		<img class="block_img" src="img/20140909/index_turnTableBg.png" alt="">
 		<div class="content">
-			<p class="p">您还有<span id="chance">1</span>次抽奖机会</p>
-			<div class="chanceBtn chance1"><a href="javascript:;"><img class="block_img" src="img/20140909/index_chancebtn01.png" alt=""></a></div>
-			<div class="chanceBtn chance2"><a href="javascript:;"><img class="block_img" src="img/20140909/index_chancebtn02.png" alt=""></a></div>
+			<p class="p">您还有<span id="chance"></span>次抽奖机会</p>
+			<div class="chanceBtn chance1"><a href="javascript:;"><img class="block_img" src="img/20140909/index_chancebtn01.png" alt="参与答题，可获得两次抽奖机会"></a></div>
+			<div class="chanceBtn chance2"><a href="javascript:;"><img class="block_img" src="img/20140909/index_chancebtn02.png" alt="分享到朋友圈，可获得3次抽奖机会"></a></div>
 			<a class="query" href="javascript:;">查询中奖记录</a>
 		</div>
 	</div>
@@ -104,27 +104,27 @@
 
 
 	<!-- 弹出框 -->
-	<!-- <div id="dialogMask"></div> -->
-	<!-- <div id="dialog_qSucc" class="dialog">
+	<!-- <div class="dialogMask"></div> -->
+	<!-- <div id="dialog_qSucc" class="myDialog">
 		<div class="diaContent">恭喜您，答对了全部问题！又获得了两次抽奖机会，快再去试试自己的运气吧！</div>
 		<div class="diaBtn cf">
-			<a class="diaBtn1" href="javascript:;">确 定</a>
+			<a class="diaBtn1" href="javascript:;" onclick="closeDialog('dialog_qSucc')">确 定</a>
 		</div>
 	</div> -->
-	<!-- <div id="dialog_qFail" class="dialog">
+	<div id="dialog_qFail" class="myDialog">
 		<div class="diaContent">很遗憾，您有题目没有答对，要不要重新再答一次？</div>
 		<div class="diaBtn cf">
-			<a class="diaBtn2" href="javascript:;">重新答题</a>
-			<a class="diaBtn3" href="javascript:;">不答了,138购买</a>
+			<a class="diaBtn2" href="javascript:;" onclick="closeDialog('dialog_qFail')">重新答题</a>
+			<a class="diaBtn3" href="javascript:;" onclick="closeDialog('dialog_qFail')">不答了,138购买</a>
 		</div>
-	</div> -->
-	<!-- <div id="dialog_noChance" class="dialog">
+	</div>
+	<!-- <div id="dialog_noChance" class="myDialog">
 		<div class="diaContent">您暂无抽奖机会，请通过下方答题和分享的方式来获取抽奖机会</div>
 		<div class="diaBtn cf">
 			<a class="diaBtn1" href="javascript:;">确 定</a>
 		</div>
 	</div> -->
-	<!-- <div id="dialog_share" class="dialog">
+	<!-- <div id="dialog_share" class="myDialog">
 		<div class="diaTit">十一疯狂送豪礼 万元大奖免费拿</div>
 		<div class="diaContent2">
 			<div class="cf">
@@ -151,32 +151,32 @@ $(function(){
 	var angleNow = 0;
 	var isAnimate = false;
 	var aPrize =[1,0,6,7,5,2,3,4];
+
 	oBtn.on('click',function(){
 		if(!isAnimate){
 			$.ajax({
 				url : postIp_prize + 'obdactive/prize/index',
 				type : 'GET',
 				success :function(data){
-					var obj = eval('('+data+')')//JSON.parse(data);
-					if(obj.code == 200){
-						start(aPrize[obj.index-1])
+					var json = eval('('+data+')')//JSON.parse(data);
+					if(json.code == 200){
+						start(aPrize[json.index-1]);
 					}else{
 						alert('网络延迟，请稍后再试')
 					}
 				},
 				error: function (data){
-					alert(data)
-					//alert('网络异常，请稍后再试');
+					alert('网络异常，请稍后再试');
 				}
 			})
 		}
 	});
-	
+
 	function start(n){
 		var round = rdn(5,8);
 		var time = rdn(5000,7000);
 		isAnimate = true;
-		oPointer.rotate({ 　
+		oPointer.rotate({
 	　　　　angle:angleNow,
 	　　　　animateTo:round*360+n*45+23,
 	　　　　duration:time,
@@ -184,12 +184,42 @@ $(function(){
 				angleNow = oPointer.getRotateAngle()%360;
 				oPointer.rotate(angleNow);
 				isAnimate = false;
+				dialog({msg : '恭喜中奖'});
 			},
 	　　　　easing: $.easing.easeInOutQuad
 	　 })
 	}
+	
+	getChance({
+		mac : MAC,
+		fnSucc : function (n) {
+			$('#chance').text(n)
+		}
+	});
+
+	$('.chanceBtn').on('click',function(){
+		dialog('dialog_qFail');
+	})
+
 })
-function rdn(n,m){return parseInt(Math.random()*(m-n+1)+n);}
+
+function getChance(opt){
+	$.ajax({
+		url : postIp_chance + 'obdactive/prize/getCount',
+		data : {mac:opt.mac && MAC},
+		success : function(data){
+			var json = eval('('+data+')');
+			if(json.code == 200){
+				opt.fnSucc && opt.fnSucc(n);
+			}else{
+				opt.fnFail && opt.fnFail();
+			}
+		},
+		error : function(){
+			opt.fnError && opt.fnError(); 
+		}
+	})
+}
 </script>
 </body>
 </html>
