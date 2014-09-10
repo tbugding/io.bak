@@ -13,7 +13,7 @@ body {
 	text-align: center;
 	line-height: 2.3em;
 }
-input:focus,a:focus{ outline: 0;}
+input:focus,select:focus,a:focus{ outline: 0;}
 .cf:after,.cf:before{content: ''; display: table;}
 .cf:after{clear: both;}
 .cf{ *zoom:1;}
@@ -28,7 +28,7 @@ input:focus,a:focus{ outline: 0;}
 
 /*弹出框*/
 #dialogMask{ width: 100%; height: 200%; position: fixed; background: #000; opacity: 0.8; z-index: 100; top: -20%; left: 0;}
-.dialog{ width: 80%; position: fixed; top: 20%; left: 50%; margin-left: -39%; background: #fff; z-index: 1000;}
+.dialog{ width: 80%; max-width: 566px; position: fixed; top: 20%; left: 50%; margin-left: -39%; background: #fff; z-index: 1000;}
 .diaContent{ padding: 2.2em 1.4em; line-height: 1.8em; text-align: left;}
 .diaContent2{ padding: 6.54% 0; text-align: left;}
 .diaBtn{ border-top: 1px solid #b6b8bb;}
@@ -37,3 +37,8 @@ input:focus,a:focus{ outline: 0;}
 .diaBtn2{ width: 50%; border-right: 1px solid #b6b8bb; margin-left: -1px;}
 .diaBtn3{ width: 50%;}
 .diaTit{ border-bottom: 2px solid #35bdb2; line-height: 3.4em;}
+@media all and (min-width: 720px){
+	.dialog{
+		margin-left: -283px;
+	}
+}

@@ -102,7 +102,9 @@
 		<a class="btn btn_normal" style="margin-top:2em; margin-bottom:2em;;" href="http://datamobile.mapbar.com/map/mobile/app/mapbar_obd_navi.apk">下载汽车卫士APP</a>
 	</div>
 
-	<div id="dialogMask"></div>
+
+	<!-- 弹出框 -->
+	<!-- <div id="dialogMask"></div> -->
 	<!-- <div id="dialog_qSucc" class="dialog">
 		<div class="diaContent">恭喜您，答对了全部问题！又获得了两次抽奖机会，快再去试试自己的运气吧！</div>
 		<div class="diaBtn cf">
@@ -122,12 +124,12 @@
 			<a class="diaBtn1" href="javascript:;">确 定</a>
 		</div>
 	</div> -->
-	<div id="dialog_share" class="dialog">
+	<!-- <div id="dialog_share" class="dialog">
 		<div class="diaTit">十一疯狂送豪礼 万元大奖免费拿</div>
 		<div class="diaContent2">
 			<div class="cf">
 				<div style="width:27%; float:left; margin-left:6%;"><img style="width:100%;" src="img/20140909/dialog_p1.png" alt=""></div>
-				<p style="width:56%; float:left; margin:-3px 0 0 5%; font:0.8em/1.6em microsoft yahei; color:#999ca1;">我刚刚在汽车卫士里进行抽奖,竟是100%中奖，任何人都可直接免费抽奖，快来参加吧！</p>
+				<p style="width:56%; float:left; margin:-1px 0 0 5%; font:0.8em/1.6em microsoft yahei; color:#999ca1;">我刚刚在汽车卫士里进行抽奖,竟是100%中奖，任何人都可直接免费抽奖，快来参加吧！</p>
 			</div>
 			<input style=" width:86%; display:block; margin:0 auto; border:0; padding-top:5px;" type="text" placeholder="说些什么">
 			<div style=" width:86%; height:3px; margin:0 auto; border:1px solid #35bdb2; border-top:0;"></div>
@@ -136,10 +138,58 @@
 			<a class="diaBtn2" href="javascript:;">取 消</a>
 			<a class="diaBtn3" href="javascript:;">分 享</a>
 		</div>
-	</div>
+	</div> -->
+
 </div>
 
-<!-- 弹出框 -->
-
+<script type="text/javascript" src="js/vendor/jquery.easing.min.js"></script>
+<script type="text/javascript" src="js/vendor/jQueryRotate.2.2.js"></script>
+<script>
+$(function(){
+	var oPointer = $('#turntablePointer');
+	var oBtn = $('#turntableBtn');
+	var angleNow = 0;
+	var isAnimate = false;
+	var aPrize =[1,0,6,7,5,2,3,4];
+	oBtn.on('click',function(){
+		if(!isAnimate){
+			$.ajax({
+				url : postIp_prize + 'obdactive/prize/index',
+				type : 'GET',
+				success :function(data){
+					var obj = eval('('+data+')')//JSON.parse(data);
+					if(obj.code == 200){
+						start(aPrize[obj.index-1])
+					}else{
+						alert('网络延迟，请稍后再试')
+					}
+				},
+				error: function (data){
+					alert(data)
+					//alert('网络异常，请稍后再试');
+				}
+			})
+		}
+	});
+	
+	function start(n){
+		var round = rdn(5,8);
+		var time = rdn(5000,7000);
+		isAnimate = true;
+		oPointer.rotate({ 　
+	　　　　angle:angleNow,
+	　　　　animateTo:round*360+n*45+23,
+	　　　　duration:time,
+	　　　　callback:function(){
+				angleNow = oPointer.getRotateAngle()%360;
+				oPointer.rotate(angleNow);
+				isAnimate = false;
+			},
+	　　　　easing: $.easing.easeInOutQuad
+	　 })
+	}
+})
+function rdn(n,m){return parseInt(Math.random()*(m-n+1)+n);}
+</script>
 </body>
 </html>

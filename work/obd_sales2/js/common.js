@@ -10,3 +10,4 @@ var postIp_cdy = 'http://obd.mapbar.com/shop/';
 
 var postIp_alipay = 'https://buy.mapbar.com/';
 
+var postIp_prize = 'http://10.10.24.200:8722/'
