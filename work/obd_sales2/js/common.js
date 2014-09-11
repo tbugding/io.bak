@@ -10,12 +10,16 @@ var postIp_cdy = 'http://obd.mapbar.com/shop/';
 
 var postIp_alipay = 'https://buy.mapbar.com/';
 
-var postIp_prize = 'http://10.10.24.200:8722/';
+var postPrize = 'http://192.168.85.29:8722/obdactive/prize/handleLottery';
 
-var postIp_chance = 'http://10.10.24.200:8722/';
+var postChance = 'http://192.168.85.29:8722/obdactive/prize/getCount';
+
+var postUpdateCount = 'http://192.168.85.29:8722/obdactive/prize/updateCount';
+
+var postGetTickets = 'http://192.168.85.29:8722/obdactive/prize/listWinPrize';
 
 
-/*获取url中的search*/
+/*url中的search*/
 function Search(){
 	var search = window.location.search.substring(1);
 	var arr = search.split('&');
@@ -23,12 +27,12 @@ function Search(){
 		var arr2 = arr[i].split('=');
 		this[arr2[0]] = arr2[1];
 	}
+	//this._host = window.location.protocol + '//' + window.location.pathname.substring(0,window.location.pathname.lastIndexOf('/')+1);
 }
+var oSearch = new Search();
 
 /*取n到m随机数*/
 function rdn(n,m){return parseInt(Math.random()*(m-n+1)+n)}
-
-var MAC = new Search().mac;
 
 /*打开弹出层*/
 function dialog(opt){
@@ -49,3 +53,38 @@ function closeDialog(opt){
 	}
 	$('.dialogMask').remove();
 }
+
+/*统一ajax返回类型*/
+function data2json(data){
+	if(typeof data == 'string'){
+		return eval('('+data+')');//JSON.parse(data)
+	}else{
+		return data;
+	}
+}
+
+//cookie操作
+function addCookie(name,value,iDay){
+	var oDate=new Date();
+	oDate.setDate(oDate.getDate()+iDay);
+	document.cookie=name+'='+value+';path=/;expires='+oDate;
+}
+
+function getCookie(name){
+	var arr=document.cookie.split('; ');
+	for(var i=0;i<arr.length;i++){
+		var arr2=arr[i].split('=');
+		if(arr2[0]==name){
+			return arr2[1];
+		}
+	}
+	return '';
+}
+
+function delCookie(name){
+	addCookie(name,'1',-1)
+}
+
+//统计代码
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F0d8895f7d5e60989ead103e05c4f3cae' type='text/javascript'%3E%3C/script%3E"));

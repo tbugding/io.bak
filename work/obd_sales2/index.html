@@ -51,10 +51,10 @@
 	<div class="block turntableBottom">
 		<img class="block_img" src="img/20140909/index_turnTableBg.png" alt="">
 		<div class="content">
-			<p class="p">您还有<span id="chance"></span>次抽奖机会</p>
-			<div class="chanceBtn chance1"><a href="javascript:;"><img class="block_img" src="img/20140909/index_chancebtn01.png" alt="参与答题，可获得两次抽奖机会"></a></div>
-			<div class="chanceBtn chance2"><a href="javascript:;"><img class="block_img" src="img/20140909/index_chancebtn02.png" alt="分享到朋友圈，可获得3次抽奖机会"></a></div>
-			<a class="query" href="javascript:;">查询中奖记录</a>
+			<p class="p">您还有<span id="chance">0</span>次抽奖机会</p>
+			<div class="chanceBtn chance1"><a id="btnQues" href="questionnaire.html"><img class="block_img" src="img/20140909/index_chancebtn01.png" alt="参与答题，可获得两次抽奖机会"></a></div>
+			<div class="chanceBtn chance2"><a id="btnShare" href="mapbar://embeddedWeb/weChatRedEnvelopeActivity/weChat/share_Anyone"><img class="block_img" src="img/20140909/index_chancebtn02.png" alt="分享到朋友圈，可获得3次抽奖机会"></a></div>
+			<a id="btnTickets" class="query" href="tickets.html">查询中奖记录</a>
 		</div>
 	</div>
 	<div class="block rules">
@@ -127,6 +127,13 @@
 			<a class="diaBtn3" href="javascript:;">分 享</a>
 		</div>
 	</div> -->
+	<div id="dialog_dlAPP" class="myDialog">
+		<div class="diaContent" style="text-align:center">请下载图吧导航APP<br/>并在APP中参与活动</div>
+		<div class="diaBtn cf">
+			<a class="diaBtn2" href="javascript:;" onclick="closeDialog('dialog_dlAPP')">放 弃</a>
+			<a class="diaBtn3" href="http://datamobile.mapbar.com/map/mobile/app/mapbar_obd_navi.apk" onclick="closeDialog('dialog_dlAPP')">立刻下载APP</a>
+		</div>
+	</div>
 
 </div>
 
@@ -134,27 +141,41 @@
 <script type="text/javascript" src="js/vendor/jQueryRotate.2.2.js"></script>
 <script>
 $(function(){
+	addCookie('mac',oSearch.mac||'',30);
+	addCookie('imei',oSearch.imei||'',30);
+
+	//转盘抽奖
 	var oPointer = $('#turntablePointer');
 	var oBtn = $('#turntableBtn');
 	var angleNow = 0;
 	var isAnimate = false;
 	var aPrize =[1,0,6,7,5,2,3,4];
+	var aPrizeName = ['1折购买套装','免费领取套装','iPad5','电子眼','全国VIP数据','iPhone5','3折购买套装','5折购买套装'];
 
 	oBtn.on('click',function(){
 		if(!isAnimate){
 			$.ajax({
-				url : postIp_prize + 'obdactive/prize/index',
-				type : 'GET',
-				success :function(data){
-					var json = eval('('+data+')')//JSON.parse(data);
+				url : postPrize,
+				data : {
+					mac : getCookie('mac'),
+					imei :getCookie('imei'),
+					channel : '14年十一活动'
+				},
+				success : function(data){
+					var json = data2json(data);
 					if(json.code == 200){
-						start(aPrize[json.index-1]);
+						console.log(json.index.substring(json.index.length-1) + '-' + json.index)
+						start(aPrize[json.index.substring(json.index.length-1)-1]);
+					}else if(json.code == 1014){
+						dialog({msg : '您暂无抽奖机会，请通过下方答题和分享的方式来获取抽奖机会'});
+					}else if(json.code == 1001){
+						dialog('dialog_dlAPP');
 					}else{
-						alert('网络延迟，请稍后再试')
+						dialog({msg : '网络延迟，请稍后再试'});
 					}
 				},
 				error: function (data){
-					alert('网络异常，请稍后再试');
+					dialog({msg : '网络异常，请稍后再试'});
 				}
 			})
 		}
@@ -172,33 +193,90 @@ $(function(){
 				angleNow = oPointer.getRotateAngle()%360;
 				oPointer.rotate(angleNow);
 				isAnimate = false;
-				dialog({msg : '恭喜中奖'});
+				dialog({msg : '恭喜您中得：'+aPrizeName[n]});
+				var _n = $('#chance').text();
+				_n--;
+				_n = _n < 0 ? 0 : _n;
+				$('#chance').text(_n);
 			},
 	　　　　easing: $.easing.easeInOutQuad
 	　 })
 	}
 	
+	//获取抽奖机会数
 	getChance({
-		mac : MAC,
+		mac : oSearch.mac,
 		fnSucc : function (n) {
-			$('#chance').text(n)
+			$('#chance').text(n);
+		},
+		fnFail : function(){
+			$('#chance').text(0);
+		},
+		fnError : function(){
+			$('#chance').text(0);
 		}
 	});
 
-	$('.chanceBtn').on('click',function(){
-		dialog('dialog_qFail');
+	//答题按钮
+	var btnQues = $('#btnQues');
+	btnQues.on('click',function(){
+		if(!getCookie('mac')){
+			dialog('dialog_dlAPP');
+			return false;
+		}
+	})
+
+	//分享按钮
+	$('#btnShare').on('click',function(){
+		if(!getCookie('mac')){
+			dialog('dialog_dlAPP');
+			return false;
+		}else{
+			updateCount();
+		}
+	})
+
+	function updateCount(){
+		$.ajax({
+			url : postUpdateCount,
+			data : {
+				mac : getCookie('mac'),
+				imei : getCookie('imei'),
+				mark : 'share'
+			},
+			success : function (data){
+				var json = data2json(data);
+				if(json.code == 200){
+					$('#chance').text(parseInt($('#chance').text())+3)
+				}else if(json.code == 1001){
+					dialog('dialog_dlAPP');
+				}else if(json.code == 1017){
+					dialog({msg : '不能通过重复分享增加抽奖机会'});
+				}else{
+					dialog({msg : '网络延迟，请稍后再试'});
+				}
+			}
+		})
+	}
+
+	//查询我的中奖纪录
+	$('#btnTickets').on('click',function(){
+		if(!getCookie('mac')){
+			dialog('dialog_dlAPP');
+			return false
+		}
 	})
 
 })
 
 function getChance(opt){
 	$.ajax({
-		url : postIp_chance + 'obdactive/prize/getCount',
-		data : {mac:opt.mac && MAC},
+		url : postChance,
+		data : {mac:getCookie('mac')},
 		success : function(data){
-			var json = eval('('+data+')');
+			var json = data2json(data);
 			if(json.code == 200){
-				opt.fnSucc && opt.fnSucc(n);
+				opt.fnSucc && opt.fnSucc(json.count);
 			}else{
 				opt.fnFail && opt.fnFail();
 			}

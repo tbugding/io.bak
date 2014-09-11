@@ -35,7 +35,7 @@ p{ margin: 0; line-height: 1.8em;}
 <body>
 <div id="content">
 	<ul class="tickets">
-		<li class="t1">
+		<!-- <li class="t1" style="display:none;">
 			<img class="block_img" src="img/20140909/ticket_1.png" alt="">
 			<div class="content">
 				<p class="p1">汽车卫士数据导航套装</p>
@@ -43,7 +43,7 @@ p{ margin: 0; line-height: 1.8em;}
 				<a class="buyBtn" href="javascript:;">立即购买</a>
 			</div>
 		</li>
-		<li class="t3">
+		<li class="t3" style="display:none;">
 			<img class="block_img" src="img/20140909/ticket_3.png" alt="">
 			<div class="content">
 				<p class="p1">汽车卫士数据导航套装</p>
@@ -51,7 +51,7 @@ p{ margin: 0; line-height: 1.8em;}
 				<a class="buyBtn" href="javascript:;">立即购买</a>
 			</div>
 		</li>
-		<li class="t5">
+		<li class="t5" style="display:none;">
 			<img class="block_img" src="img/20140909/ticket_5.png" alt="">
 			<div class="content">
 				<p class="p1">汽车卫士数据导航套装</p>
@@ -59,23 +59,94 @@ p{ margin: 0; line-height: 1.8em;}
 				<a class="buyBtn" href="javascript:;">立即购买</a>
 			</div>
 		</li>
-		<li class="tFree">
+		<li class="tFree" style="display:none;">
 			<img class="block_img" src="img/20140909/ticket_free.png" alt="">
 			<div class="content">
 				<p class="p1">免费获得汽车卫士</p>
 				<a class="buyBtn" href="javascript:;">立即领取</a>
 			</div>
 		</li>
-		<li class="tFree">
+		<li class="tFree" style="display:none;">
 			<img class="block_img" src="img/20140909/ticket_free.png" alt="">
 			<div class="content">
 				<p class="p1">免费获得汽车卫士</p>
 				<a class="buyBtn disableBtn" href="javascript:;">已领取</a>
 			</div>
-		</li>
+		</li> -->
 	</ul>
+	
+	<p id="none" class="none" style="display:none;">您暂无中奖纪录</p>
+<script>
+$(function(){
+	console.log()
+	function getTickets(){
+		$.ajax({
+			url : postGetTickets,
+			data : {
+				mac : getCookie('mac')
+			},
+			success :function (data){
+				var json = data2json(data);
+				console.log(json)
+				if(json.code == 200){
+					createTickets(json.arrays);
+				}else{
+					$('.none').show();
+					$('.tickets').hide();
+				}
+			}
+		})
+	}
+	function createTickets(arry){
+		var arr = [];
+		var str = '<li class="{{li}}"><img class="block_img" src="img/20140909/{{bg}}"><div class="content"><p class="p1">{{tit}}</p><p class="p2" style="display:{{isFree}}">折后价： <span class="price">{{price}}</span>元</p><a class="buyBtn" href="{{link}}">立即购买</a></div></li>';
+		for(var i=0; i<arry.length; i++){
+			if(arry[i].goodsId == 'web_obd_gq0001' || arry[i].goodsId == 'web_obd_gq0007' || arry[i].goodsId == 'web_obd_gq0008'){
 
-	<p class="none" style="display:none;">您暂无中奖纪录</p>
+				var dom = str.replace('{{li}}','tFree');
+				dom = dom.replace('{{bg}}','ticket_free.png');
+				dom = dom.replace('{{tit}}',arry[i].prizeName);
+				dom = dom.replace('{{isFree}}','none');
+				dom = dom.replace('{{link}}','orderFree.html?goodsId='+arry[i].goodsId);
+				$(dom).appendTo('.tickets');
+
+			}else if(arry[i].goodsId == 'web_obd_gq0002'){
+
+				var dom = str.replace('{{li}}','t1');
+				dom = dom.replace('{{bg}}','ticket_1.png');
+				dom = dom.replace('{{tit}}',arry[i].prizeName);
+				dom = dom.replace('{{isFree}}','block');
+				dom = dom.replace('{{price}}',arry[i].prizePrice);
+				dom = dom.replace('{{link}}','order.html?goodsId='+arry[i].goodsId);
+				$(dom).appendTo('.tickets');
+
+			}else if(arry[i].goodsId == 'web_obd_gq0003'){
+
+				var dom = str.replace('{{li}}','t3');
+				dom = dom.replace('{{bg}}','ticket_3.png');
+				dom = dom.replace('{{tit}}',arry[i].prizeName);
+				dom = dom.replace('{{isFree}}','block');
+				dom = dom.replace('{{price}}',arry[i].prizePrice);
+				dom = dom.replace('{{link}}','order.html?goodsId='+arry[i].goodsId);
+				$(dom).appendTo('.tickets');
+
+			}else if(arry[i].goodsId == 'web_obd_gq0004'){
+
+				var dom = str.replace('{{li}}','t5');
+				dom = dom.replace('{{bg}}','ticket_5.png');
+				dom = dom.replace('{{tit}}',arry[i].prizeName);
+				dom = dom.replace('{{isFree}}','block');
+				dom = dom.replace('{{price}}',arry[i].prizePrice);
+				dom = dom.replace('{{link}}','order.html?goodsId='+arry[i].goodsId);
+				$(dom).appendTo('.tickets');
+
+			}
+			
+		}
+	}
+	getTickets();
+})
+</script>
 </div>
 </body>
 </html>

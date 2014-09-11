@@ -99,7 +99,8 @@ h2{ padding: 0; margin: 0;}
 	<div id="dialog_qSucc" class="myDialog">
 		<div class="diaContent">恭喜您，答对了全部问题！又获得了两次抽奖机会，快再去试试自己的运气吧！</div>
 		<div class="diaBtn cf">
-			<a class="diaBtn1" href="javascript:;" onclick="closeDialog('dialog_qSucc')">确 定</a>
+			<a class="diaBtn2" href="javascript:;" onclick="closeDialog('dialog_qSucc')">留在本页</a>
+			<a class="diaBtn3" id="btnBack" href="index.html" onclick="closeDialog('dialog_qSucc')">立即去抽奖</a>
 		</div>
 	</div>
 
@@ -108,7 +109,15 @@ h2{ padding: 0; margin: 0;}
 		<div class="diaContent">很遗憾，您有题目没有答对，要不要重新再答一次？</div>
 		<div class="diaBtn cf">
 			<a class="diaBtn2" href="javascript:;" onclick="closeDialog('dialog_qFail')">重新答题</a>
-			<a class="diaBtn3" href="javascript:;" onclick="closeDialog('dialog_qFail')">不答了,138购买</a>
+			<a class="diaBtn3" href="javascript:;" onclick="order.html" style="font-size:0.9em; padding-top:3px;">优惠价138元购买</a>
+		</div>
+	</div>
+
+	<div id="dialog_dlAPP" class="myDialog">
+		<div class="diaContent" style="text-align:center">请下载图吧导航APP<br/>并在APP中参与活动</div>
+		<div class="diaBtn cf">
+			<a class="diaBtn2" href="javascript:;" onclick="closeDialog('dialog_dlAPP')">放 弃</a>
+			<a class="diaBtn3" href="http://datamobile.mapbar.com/map/mobile/app/mapbar_obd_navi.apk" onclick="closeDialog('dialog_dlAPP')">立刻下载APP</a>
 		</div>
 	</div>
 
@@ -130,9 +139,37 @@ $(function(){
 				allRight = false;
 			}
 		})
-
-		allRight ?　dialog('dialog_qSucc')　: dialog('dialog_qFail');
+		if(allRight){
+			updateCount();
+		}else{
+			dialog('dialog_qFail')
+		};
 	})
+	function updateCount(){
+		$.ajax({
+			url : postUpdateCount,
+			data : {
+				mac : getCookie('mac'),
+				imei : getCookie('imei'),
+				mark : 'answer'
+			},
+			success : function (data){
+				var json = data2json(data);
+				if(json.code == 200){
+					dialog('dialog_qSucc');
+				}else if(json.code == 1001){
+					dialog('dialog_dlAPP');
+				}else if(json.code == 1016){
+					dialog({msg : '您已经通过答题获得抽奖机会了，不能重复答题'});
+				}else{
+					dialog({msg : '网络延迟，请稍后再试'});
+				}
+			}
+		})
+	}
+	if(getCookie('mac')){
+		$('#btnBack').attr('href',$('#btnBack').attr('href')+'?mac='+getCookie('mac')+'&imei='+getCookie('imei')+'#turntable')
+	}
 })
 </script>
 </body>
