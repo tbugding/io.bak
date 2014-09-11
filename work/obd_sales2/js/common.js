@@ -87,4 +87,4 @@ function delCookie(name){
 
 //统计代码
 var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F0d8895f7d5e60989ead103e05c4f3cae' type='text/javascript'%3E%3C/script%3E"));
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fb915218d849ddf4ff66d93b89b380ddd' type='text/javascript'%3E%3C/script%3E"));
