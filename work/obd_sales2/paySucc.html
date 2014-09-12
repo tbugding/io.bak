@@ -56,5 +56,59 @@ ul{list-style: none; margin: 0; padding: 0;}
 	</div>
 	
 </div>
+<script>
+$(function(){
+	var order_num=oSearch.out_trade_no;
+	
+	$('#orderNum').text(order_num);
+
+	getCDK(order_num);
+
+	$('#cdk3').on('click',function(){
+		getCDK(order_num);
+	})
+
+	function getCDK(order_num){
+		$.ajax({
+			url: postCDK,
+			data: {"orderId":order_num},
+			beforeSend: function(){
+				$('#cdk2').hide();
+				$('#cdk3').hide();
+				$('#cdk1').show();
+			},
+			success: function(data){
+				if(data.code == 200){
+					if(data.arrays[0].order_status == 000){
+						$('#codeData').text(data.arrays[0].nationDataCode);
+						$('#codeEye').text(data.arrays[0].electronicCode);
+
+						$('#cdk1').hide();
+						$('#cdk3').hide();
+
+						$('#cdk2').show();
+					}else{
+						$('#cdk1').hide();
+						$('#cdk2').hide();
+
+						$('#cdk3').show();
+					}
+				}else{
+					$('#cdk1').hide();
+					$('#cdk2').hide();
+
+					$('#cdk3').show();
+				}
+			},
+			error: function (){
+				$('#cdk1').hide();
+				$('#cdk2').hide();
+
+				$('#cdk3').show();
+			}
+		})
+	}
+})
+</script>
 </body>
 </html>

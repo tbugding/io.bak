@@ -150,9 +150,15 @@ $(function(){
 	var angleNow = 0;
 	var isAnimate = false;
 	var aPrize =[1,0,6,7,5,2,3,4];
-	var aPrizeName = ['1折购买套装','免费领取套装','iPad5','电子眼','全国VIP数据','iPhone5','3折购买套装','5折购买套装'];
+	var aPrizeName = ['1折购买套装','免费领取汽车卫士','iPad5','电子眼','全国VIP数据','iPhone6','3折购买套装','5折购买套装'];
 
 	oBtn.on('click',function(){
+		getChance({
+			mac : oSearch.mac,
+			fnSucc : function (n) {
+				$('#chance').text(n);
+			}
+		});
 		if(!isAnimate){
 			$.ajax({
 				url : postPrize,
@@ -164,7 +170,6 @@ $(function(){
 				success : function(data){
 					var json = data2json(data);
 					if(json.code == 200){
-						console.log(json.index.substring(json.index.length-1) + '-' + json.index)
 						start(aPrize[json.index.substring(json.index.length-1)-1]);
 					}else if(json.code == 1014){
 						dialog({msg : '您暂无抽奖机会，请通过下方答题和分享的方式来获取抽奖机会'});
@@ -247,7 +252,9 @@ $(function(){
 			success : function (data){
 				var json = data2json(data);
 				if(json.code == 200){
+					
 					$('#chance').text(parseInt($('#chance').text())+3)
+					
 				}else if(json.code == 1001){
 					dialog('dialog_dlAPP');
 				}else if(json.code == 1017){
@@ -276,6 +283,7 @@ function getChance(opt){
 		success : function(data){
 			var json = data2json(data);
 			if(json.code == 200){
+				console.log(json.count)
 				opt.fnSucc && opt.fnSucc(json.count);
 			}else{
 				opt.fnFail && opt.fnFail();

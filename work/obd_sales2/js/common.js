@@ -1,23 +1,24 @@
 var postIp = 'http://obd.mapbar.com/';
 
-var postIp_pro = 'http://obd.mapbar.com/shop/';
+//var postIp_pro = 'http://obd.mapbar.com/shop/';
+//var postIp_order = 'http://obd.mapbar.com/shop/';
+//var postIp_pay = 'http://obd.mapbar.com/shop/';
+//var postIp_cdy = 'http://obd.mapbar.com/shop/';
+//var postIp_alipay = 'https://buy.mapbar.com/';
+//var postIp_alipay = 'http://192.168.0.111:8021/';
 
-var postIp_order = 'http://obd.mapbar.com/shop/';
+var postAlipay = 'http://192.168.0.111:8021/services/paymentType/alipay/gatewapway';
 
-var postIp_pay = 'http://obd.mapbar.com/shop/';
-
-var postIp_cdy = 'http://obd.mapbar.com/shop/';
-
-var postIp_alipay = 'https://buy.mapbar.com/';
+var postGetPro = 'http://192.168.85.29:8512/obd/newpay/getOneGoods';
+var postCDK = 'http://192.168.85.29:8512/obd/newpay/getActiveStatus';
+var postSubmitOrder = 'http://192.168.85.29:8512/obd/newpay/submitOrder';
 
 var postPrize = 'http://192.168.85.29:8722/obdactive/prize/handleLottery';
-
 var postChance = 'http://192.168.85.29:8722/obdactive/prize/getCount';
-
 var postUpdateCount = 'http://192.168.85.29:8722/obdactive/prize/updateCount';
-
 var postGetTickets = 'http://192.168.85.29:8722/obdactive/prize/listWinPrize';
-
+var postGetPrzie = 'http://192.168.85.29:8722/obdactive/prize/getOnePrizeById';
+var postFreePrize = 'http://192.168.85.29:8722/obdactive/prize/freePrizeOrder';
 
 /*url中的search*/
 function Search(){
@@ -87,4 +88,4 @@ function delCookie(name){
 
 //统计代码
 var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fb915218d849ddf4ff66d93b89b380ddd' type='text/javascript'%3E%3C/script%3E"));
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F339e13f403e4b5c6de449f1c796c8588' type='text/javascript'%3E%3C/script%3E"));
