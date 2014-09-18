@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>图吧汽车卫士-首页</title>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<meta http-equiv="pragram" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache, must-revalidate">
+	<meta http-equiv="expires" content="0">
+	<link rel="stylesheet" type="text/css" href="style/base.css?v=1.2.0">
+	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="js/common.js?v=1.2.0"></script>
+<style>
+.banner{}
+.bannerBtn{ background: #fbeccf; color: #f7812b; position: absolute; bottom:5%;}
+#turntablePointer{ width: 45.83%; height: 52.38%; position: absolute; top: 50%; left: 50%; margin-left: -22.91%; margin-top: -22.91%;}
+#turntableBtn{ width: 21.8%; height: 24.92%; position: absolute; top: 50%; left: 50%; margin-left: -10.9%; margin-top: -10.9%; cursor: pointer;}
+.turntableBottom{}
+.turntableBottom .p{ height: 16.35%; overflow: hidden; color: #d5a0d5; margin: 0; margin-bottom: 4.09%;}
+.turntableBottom .content{ width: 100%; height: 100%; position: absolute; top: 0; left: 0;}
+.turntableBottom .chanceBtn{ margin-left: 4.167%; margin-right: 4.167%;}
+.turntableBottom .chance1{ margin-bottom: 5.97%;}
+.turntableBottom .chance2{ margin-bottom: 3%;}
+.turntableBottom .query{ color: #fcba1e;}
+.rules{ background: #5b205b; text-align: left; color: #ffffff; padding-top: 2.1%; padding-bottom: 4%;}
+.rules h2{ margin: 0; margin-left: 4%; font:normal 1.2em /2.4em microsoft yahei;}
+.rules ol{ margin: 0; margin-right: 4%; line-height: 1.5em;}
+.rules ol li{margin-bottom: 2%;}
+#chance{ margin: 0 10px; color: #ff586e; font-size: 1.5em;}
+
+.underline{ border-bottom: 1px solid #e0e0e0;}
+.block03 .p1{ margin-top: 12%;}
+.block03 .p2{ margin-top: 15.2%;}
+.block04 .ico{ margin-top: 18%;}
+.block04 .tit{ font: 1.1em/3em microsoft yahei; margin: 0; color: #333;}
+.block04 .tit2{ font: 0.875em/2em microsoft yahei; color: #666; margin: 0;}
+.block04 .img{ margin-top: 12%;}
+</style>
+</head>
+<body>
+<div id="content">
+	<div class="block banner">
+		<img class="block_img" src="img/20140909/index_p1.png">
+		<a class="btn bannerBtn" href="http://datamobile.mapbar.com/map/mobile/app/mapbar_obd_navi.apk">下载汽车卫士APP</a>
+	</div>
+	<div class="block">
+		<img class="block_img" src="img/20140909/index_turntableTop.png">
+	</div>
+	<div id="turntable" class="block">
+		<img class="block_img" src="img/20140909/index_p6_3.png">
+		<img id="turntablePointer" src="img/20140909/index_p6_2.png" alt="">
+		<img id="turntableBtn" src="img/20140909/index_p6_1.png" alt="">
+	</div>
+	<div class="block turntableBottom">
+		<img class="block_img" src="img/20140909/index_turnTableBg.png" alt="">
+		<div class="content">
+			<p class="p">您还有<span id="chance">0</span>次抽奖机会</p>
+			<div class="chanceBtn chance1"><a id="btnQues" href="javascript:;"><img class="block_img" src="img/20140909/index_chancebtn01.png" alt="参与答题，可获得两次抽奖机会"></a></div>
+			<div class="chanceBtn chance2"><a id="btnShare" href="javascript:;"><img class="block_img" src="img/20140909/index_chancebtn02.png" alt="分享到朋友圈，可获得3次抽奖机会"></a></div>
+			<a id="btnTickets" class="query" href="tickets.html">查询中奖记录</a>
+			<!-- mapbar://embeddedWeb/weChatRedEnvelopeActivity/weChat/obdShareFriends?t=十一疯狂送豪礼,万元大奖免费拿&c=竟然能免费抽到iphone6!还是100%中奖,再也不用担心心有余而肾不足的问题了,快来直接领奖!&i=http://192.168.0.164:6445/img/20140909/s.png&l=http://mobile.mapbar.com/carpower/introduce/ -->
+		</div>
+	</div>
+	<div class="block rules">
+		<h2>活动规则</h2>
+		<ol>
+			<li>活动时间：9月18日-10月15日</li>
+			<li>购买截止日期为10月15日24:00</li>
+			<li>答题全部答对可以获得两次抽奖机会，答错可以反复进行答题。</li>
+			<li>每人仅一次通过答题和分享获取抽奖次数的机会</li>
+			<li>本活动最终解释权归图吧汽车卫士所有</li>
+		</ol>
+	</div>
+
+	<div class="block block03 underline">
+		<img class="block_img p1" src="img/20140909/index_p7.png">
+		<img class="block_img p2" src="img/20140909/index_p8.jpg">
+	</div>
+	<div class="block block04 underline">
+		<p class="tit" style="margin-top:15%;">App连接你的爱车，开启你的智能驾驶</p>
+		<p class="tit2">迄今为止最时尚的汽车穿戴式设备<br/>让你的汽车开口说话</p>
+		<img class="img block_img" src="img/20140909/index_p9.jpg">
+	</div>
+	<div class="block block04 underline">
+		<div class="ico"><img class="block_img" src="img/20140909/index_p10_1.png"></div>
+		<p class="tit">360°全车体检  极致安全</p>
+		<img class="img block_img" style="margin-bottom:8.6%;" src="img/20140909/index_p10_2.jpg">
+	</div>
+	<div class="block block04 underline" style="margin-top:-1px;">
+		<img class="block_img" src="img/20140909/index_p11_1.png">
+		<p class="tit">增强导航</p>
+		<p class="tit2">完美解决导航时GPS卫星丢失困扰<br />导航同时监控车况，故障异常提前播报</p>
+		<img class="block_img" style="margin-top:8.6%;" src="img/20140909/index_p11_2.jpg">
+	</div>
+	<div class="block block04 underline">
+		<div class="ico"><img class="block_img" src="img/20140909/index_p12_1.png"></div>
+		<p class="tit">油耗分析省油省钱 经济出行</p>
+		<img class="img block_img" style="margin-bottom:10%;" src="img/20140909/index_p12_2.png">
+	</div>
+	<div class="block block04 underline">
+		<div class="ico"><img class="block_img" src="img/20140909/index_p13_1.png"></div>
+		<p class="tit">超酷便捷显示  智能驾驶</p>
+		<img class="img block_img" src="img/20140909/index_p13_2.jpg">
+	</div>
+	<div class="block">
+		<a class="btn btn_normal" style="margin-top:2em; margin-bottom:2em;;" href="http://datamobile.mapbar.com/map/mobile/app/mapbar_obd_navi.apk">下载汽车卫士APP</a>
+	</div>
+
+
+	<!-- 弹出框 -->
+	<div id="dialog_dlAPP" class="myDialog">
+		<div class="diaContent" style="text-align:center">请下载图吧导航APP<br/>并在APP中参与活动</div>
+		<div class="diaBtn cf">
+			<a class="diaBtn2" href="javascript:;" onclick="closeDialog('dialog_dlAPP')">放 弃</a>
+			<a class="diaBtn3" href="http://datamobile.mapbar.com/map/mobile/app/mapbar_obd_navi.apk" onclick="closeDialog('dialog_dlAPP')">立刻下载APP</a>
+		</div>
+	</div>
+	<div id="dialog_dlNew" class="myDialog">
+		<div class="diaContent" style="text-align:center">下载最新版图吧导航才能分享拿抽奖机会哦！</div>
+		<div class="diaBtn cf">
+			<a class="diaBtn2" href="javascript:;" onclick="closeDialog('dialog_dlNew')">放 弃</a>
+			<a class="diaBtn3" href="http://datamobile.mapbar.com/map/mobile/app/mapbar_obd_navi.apk" onclick="closeDialog('dialog_dlNew')">立刻下载</a>
+		</div>
+	</div>
+	<div id="dialog_getPrize" class="myDialog">
+		<div class="diaContent" style="text-align:center">恭喜您中得：<span id="prizeName"></span></div>
+		<div class="diaBtn cf">
+			<a class="diaBtn1" href="javascript:;" onclick="closeDialog('dialog_dlAPP')">放 弃</a>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="js/vendor/jquery.easing.min.js"></script>
+<script type="text/javascript" src="js/vendor/jQueryRotate.2.2.js"></script>
+<script>
+$(function(){
+	addCookie('mac',oSearch.mac||'',30);
+	addCookie('imei',oSearch.imei||'',30);
+	$(window).on('load',function(){
+		getChance({
+			mac : oSearch.mac,
+			fnSucc : function (n) {
+				$('#chance').text(n);
+			}
+		});
+	})
+
+	//转盘抽奖
+	var oPointer = $('#turntablePointer');
+	var oBtn = $('#turntableBtn');
+	var angleNow = 0;
+	var isAnimate = false;
+	var aPrize =[1,0,6,7,5,2,3,4];
+	var aPrizeName = ['1折购买套装','免费领取套装','iPad5','电子眼激活码','全国数据激活码','iPhone6','3折购买套装','5折购买套装'];
+
+	oBtn.on('click',function(){
+		
+		if(!isAnimate){
+			$.ajax({
+				url : postPrize,
+				data : {
+					mac : getCookie('mac'),
+					imei :getCookie('imei'),
+					channel : '14年十一活动'
+				},
+				success : function(data){
+					var json = data2json(data);
+					
+					if(json.code == 200){
+						start(aPrize[json.index.substring(json.index.length-1)-1],json.prizeId);
+					}else if(json.code == 1014){
+						dialog({msg : '您暂无抽奖机会，请通过下方答题和分享的方式来获取抽奖机会'});
+					}else if(json.code == 1001){
+						dialog('dialog_dlAPP');
+					}else{
+						dialog({msg : '网络延迟，请稍后再试'});
+					}
+				},
+				error: function (data){
+					dialog({msg : '网络异常，请稍后再试'});
+				}
+			})
+		}
+	});
+
+	function start(n,id){
+		var round = rdn(5,8);
+		var time = rdn(5000,7000);
+		isAnimate = true;
+		oPointer.rotate({
+	　　　　angle:angleNow,
+	　　　　animateTo:round*360+n*45+23,
+	　　　　duration:time,
+	　　　　callback:function(){
+				angleNow = oPointer.getRotateAngle()%360;
+				oPointer.rotate(angleNow);
+				isAnimate = false;
+				var address = '';
+				if(n == '1' || n == '2' || n == '3' || n == '4' || n == '5'){
+					address = 'orderFree.html?prizeId='+id;
+				}else{
+					address = 'order.html?prizeId='+id;
+				}
+				
+				var _n = $('#chance').text();
+				_n--;
+				_n = _n < 0 ? 0 : _n;
+				$('#chance').text(_n);
+
+				$('<div class="dialogMask"></div><div class="dialog"><div class="diaContent">恭喜您中得：'+aPrizeName[n]+'</div><div class="diaBtn cf"><a class="diaBtn1" href="'+address+'" onclick="closeDialog();">确 定</a></div>').appendTo('body')
+			},
+	　　　　easing: $.easing.easeInOutQuad
+	　 })
+	}
+	
+	//获取抽奖机会数
+	getChance({
+		mac : oSearch.mac,
+		fnSucc : function (n) {
+			$('#chance').text(n);
+		},
+		fnFail : function(){
+			$('#chance').text(0);
+		},
+		fnError : function(){
+			$('#chance').text(0);
+		}
+	});
+
+	//答题按钮
+	var btnQues = $('#btnQues');
+	btnQues.on('click',function(){
+		if(!getCookie('mac')){
+			dialog('dialog_dlAPP');
+			return false;
+		}
+		$.ajax({
+			url : postVQuestionnaire,
+			data : {mac : oSearch.mac},
+			success : function(data){
+				var json = data2json(data);
+				if(json.code == 200 && json.count == 1){
+					dialog({msg:'您已经通过答题获得抽奖机会了，不能重复答题'});
+				}else{
+					window.location.href = 'questionnaire.html';
+				}
+			},
+			error : function(){
+				window.location.href = 'questionnaire.html';
+			}
+		})
+	})
+
+	//分享按钮
+	$('#btnShare').on('click',function(){
+		if(!getCookie('mac')){
+			dialog('dialog_dlAPP');
+			return false;
+		}else{
+			try{
+				share2Weixin();
+				updateCount();
+			}catch (e){
+				dialog('dialog_dlNew');
+			}
+			
+		}
+	})
+
+	function updateCount(){
+		$.ajax({
+			url : postUpdateCount,
+			data : {
+				mac : getCookie('mac'),
+				imei : getCookie('imei'),
+				mark : 'share'
+			},
+			success : function (data){
+				var json = data2json(data);
+				if(json.code == 200){
+					setTimeout(function(){
+						$('#chance').text(parseInt($('#chance').text())+3)
+					},2000)
+				}else if(json.code == 1001){
+					dialog('dialog_dlAPP');
+				}else if(json.code == 1017){
+					//dialog({msg : '不能通过重复分享增加抽奖机会'});
+				}else{
+					dialog({msg : '网络延迟，请稍后再试'});
+				}
+			}
+		})
+	}
+
+	//查询我的中奖纪录
+	$('#btnTickets').on('click',function(){
+		if(!getCookie('mac')){
+			dialog('dialog_dlAPP');
+			return false
+		}
+	})
+
+})
+
+function getChance(opt){
+	$.ajax({
+		url : postChance,
+		data : {
+			mac:getCookie('mac'),
+			t:new Date().getTime()
+		},
+		success : function(data){
+			var json = data2json(data);
+			if(json.code == 200){
+				opt.fnSucc && opt.fnSucc(json.count);
+			}else{
+				opt.fnFail && opt.fnFail();
+			}
+		},
+		error : function(){
+			opt.fnError && opt.fnError(); 
+		}
+	})
+}
+
+function share2Weixin(){
+	var tit = '十一疯狂送豪礼，万元大奖免费拿';
+	var content = '竟然能免费抽到iphone6！还是100%中奖，再也不用担心心有余而肾不足的问题了，快来直接领奖！';
+	var url = 'http://192.168.0.164:6445/index.html';
+	// var url = 'http://mobile.mapbar.com/carpower/introduce/';
+	var img = 'iVBORw0KGgoAAAANSUhEUgAAAEYAAABGCAMAAABG8BK2AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MzNDMEI3NDEzRDQwMTFFNDhGMjFBOTkzQjA4N0EzNkQiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MzNDMEI3NDAzRDQwMTFFNDhGMjFBOTkzQjA4N0EzNkQiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjg0NzA2REU2M0M5NTExRTRBQTFERTZCQkI0QTM4MUNFIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjg0NzA2REU3M0M5NTExRTRBQTFERTZCQkI0QTM4MUNFIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+lNKwMwAAAwBQTFRFlyR0/evSOEdk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';
+	window.mapbar.WeChatShareFriendForWeb(tit,content,url,img);
+}
+</script>
+</body>
+</html>
