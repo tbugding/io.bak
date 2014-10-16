@@ -42,5 +42,10 @@ $(function(){
 		}
 		// console.log(e.target)
 	});
-	
+	// if(client.width<=720){
+		document.onscroll=function(){
+			var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+			console.log(scrollTop)
+		}
+	// }
 })
