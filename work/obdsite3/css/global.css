@@ -49,7 +49,7 @@ input:focus,button:focus,select:focus,textarea:focus,a:focus{outline:none;}
 .nav_logo{ display: none;}
 
 @media all and (max-width: 960px){
-	#header{ width: 0; height: 100%; position: absolute; left: 0; top: 0; background: red;
+	#header{ width: 0; height: 100%; position: fixed; left: 0; top: 0; background: red;
 		-webkit-transition: left .6s;
 		-moz-transition: left .6s;
 		-ms-transition: left .6s;

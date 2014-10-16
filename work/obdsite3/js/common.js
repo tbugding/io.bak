@@ -11,12 +11,12 @@ function getClient(){
 	client.height = document.documentElement.clientHeight;
 	client.UA = window.navigator.userAgent;
 	document.title = client.width +' - '+ client.height;
-	if(client.width<=720){
-		document.onscroll=function(){
-			var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
-			$('#header').css('top',scrollTop+'px');
-		}
-	}
+	// if(client.width<=720){
+	// 	document.onscroll=function(){
+	// 		var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+	// 		$('#header').css('top',scrollTop+'px');
+	// 	}
+	// }
 }
 $(window).on('resize',getClient);
 
