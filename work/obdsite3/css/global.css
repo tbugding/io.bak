@@ -48,7 +48,7 @@ input:focus,button:focus,select:focus,textarea:focus,a:focus{outline:none;}
 .nav a:hover,.nav .active{ border-top: 4px solid #23d4c6; transition:border .3s;}
 .nav_logo{ display: none;}
 
-@media all and (max-width: 960px){
+@media all and (max-width: 720px){
 	#header{ width: 0; height: 100%; position: fixed; left: 0; top: 0; background: red;
 		-webkit-transition: left .6s;
 		-moz-transition: left .6s;
