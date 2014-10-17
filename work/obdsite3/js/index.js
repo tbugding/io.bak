@@ -60,6 +60,7 @@ $(function(){
 	function winResize(){
 
 		if(client.width<=720){
+			console.log('mobile')
 			$('#header').removeClass('header_pc header_pcHide');
 			$('#fullpage').removeClass('fullpage_pc').hide();
 			$('#mobile').removeClass('fullpage_pc').show();
@@ -69,7 +70,7 @@ $(function(){
 				isFullPage = false;
 			}
 		}else{
-
+			console.log('pc')
 			$('#header').addClass('header_pc');
 			$('#fullpage').addClass('fullpage_pc').show();
 			$('#mobile').removeClass('fullpage_pc').hide();
