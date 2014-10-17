@@ -56,7 +56,6 @@ $(function(){
 	$(window).on('resize',function(){
 		loadIframe(winResize);
 	});
-	// winResize();
 	function winResize(){
 
 		if(client.width<=720){
@@ -93,8 +92,8 @@ $(function(){
 			});
 		}else if(client.width>720 && !loadedPC){
 			$('<iframe id="iframePC" src="index_pc.html" style="display:none"></iframe>').appendTo('body').on('load',function(e){
-				$('#iframeMobile').contents().find('#fullpage').prependTo('#pageWrap');
-				buildFullPage();
+				$('#iframePC').contents().find('#fullpage').prependTo('#pageWrap');
+				// buildFullPage();
 				loadedPC = true;
 				bc();
 			});
