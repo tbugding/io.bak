@@ -79,13 +79,16 @@ $(function(){
 		}
 	}
 
-	// if(client.width<=720){
+	if(client.width<=720){
 		$('<iframe id="iframeMobile" src="index_mobile.html" style="display:none"></iframe>').appendTo('body').on('load',function(e){
-			// console.log(e.target.window)
 			$('#iframeMobile').contents().find('#mobile').prependTo('#pageWrap');
-			console.log('done')
-		})
-	// }
+		});
+	}else{
+		$('<iframe id="iframePC" src="index_pc.html" style="display:none"></iframe>').appendTo('body').on('load',function(e){
+			$('#iframeMobile').contents().find('#fullpage').prependTo('#pageWrap');
+			buildFullPage();
+		});
+	}
 
 
 
