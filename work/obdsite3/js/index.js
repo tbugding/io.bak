@@ -53,10 +53,13 @@ $(function(){
 
 	
 
-	$(window).on('resize',winResize);
-	winResize();
+	$(window).on('resize',function(){
+		loadIframe(winResize);
+	});
+	// winResize();
 	function winResize(){
-		if(client.width<=960){
+
+		if(client.width<=720){
 			$('#header').removeClass('header_pc header_pcHide');
 			$('#fullpage').removeClass('fullpage_pc').hide();
 			$('#mobile').removeClass('fullpage_pc').show();
@@ -79,16 +82,26 @@ $(function(){
 		}
 	}
 
-	if(client.width<=720){
-		$('<iframe id="iframeMobile" src="index_mobile.html" style="display:none"></iframe>').appendTo('body').on('load',function(e){
-			$('#iframeMobile').contents().find('#mobile').prependTo('#pageWrap');
-		});
-	}else{
-		$('<iframe id="iframePC" src="index_pc.html" style="display:none"></iframe>').appendTo('body').on('load',function(e){
-			$('#iframeMobile').contents().find('#fullpage').prependTo('#pageWrap');
-			buildFullPage();
-		});
+	loadIframe(winResize);
+	function loadIframe(bc){
+		if(client.width<=720 && !loadedMobile){
+			$('<iframe id="iframeMobile" src="index_mobile.html" style="display:none"></iframe>').appendTo('body').on('load',function(e){
+				$('#iframeMobile').contents().find('#mobile').prependTo('#pageWrap');
+				loadedMobile = true;
+				bc();
+			});
+		}else if(client.width>720 && !loadedPC){
+			$('<iframe id="iframePC" src="index_pc.html" style="display:none"></iframe>').appendTo('body').on('load',function(e){
+				$('#iframeMobile').contents().find('#fullpage').prependTo('#pageWrap');
+				buildFullPage();
+				loadedPC = true;
+				bc();
+			});
+		}else{
+			bc();
+		}
 	}
+	
 
 
 
