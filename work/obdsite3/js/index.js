@@ -82,7 +82,8 @@ $(function(){
 	// if(client.width<=720){
 		$('<iframe id="iframeMobile" src="index_mobile.html" style="display:none"></iframe>').appendTo('body').on('load',function(e){
 			// console.log(e.target.window)
-			console.log($('#iframeMobile').contents().find('#mobile').appendTo('#pageWrap'))
+			$('#iframeMobile').contents().find('#mobile').appendTo('#pageWrap');
+			console.log('done')
 		})
 	// }
 
