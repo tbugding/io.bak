@@ -103,8 +103,15 @@ $(function(){
 	}
 	
 
+	$('body').on('click','#activityClose',function(){
+		$('#activityBanner').hide();
+	})
 
-
+	$('body').on('click','.mobile_userBoxBtns li',function(){
+		var index = $(this).index();
+		$('.mobile_userBoxContent').hide();
+		$('.mobile_userBoxContent').eq(index).show();
+	})
 
 
 
