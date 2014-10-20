@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>积分墙-提现</title>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<link rel="stylesheet" type="text/css" href="style/common.css">
+	<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="js/common.js"></script>
+</head>
+<body class="bgGray">
+	<div class="userTopBar bgBlue"><div class="w88p bc pr"><a href="javascript:;"><i></i>返回首页</a></div></div>
+	<div class="userPassword bgWhite">
+		<p class="w88p bc">请输入支付宝账号和姓名提现：</p>
+		<input type="text" class="textInput bc mt10" placeholder="支付宝账号" />
+		<input type="text" class="textInput bc mt13" placeholder="支付宝姓名" />
+		<div class="withdrawBlock1 bc w88p mt13 cf">
+			<span class="cont1 fl colorBlue" href="javascript:;">提现金额</span>
+			<a id="btnLimit" class="cont2 textInput fr pr" href="javascript:;"><span>10元,2个工作日到账</span><i class="aDown"></i></a>
+			
+		</div>
+		<p class="w88p bc tr mt10">余额：<span class="colorRed"><span>12</span>元</span></p>
+		<a class="btnNormal bgBlue mt20 bc" href="javascript:;">提交</a>
+
+	</div>
+	<div class="withdrawBlock2 w88p bc">说明：支付宝账号必须是手机号或邮箱，且进行实名认证。不要输入淘宝昵称、不要输入密码！</div>
+			<select id="limit">
+				<option value="">10元,2个工作日到账</option>
+				<option value="">20元,2个工作日到账</option>
+				<option value="">50元,2个工作日到账</option>
+			</select>
+</body>
+<script>
+$(function(){
+	$('#btnLimit').on('click',function(){
+		$('#limit').trigger('click');
+	});
+	$('#limit').on('click',function(){
+		console.log('a')
+	});
+})
+</script>
+</html>
