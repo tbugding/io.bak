@@ -16,7 +16,14 @@
 		<input type="text" class="textInput bc mt13" placeholder="支付宝姓名" />
 		<div class="withdrawBlock1 bc w88p mt13 cf">
 			<span class="cont1 fl colorBlue" href="javascript:;">提现金额</span>
-			<a id="btnLimit" class="cont2 textInput fr pr" href="javascript:;"><span>10元,2个工作日到账</span><i class="aDown"></i></a>
+			<a id="btnLimit" class="cont2 textInput fr pr" href="javascript:;">
+				<select id="limit">
+					<option value="">10元,2个工作日到账</option>
+					<option value="">20元,2个工作日到账</option>
+					<option value="">50元,2个工作日到账</option>
+				</select>
+				<i class="aDown"></i>
+			</a>
 			
 		</div>
 		<p class="w88p bc tr mt10">余额：<span class="colorRed"><span>12</span>元</span></p>
@@ -24,20 +31,20 @@
 
 	</div>
 	<div class="withdrawBlock2 w88p bc">说明：支付宝账号必须是手机号或邮箱，且进行实名认证。不要输入淘宝昵称、不要输入密码！</div>
-			<select id="limit">
+			<!-- <select id="limit">
 				<option value="">10元,2个工作日到账</option>
 				<option value="">20元,2个工作日到账</option>
 				<option value="">50元,2个工作日到账</option>
-			</select>
+			</select> -->
 </body>
 <script>
 $(function(){
-	$('#btnLimit').on('click',function(){
-		$('#limit').trigger('click');
-	});
-	$('#limit').on('click',function(){
-		console.log('a')
-	});
+	// $('#btnLimit').on('click',function(){
+	// 	$('#limit').trigger('click');
+	// });
+	// $('#limit').on('click',function(){
+	// 	console.log('a')
+	// });
 })
 </script>
 </html>

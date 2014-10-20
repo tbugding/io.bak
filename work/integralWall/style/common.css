@@ -98,11 +98,13 @@ a:hover {text-decoration:none;}
 .userPassword{ padding: 20px 0 ; border-bottom: 1px solid #ddd;}
 
 .withdrawBlock1 .cont1{ width: 24%; line-height: 54px;}
-.withdrawBlock1 .cont2{ width: 74%; margin-right: -2px; padding: 0; text-indent: 13px; color: #4d4d4d;}
+.withdrawBlock1 .cont2{ width: 74%; margin-right: -2px; padding: 0; text-indent: 13px; color: #4d4d4d; overflow: hidden;}
+.withdrawBlock1 .cont2 select{ display: block; width: 120%; height: 100%; border:0; background: none; font-size: 1em; color: inherit; padding-left: 4px;}
 .withdrawBlock1 i{ right: 13px; top: 50%; margin-top: -4px;}
 .aDown{ width: 16px; height: 9px; background: url(../img/ico.png) 0 -500px no-repeat; position: absolute;}
 
 .withdrawBlock2{ padding: 20px 0; font-size: 0.875em; line-height: 1.5em;}
+
 
 
 
