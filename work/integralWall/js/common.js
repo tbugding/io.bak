@@ -1,4 +1,18 @@
-var ip = {
+var post = {
+	register : 'http://192.168.8.69:7090/user/register',
+	login : 'http://192.168.8.69:7090/user/auth',
+	aCode : 'http://192.168.8.69:7090/user/activate/:id/127.0.0.1/activate_code',
+	activate : 'http://192.168.8.69:7090/user/activate/activate_code',
+	password : 'http://192.168.8.69:7090/user/password',
+
+	adList : 'http://10.10.24.19:7081/adwap/rest/services/getAdInfo',
+	adDown : 'http://10.10.24.19:7081/adwap/rest/services/getDoneAd',
+	balance : 'http://10.10.24.19:7081/adwap/rest/services/getUserBalance',
+	saveAliPay : 'http://10.10.24.19:7081/adwap/rest/services/saveAliPayInfo',
+	getAliPay : 'http://10.10.24.19:7081/adwap/rest/services/getAliPayInfo',
+	withDraw : 'http://10.10.24.19:7081/adwap/rest/services/commitGetMoney',
+	adCallback : 'http://10.10.24.19:7081/adwap/rest/services/adTaskCallback',
+	countClick : 'http://10.10.24.19:7081/adwap/rest/services/statisUserClicks',
 
 };
 
@@ -22,18 +36,22 @@ function dialog(opt){
 		$('<div class="dialogMask"></div>').appendTo('body');
 		$('#'+opt).show();
 	}else{
-		var win = $('<div class="dialogMask"></div><div class="dialog"><div class="diaContent">'+opt.msg+'</div><div class="diaBtn cf"><a class="diaBtn1" href="javascript:;" onclick="closeDialog();">确 定</a></div>').appendTo('body');
+		var win = $('<div class="dialogMask"></div><div class="dialog"><div class="diaContent">'+opt.msg+'</div><div class="diaBtn cf"><a class="diaBtn1" href="javascript:;" onclick="closeDialog('+opt.onConfirm+');">确 定</a></div>').appendTo('body');
 	}
 }
 
 /*关闭弹出层*/
 function closeDialog(opt){
-	if(opt){
+	if(typeof opt == 'string'){
 		$('#'+opt).hide();
-	}else{
+	}else if(opt == undefined || typeof opt == 'function'){
 		$('.dialog').remove();
 	}
 	$('.dialogMask').remove();
+
+	if(typeof opt == 'function'){
+		opt();
+	}
 }
 
 /*统一ajax返回类型*/
@@ -67,3 +85,13 @@ function delCookie(name){
 	addCookie(name,'1',-1)
 }
 
+function isMobile(str){
+	var reg = /^(1\d{10})$/;
+	return reg.test(str);
+}
+
+// $(function(){
+// 	if(getCookie('username') === ''){
+// 		window.location.href = 'login.html';
+// 	}
+// });

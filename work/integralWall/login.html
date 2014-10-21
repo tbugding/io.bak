@@ -11,15 +11,15 @@
 <body class="bgGray">
 	<div class="balanceBar cf">
 		<p class="balanceBar_text">余额<span class="colorRed">￥<i id="balance">5</i>元</span></p>
-		<a class="balanceBar_btn" href="javascript:;">提现</a>
+		<a class="balanceBar_btn" href="register.html">提现</a>
 	</div>
 	<div class="loginBlock0 bgWhite">
-		<input type="text" class="textInput bc inputUser" placeholder="请输入账号" />
-		<input type="password" class="textInput bc mt13 inputPW" placeholder="请输入密码" />
-		<a class="btnNormal bgBlue mt25 bc" href="javascript:;">登录</a>
+		<input id="username" type="text" class="textInput bc inputUser" placeholder="请输入账号" />
+		<input id="password" type="password" class="textInput bc mt13 inputPW" placeholder="请输入密码" />
+		<a id="submit" class="btnNormal bgBlue mt25 bc" href="javascript:;">登录</a>
 	</div>
 	<div class="loginBlock1 cf bgWhite">
-		<a href="javascript:;">注册领<span class="colorRed">5</span>元</a>
+		<a href="register.html">注册领<span class="colorRed">5</span>元</a>
 		<a href="javascript:;" class="btnRight">找回密码</a>
 	</div>
 	<div class="loginBlock2">
@@ -32,4 +32,85 @@
 		</ol>
 	</div>
 </body>
+<script>
+var $username = $('#username');
+var $password = $('#password');
+var $submit = $('#submit');
+var ajaxLoading = false;
+
+var username = getCookie('username');
+if(username){
+	$username.val(username);
+}
+
+$submit.on('click',function(){
+	if(ajaxLoading){
+		return;
+	}
+	
+	var username = $username.val();
+	var password = $password.val();
+
+	if(username.length == ''){
+		dialog({msg:'请输入账号'});
+		return;
+	}
+
+	if(password.length == ''){
+		dialog({msg:'请输入密码'});
+		return;
+	}
+
+	$.ajax({
+		url : post.login,
+		type : 'post',
+		data : {
+			account : username,
+			password : password,
+			// product : 'android_obd'
+			product : 'overseas_android_obd'
+		},
+		beforeSend : function (e){
+			ajaxLoading = true;
+			$submit.addClass('btnDisabled');
+		},
+		success : function (data){
+			ajaxLoading = false;
+			$submit.removeClass('btnDisabled');
+
+			var json = data2json(data);
+			console.log(json);
+			if(json.code == 200){
+				addCookie('username',username,365);
+				addCookie('userid',json.user_id,365);
+				addCookie('token',json.token,365);
+				window.location.href = 'index.html';
+			}else if(json.code == 1001 || json.code == 1002){
+				dialog({
+					msg:'登录失败：用户名或者密码错误',
+				});
+			}else if(json.code == 1071){
+				addCookie('username',username,365);
+				addCookie('userid',json.user_id,365);
+				dialog({
+					msg:'登录失败：该账号未激活,马上激活',
+					onConfirm:function(){
+						window.location.href = 'activate.html';
+					}
+				});
+			}else{
+				dialog({
+					msg:'登录失败：'+json.msg,
+				});
+			}
+		},
+		error : function (e){
+			ajaxLoading = false;
+			$submit.removeClass('btnDisabled');
+
+			dialog({msg:'登录失败：\n网络故障'});
+		}
+	});
+});
+</script>
 </html>

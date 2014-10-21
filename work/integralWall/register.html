@@ -12,20 +12,120 @@
 	<div class="registerBlock1 bgWhite">
 		<div class="cont bc">
 			<p>您已经得到<span class="colorRed">5</span>元，登录即可领取</p>
-			<p><a class="btn" href="javascript:;">已有账号请登录</a></p>
+			<p><a class="btn" href="login.html">已有账号请登录</a></p>
 			<i class="aRight"></i>
 		</div>
 	</div>
 	<div class="registerBlock2 bgWhite mt10">
 		<p class="bc w88p">没有账号？注册领取<span class="colorRed">5</span>元</p>
-		<input class="textInput bc mt13" type="text" placeholder="请输入手机号" />
-		<div class="cont bc w88p mt13 cf">
-			<input class="textInput ml-2 fl" type="text" placeholder="请输入验证码" />
-			<a class="fr" href="javascript:;">获取验证码</a>
-			<!-- <a class="fr disabled" href="javascript:;">剩余60秒</a> -->
-		</div>
-		<input class="textInput bc mt13" type="text" placeholder="请设置登录密码" />
-		<a class="btnNormal bgRed mt25 bc" href="javascript:;">注册</a>
+		<input id="username" class="textInput bc mt13" type="text" placeholder="请输入手机号" />
+		<!-- <div class="cont bc w88p mt13 cf">
+			<input id="vCode" class="textInput ml-2 fl" type="text" placeholder="请输入验证码" />
+			<a id="aCode" class="fr btnDisabled" href="javascript:;">获取验证码</a>
+			
+		</div> -->
+		<input id="password" class="textInput bc mt13" type="password" placeholder="请设置登录密码" />
+		<input id="password2" class="textInput bc mt13" type="password" placeholder="请确认登录密码" />
+		<a id="submit" class="btnNormal bgRed mt25 bc" href="javascript:;">注册</a>
 	</div>
 </body>
+<script>
+// isMobile(valPhone)
+var $username = $('#username');
+var $password = $('#password');
+var $password2 = $('#password2');
+// var $vCode = $('#vCode');
+var $submit = $('#submit');
+var ajaxLoading = false;
+
+$('#submit').on('click',function(){
+	if(ajaxLoading){
+		return;
+	}
+	
+	var username = $username.val();
+	var password = $password.val();
+	var password2 = $password2.val();
+	// var vCode = $vCode.val();
+
+	if(username.length == ''){
+		dialog({msg:'请输入手机号'});
+		return;
+	}
+
+	if(!isMobile(username)){
+		dialog({msg:'请输入正确的手机号'});
+		return;
+	}
+
+	if(password.length == ''){
+		dialog({msg:'请输入密码'});
+		return;
+	}
+
+	if(password.length<6 || password.length>20){
+		dialog({msg:'密码必须大于6个字符，小于20个字符'});
+		return;
+	}
+
+	if(password2.length == ''){
+		dialog({msg:'请重复密码'});
+		return;
+	}
+
+	if(password != password2){
+		dialog({msg:'两次输入密码不一致'});
+		return;
+	}
+
+	$.ajax({
+		url : post.register,
+		type : 'post',
+		data : {
+			account : username,
+			password : password
+		},
+		beforeSend : function (e){
+			ajaxLoading = true;
+			$submit.addClass('btnDisabled');
+		},
+		success : function (data){
+			ajaxLoading = false;
+			$submit.removeClass('btnDisabled');
+
+			var json = data2json(data);
+			console.log(json);
+
+			if(json.code == 200){
+				addCookie('username',username,365);
+				addCookie('userid',json.user_id,365);
+				dialog({
+					msg:'注册成功：马上激活领取5元',
+					onConfirm : function(){
+						window.location.href = 'activate.html';
+					}
+				});
+			}else if(json.code == 1070){
+				dialog({msg:'注册失败：手机格式不正确'});
+			}else if(json.code == 1409){
+				dialog({msg:'注册失败：该账号已注册'});
+			}else{
+				dialog({msg:'注册失败：'+json.msg});
+			}
+		},
+		error : function (e){
+			ajaxLoading = false;
+			$submit.removeClass('btnDisabled');
+
+			dialog({msg:'注册失败：\n网络故障'});
+		}
+	});
+});
+
+// $('#aCode').on('click',function(){
+// 	$.ajax({
+// 		url : 'http://192.168.8.69:7090/user/activate/:id/127.0.0.1/activate_code'
+// 	})
+// })
+</script>
 </html>
