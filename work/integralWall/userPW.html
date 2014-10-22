@@ -36,17 +36,22 @@ $submit.on('click',function(){
 	var newPW = $newPW.val();
 	var newPW2 = $newPW2.val();
 
-	if(password.length == ''){
+	if(password == ''){
 		dialog({msg:'请输入原密码'});
 		return;
 	}
 
-	if(newPW.length == ''){
+	if(newPW == ''){
 		dialog({msg:'请输入新密码'});
 		return;
 	}
 
-	if(newPW2.length == ''){
+	if(newPW.length<6 || newPW.length>20){
+		dialog({msg:'密码必须大于6个字符，小于20个字符'});
+		return;
+	}
+
+	if(newPW2 == ''){
 		dialog({msg:'请确认新密码'});
 		return;
 	}
@@ -97,9 +102,7 @@ $submit.on('click',function(){
 			// 		}
 			// 	});
 			// }else{
-			// 	dialog({
-			// 		msg:'登录失败：'+json.msg,
-			// 	});
+			// 	dialog({msg:'登录失败：'+json.msg});
 			// }
 		},
 		error : function (e){

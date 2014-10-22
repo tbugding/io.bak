@@ -9,42 +9,172 @@
 	<script type="text/javascript" src="js/common.js"></script>
 </head>
 <body class="bgGray">
-	<div class="userTopBar bgBlue"><div class="w88p bc pr"><a href="javascript:;"><i></i>返回首页</a></div></div>
+	<div class="userTopBar bgBlue"><div class="w88p bc pr"><a href="index.html"><i></i>返回首页</a></div></div>
 	<div class="userPassword bgWhite">
 		<p class="w88p bc">请输入支付宝账号和姓名提现：</p>
-		<input type="text" class="textInput bc mt10" placeholder="支付宝账号" />
-		<input type="text" class="textInput bc mt13" placeholder="支付宝姓名" />
+		<input id="aliAccount" type="text" class="textInput bc mt10" placeholder="支付宝账号" />
+		<input id="aliName" type="text" class="textInput bc mt13" placeholder="支付宝姓名" />
 		<div class="withdrawBlock1 bc w88p mt13 cf">
 			<span class="cont1 fl colorBlue" href="javascript:;">提现金额</span>
 			<a id="btnLimit" class="cont2 textInput fr pr" href="javascript:;">
 				<select id="limit">
-					<option value="">10元,2个工作日到账</option>
-					<option value="">20元,2个工作日到账</option>
-					<option value="">50元,2个工作日到账</option>
+					<option value="10">10元,2个工作日到账</option>
+					<option value="20">20元,2个工作日到账</option>
+					<option value="50">50元,2个工作日到账</option>
 				</select>
 				<i class="aDown"></i>
 			</a>
 			
 		</div>
-		<p class="w88p bc tr mt10">余额：<span class="colorRed"><span>12</span>元</span></p>
-		<a class="btnNormal bgBlue mt20 bc" href="javascript:;">提交</a>
+		<p class="w88p bc tr mt10">余额：<span class="colorRed"><span id="balance">0</span>元</span></p>
+		<a id="submit" class="btnNormal bgBlue mt20 bc" href="javascript:;">提交</a>
 
 	</div>
 	<div class="withdrawBlock2 w88p bc">说明：支付宝账号必须是手机号或邮箱，且进行实名认证。不要输入淘宝昵称、不要输入密码！</div>
-			<!-- <select id="limit">
-				<option value="">10元,2个工作日到账</option>
-				<option value="">20元,2个工作日到账</option>
-				<option value="">50元,2个工作日到账</option>
-			</select> -->
 </body>
 <script>
-$(function(){
-	// $('#btnLimit').on('click',function(){
-	// 	$('#limit').trigger('click');
-	// });
-	// $('#limit').on('click',function(){
-	// 	console.log('a')
-	// });
-})
+var $balance = $('#balance');
+var $aliAccount = $('#aliAccount');
+var $aliName = $('#aliName');
+var $submit = $('#submit');
+
+var userid = getCookie('userid');
+var token = getCookie('token');
+var username = getCookie('username');
+var ajaxLoading = false;
+var aliName;
+var aliAccount;
+
+getBalance(function(aliAccount,aliName){
+	$aliName.val(aliName);
+	$aliAccount.val(aliAccount);
+});
+
+$submit.on('click',function(){
+	if(ajaxLoading){
+		return;
+	}
+	
+	var aliName2 = $.trim($aliName.val());
+	var aliAccount2 = $.trim($aliAccount.val());
+
+	if(aliAccount2 == ''){
+		dialog({msg:'请输入支付宝账号'});
+		return;
+	}
+
+	if(aliName2 == ''){
+		dialog({msg:'请输入支付宝姓名'});
+		return;
+	}
+
+	
+
+	$.ajax({
+		url : post.withDraw,
+		type : 'post',
+		data : {
+			account : username,
+			userid : userid,
+			token : token,
+			aliaccount : aliAccount2,
+			aliname : aliName2,
+			price : $('#limit').val()
+		},
+		beforeSend : function (e){
+			ajaxLoading = true;
+			$submit.addClass('btnDisabled');
+
+			// console.log({
+			// 	userid : userid,
+			// 	token : token,
+			// 	aliaccount : aliAccount2,
+			// 	aliname : aliName2,
+			// 	price : $('#limit').val()
+			// })
+		},
+		success : function (data){
+			ajaxLoading = false;
+			$submit.removeClass('btnDisabled');
+
+			var json = data2json(data);
+			console.log(json);
+
+			if(json.code == 200){
+				// getBalance();
+				$balance.text(json.price);
+				dialog({msg:'提现成功'});
+				if(aliName != aliName2 || aliAccount != aliAccount2){
+					bindAlipay(aliName2,aliAccount2);
+				}
+			}else if(json.code == 1004){
+				dialog({msg:'提现失败：余额不足'});
+				if(aliName != aliName2 || aliAccount != aliAccount2){
+					bindAlipay(aliName2,aliAccount2);
+				}
+			}else{
+				dialog({msg:'提现失败：'+json.msg});
+			}
+		},
+		error : function (e){
+			ajaxLoading = false;
+			$submit.removeClass('btnDisabled');
+
+			dialog({msg:'提现失败：\n网络故障'});
+		}
+	});
+});
+
+function bindAlipay(name,account){
+	console.log('bindingAliPay:'+name+'-'+account);
+	$.ajax({
+		url : post.saveAliPay,
+		type : 'post',
+		data : {
+			account : username,
+			userid : userid,
+			token : token,
+			aliaccount : account,
+			aliname : name
+		},
+		success : function(data){
+			var json = data2json(data);
+			console.log(json);
+
+			if(json.code == 200){
+				aliName = name;
+				aliAccount = account;
+			}
+		}
+	})
+}
+
+function getBalance(onSuccess){
+	$.ajax({
+		url : post.balance,
+		type : 'post',
+		data : {
+			userid : userid,
+			token : token
+		},
+		success : function (data){
+
+			var json = data2json(data);
+			console.log(json);
+
+			if(json.code == 200){
+				$balance.text(json.price);
+				aliName = json.aliname;
+				aliAccount = json.aliaccount;
+
+				onSuccess && onSuccess(aliAccount,aliName);
+				
+
+			}else if(json.code == 401 || json.code == 1001){
+				breakToken();
+			}
+		}
+	});
+}
 </script>
 </html>

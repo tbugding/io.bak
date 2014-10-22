@@ -9,7 +9,7 @@ var post = {
 	adDown : 'http://10.10.24.19:7081/adwap/rest/services/getDoneAd',
 	balance : 'http://10.10.24.19:7081/adwap/rest/services/getUserBalance',
 	saveAliPay : 'http://10.10.24.19:7081/adwap/rest/services/saveAliPayInfo',
-	getAliPay : 'http://10.10.24.19:7081/adwap/rest/services/getAliPayInfo',
+	// getAliPay : 'http://10.10.24.19:7081/adwap/rest/services/getAliPayInfo',
 	withDraw : 'http://10.10.24.19:7081/adwap/rest/services/commitGetMoney',
 	adCallback : 'http://10.10.24.19:7081/adwap/rest/services/adTaskCallback',
 	countClick : 'http://10.10.24.19:7081/adwap/rest/services/statisUserClicks',
@@ -88,6 +88,10 @@ function delCookie(name){
 function isMobile(str){
 	var reg = /^(1\d{10})$/;
 	return reg.test(str);
+}
+
+function breakToken(){
+	window.location.href = 'login.html';
 }
 
 // $(function(){

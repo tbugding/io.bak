@@ -15,7 +15,7 @@
 	</div>
 
 	<div class="balanceBar cf mt10">
-		<p class="balanceBar_text">余额<span class="ml10 colorRed">￥<i id="balance">5</i>元</span></p>
+		<p class="balanceBar_text">余额<span class="ml10 colorRed">￥<i id="balance">0</i>元</span></p>
 		<a class="balanceBar_btn" href="withdraw.html">提现</a>
 	</div>
 	
@@ -23,9 +23,9 @@
 		<p class="indexListTit colorBlue fl">有奖任务列表</p>
 		<a id="refresh" class="indexListRefresh bgBlue fr" href="javascript:;">刷新 <i></i></a>
 	</div>
-	<ul class="indexList mt10 bgWhite">
-		<li><a href="javascript:;" data-url="ad.html?id=1&url=http://www.36kr.com"><span class="span1">东风雪铁龙免费试驾，填单有奖！东风雪铁龙免费试驾，填单有奖！</span><span class="span2"><i></i>4元</span></a></li>
-		<li><a href="javascript:;"><span class="span1">长安铃木试驾，限时奖励！</span><span class="span2 disabled"><i></i>完成</span></a></li>
+	<ul id="adList" class="indexList mt10 bgWhite">
+		<!-- <li><a href="javascript:;" data-url="ad.html?id=1&url=http://www.36kr.com"><span class="span1">东风雪铁龙免费试驾，填单有奖！东风雪铁龙免费试驾，填单有奖！</span><span class="span2"><i></i>4元</span></a></li>
+		<li><a href="javascript:;"><span class="span1">长安铃木试驾，限时奖励！</span><span class="span2 disabled"><i></i>完成</span></a></li> -->
 		<!-- 
 		<li><span>奇瑞QQ试驾，免费有奖！</span><a href="javascript:;"><i></i>3元</a></li>
 		
@@ -37,13 +37,28 @@
 	</ul>
 </body>
 <script>
+
+
 var $refresh = $('#refresh');
 var $username = $('#username');
+var $balance = $('#balance');
+var $adList = $('#adList');
+
 var username = getCookie('username');
 var userid = getCookie('userid');
 var token = getCookie('token');
+var channel = getCookie('channel');
+
+var adList = null;
+var adDown = null;
+var ajaxLoading = 0;
+var countLoading = false;
 
 $('#username').text(username);
+
+getBalance();
+getAdList();
+getAdDown();
 
 $('#logout').on('click',function(){
 	delCookie('username');
@@ -53,13 +68,47 @@ $('#logout').on('click',function(){
 });
 $('.indexList').on('click','a',function(){
 	var url = $(this).data('url');
-	if(url !== undefined){
-		window.location.href = url;
+	var adid = $(this).data('adid')
+
+	if(url == undefined || countLoading){
+		return;
+	}
+
+	$.ajax({
+		url : post.countClick,
+		type : 'post',
+		data : {
+			userid : userid,
+			token : token,
+			adid : adid,
+			channel : channel
+		},
+		beforeSend : function (e){
+			countLoading = true;
+		},
+		success : function (data){
+			countLoading = false;
+
+			var json = data2json(data);
+			console.log(json);
+
+			if(json.code == 200){
+				window.location.href = url;
+			}
+		},
+		error : function (e){
+			countLoading = false;
+		}
+	});
+});
+
+$('#refresh').on('click',function(){
+	if(ajaxLoading === 0){
+		getBalance();
+		getAdList();
+		getAdDown();
 	}
 })
-
-var ajaxLoading = 0;
-getBalance();
 
 function getBalance(){
 	$.ajax({
@@ -78,28 +127,105 @@ function getBalance(){
 			var json = data2json(data);
 			console.log(json);
 
-			// if(json.code == 200){
-			// 	addCookie('username',username,365);
-			// 	addCookie('userid',json.user_id,365);
-			// 	dialog({
-			// 		msg:'注册成功：马上激活领取5元',
-			// 		onConfirm : function(){
-			// 			window.location.href = 'activate.html';
-			// 		}
-			// 	});
-			// }else if(json.code == 1070){
-			// 	dialog({msg:'注册失败：手机格式不正确'});
-			// }else if(json.code == 1409){
-			// 	dialog({msg:'注册失败：该账号已注册'});
-			// }else{
-			// 	dialog({msg:'注册失败：'+json.msg});
-			// }
+			if(json.code == 200){
+				$balance.text(json.price)
+			}else if(json.code == 401 || json.code == 1001){
+				breakToken();
+			}
 		},
 		error : function (e){
-			console.log(e);
 			ajaxEnable();
 		}
 	});
+}
+
+function getAdList(){
+	$.ajax({
+		url : post.adList,
+		type : 'post',
+		data : {
+			channel : channel
+		},
+		beforeSend : function (e){
+			ajaxDisable();
+		},
+		success : function (data){
+			ajaxEnable();
+
+			var json = data2json(data);
+			console.log(json);
+
+			if(json.code == 200){
+				adList = json.content.sort(function(n,m){return n.sort - m.sort});
+				renderAdList();
+			}else if(json.code == 1002){
+				adList = [];
+				renderAdList();
+			}
+		},
+		error : function (e){
+			ajaxEnable();
+		}
+	});
+}
+
+function getAdDown(){
+	$.ajax({
+		url : post.adDown,
+		type : 'post',
+		data : {
+			userid : userid,
+			token : token,
+			channel : channel
+		},
+		beforeSend : function (e){
+			ajaxDisable();
+		},
+		success : function (data){
+			ajaxEnable();
+
+			var json = data2json(data);
+			console.log(json);
+
+			if(json.code == 200){
+				adDown = json.id;
+				renderAdList();
+			}else if(json.code == 1002){
+				adDown = [];
+				renderAdList();
+			}
+		},
+		error : function (e){
+			ajaxEnable();
+		}
+	});
+}
+
+function renderAdList(){
+	console.log('d:'+adDown)
+	if(adList && adDown){
+
+		$adList.empty();
+		for(var i=0; i<adList.length; i++){
+			(function(){
+				var adid = adList[i].id;
+				var url = 'data-adid="'+adid+'" data-url='+adList[i].url+'?username='+username+'\&userid='+userid+'\&token='+token+'\&adid='+adid+'\&adname='+adList[i].name+'\&channel='+channel;
+				var status = '<span class="span2"><i></i>'+adList[i].price+'元</span>';
+
+				for(var j=0; j<adDown.length; j++){
+					if(adid == adDown[j]){
+						url = 'data-adid="'+adid+'"';
+						status = '<span class="span2 disabled">完成</span>';
+					}
+				}
+				
+				$('<li><a href="javascript:;" '+url+'><span class="span1">'+adList[i].name+'</span>'+status+'</a></li>').appendTo($adList);
+			})();
+			
+		}
+		adList = null;
+		adDown = null;
+	}
 }
 
 function ajaxDisable(){

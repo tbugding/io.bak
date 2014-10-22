@@ -43,12 +43,12 @@ $('#submit').on('click',function(){
 		return;
 	}
 	
-	var username = $username.val();
+	var username = $.trim($username.val());
 	var password = $password.val();
 	var password2 = $password2.val();
 	// var vCode = $vCode.val();
 
-	if(username.length == ''){
+	if(username == ''){
 		dialog({msg:'请输入手机号'});
 		return;
 	}
@@ -58,7 +58,7 @@ $('#submit').on('click',function(){
 		return;
 	}
 
-	if(password.length == ''){
+	if(password == ''){
 		dialog({msg:'请输入密码'});
 		return;
 	}
@@ -68,7 +68,7 @@ $('#submit').on('click',function(){
 		return;
 	}
 
-	if(password2.length == ''){
+	if(password2 == ''){
 		dialog({msg:'请重复密码'});
 		return;
 	}

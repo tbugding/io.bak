@@ -87,7 +87,7 @@ $btnACode.on('click',function(){
 			aCodeLoading = false;
 			$btnACode.removeClass('btnDisabled');
 
-			dialog({msg:'注册失败：\n网络故障'});
+			dialog({msg:'获取激活码失败：\n网络故障'});
 		}
 	});
 	function setBtn(n){
@@ -106,9 +106,9 @@ $('#submit').on('click',function(){
 		return;
 	}
 
-	var aCode = $aCode.val();
+	var aCode = $.trim($aCode.val());
 
-	if(aCode.length == ''){
+	if(aCode == ''){
 		dialog({msg:'请输入验证码'});
 		return;
 	}
@@ -151,7 +151,7 @@ $('#submit').on('click',function(){
 			ajaxLoading = false;
 			$submit.removeClass('btnDisabled');
 
-			dialog({msg:'注册失败：\n网络故障'});
+			dialog({msg:'激活失败：\n网络故障'});
 		}
 	});
 });
