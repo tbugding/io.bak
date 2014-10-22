@@ -67,8 +67,11 @@ $('#logout').on('click',function(){
 	window.location.href = 'login.html';
 });
 $('.indexList').on('click','a',function(){
+	alert(0)
+
+
 	var url = $(this).data('url');
-	var adid = $(this).data('adid')
+	var adid = $(this).data('adid');
 
 	if(url == undefined || countLoading){
 		return;
