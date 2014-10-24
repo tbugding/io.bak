@@ -20,7 +20,7 @@
 	</div>
 	<div class="loginBlock1 cf bgWhite">
 		<a href="register.html">注册领<span class="colorRed">5</span>元</a>
-		<a href="javascript:;" class="btnRight">找回密码</a>
+		<a href="retrievePW.html" class="btnRight">找回密码</a>
 	</div>
 	<div class="loginBlock2">
 		<p class="colorBlue">赚钱说明：</p>
@@ -76,8 +76,8 @@ $submit.on('click',function(){
 		data : {
 			account : username,
 			password : password,
-			// product : 'android_obd'
-			product : 'overseas_android_obd'
+			product : 'android_obd'
+			// product : 'overseas_android_obd'
 		},
 		beforeSend : function (e){
 			ajaxLoading = true;

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>积分墙-找回密码</title>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<link rel="stylesheet" type="text/css" href="style/common.css">
+	<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="js/common.js"></script>
+</head>
+<body class="bgGray">
+	<div class="userPassword bgWhite" style="padding:30px 0;">
+		<input id="username" type="text" class="textInput bc" placeholder="请输入您的手机号" />
+		<a id="submit" class="btnNormal bgBlue mt20 bc" href="javascript:;">找回密码</a>
+	</div>
+</body>
+<script>
+var $username = $('#username');
+var $submit = $('#submit');
+var ajaxLoading = false;
+
+
+$submit.on('click',function(){
+	if(ajaxLoading){
+		return;
+	}
+	
+	var username = $.trim($username.val());
+	console.log(username);
+
+	if(username == ''){
+		dialog({msg:'请输入您的手机号'});
+		return;
+	}
+	
+
+	$.ajax({
+		url : post.retrievePW.replace(':username',username),
+		beforeSend : function (xhr){
+			ajaxLoading = true;
+			$submit.addClass('btnDisabled');
+		},
+		success : function (data){
+			ajaxLoading = false;
+			$submit.removeClass('btnDisabled');
+
+			var json = data2json(data);
+			console.log(json);
+
+			if(json.code == 200){
+				dialog({msg:'找回密码成功：密码已发送到您的手机'});
+			}else if(json.code == 1400){
+				dialog({msg:'找回密码失败：手机号码不正确'});
+			}else if(json.code == 1001){
+				dialog({msg:'找回密码失败：账号不存在'});
+			}else{
+				dialog({msg:'找回密码失败：'+json.msg});
+			}
+		},
+		error : function (e){
+			ajaxLoading = false;
+			$submit.removeClass('btnDisabled');
+
+			dialog({msg:'找回密码失败：\n网络故障'});
+		}
+	});
+});
+</script>
+</html>

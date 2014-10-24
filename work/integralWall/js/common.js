@@ -4,6 +4,7 @@ var post = {
 	aCode : 'http://192.168.8.69:7090/user/activate/:id/127.0.0.1/activate_code',
 	activate : 'http://192.168.8.69:7090/user/activate/activate_code',
 	password : 'http://192.168.8.69:7090/user/password',
+	retrievePW : 'http://192.168.8.69:7090/user/password/0/:username/127.0.0.1',
 
 	adList : 'http://10.10.24.19:7081/adwap/rest/services/getAdInfo',
 	adDown : 'http://10.10.24.19:7081/adwap/rest/services/getDoneAd',

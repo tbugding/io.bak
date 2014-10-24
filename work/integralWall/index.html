@@ -67,7 +67,7 @@ $('#logout').on('click',function(){
 	window.location.href = 'login.html';
 });
 $('.indexList').on('click','a',function(){
-	
+
 
 
 	var url = $(this).data('url');
@@ -121,8 +121,9 @@ function getBalance(){
 			userid : userid,
 			token : token
 		},
-		beforeSend : function (e){
+		beforeSend : function (xhr){
 			ajaxDisable();
+			// xhr.setRequestHeader("aaa", "bbb");
 		},
 		success : function (data){
 			ajaxEnable();

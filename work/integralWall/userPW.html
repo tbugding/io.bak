@@ -70,12 +70,17 @@ $submit.on('click',function(){
 			new_password : newPW,
 			confirm_new_password : newPW2
 		},
+		// headers: {
+  //           // "token":token
+  //           "User-Agent":"myAgent"
+  //       },
 		beforeSend : function (xhr){
 			ajaxLoading = true;
 			$submit.addClass('btnDisabled');
 
-			console.log(xhr)
+			// console.log(xhr)
 			xhr.setRequestHeader("token", token);
+			// xhr.setRequestHeader("aaa", "bbb");
 		},
 		success : function (data){
 			ajaxLoading = false;
