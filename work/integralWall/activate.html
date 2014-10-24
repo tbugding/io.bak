@@ -42,6 +42,9 @@ var userid = getCookie('userid');
 if(username){
 	$username.val(username);
 }
+if(userid == ''){
+	breakToken();
+}
 
 $btnACode.on('click',function(){
 	// console.log(post.aCode.replace(':id',getCookie('userid')))
@@ -80,7 +83,7 @@ $btnACode.on('click',function(){
 				aCodeLoading = false;
 				$btnACode.removeClass('btnDisabled');
 
-				dialog({msg:'获取激活码失败：'+json.msg});
+				dialog({msg:'获取激活码失败：请稍后再获取'});
 			}
 		},
 		error : function (e){
