@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>demo</title>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<link rel="stylesheet" href="qqStyle.css">
+<link href="http://www.wuweierwei.com/css/common.css" rel="stylesheet" type="text/css" /> 
+<script src="jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<script type="text/javascript" src="music.js"></script>
+<style>
+*{margin: 0; padding: 0;}
+html,body{ width: 100%; height: 100%; overflow: hidden; background: #fafafa;}
+#canvas{ position: relative; z-index: 10; opacity:0; margin-bottom: 1px ;}
+#canvas2{ position: relative; z-index: 10; opacity:.1; _background: #333;-webkit-transform:rotateZ(180deg); -webkit-transform:rotateX(180deg);}
+#canvas.on{opacity:1; transition: all 2s;}
+#bg{opacity:1;-webkit-transform: scale(0.6); transition: all 3s;}
+#bg.on{-webkit-transform: scale(1); -webkit-transform: translateX(-200px) translateY(300px) rotateZ(-40deg);}
+</style>
+
+
+<style>
+   #show{text-align:center; width: 400px; height: 150px; position: absolute; top: 50%; left: 50%; margin: -70px 0 0 -200px;}
+   #show canvas{display:block;}
+   #show object,
+   #show audio{width:400px;height:60px;margin:10px auto;}
+</style></head>
+<body>
+<div id="bg" class="" style="">
+    <div class="row1">
+        <div class="orb1"><div></div></div>
+        <div class="orb2"><div></div></div>
+        <div class="orb1c"><div></div></div>
+        <div class="orb2c"><div></div></div>
+    </div>
+    <div class="row2">
+        <div class="orb1"><div></div></div>
+        <div class="orb2"><div></div></div>
+        <div class="orb1c"><div></div></div>
+        <div class="orb2c"><div></div></div>
+    </div>
+    <div class="row3">
+        <div class="orb1"><div></div></div>
+        <div class="orb2"><div></div></div>
+        <div class="orb1c"><div></div></div>
+        <div class="orb2c"><div></div></div>
+    </div>
+    <div class="row1c">
+        <div class="orb1"><div></div></div>
+        <div class="orb2"><div></div></div>
+        <div class="orb1c"><div></div></div>
+        <div class="orb2c"><div></div></div>
+    </div>
+    <div class="row2c">
+        <div class="orb1"><div></div></div>
+        <div class="orb2"><div></div></div>
+        <div class="orb1c"><div></div></div>
+        <div class="orb2c"><div></div></div>
+    </div>
+    <div class="row3c">
+        <div class="orb1"><div></div></div>
+        <div class="orb2"><div></div></div>
+        <div class="orb1c"><div></div></div>
+        <div class="orb2c"><div></div></div>
+    </div>
+</div>
+
+<div id="show">
+  <canvas id="canvas" width="400" height="70">您该升级浏览器了</canvas>
+  <canvas id="canvas2" width="400" height="70">您该升级浏览器了</canvas>
+</div>
+<script>getScript("music.js");</script>
+
+</body>
+</html>
