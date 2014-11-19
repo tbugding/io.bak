@@ -26,7 +26,8 @@
 		e = c / (q + s) | 0,
 		d = l / e | 0,
 		o;
-		b.addColorStop(0, "#0080ff");
+		// b.addColorStop(0, "#85c2ff");
+		// b.addColorStop(0.7, "#5c87b2");
 		b2.addColorStop(0, "rgba(57,156,255,0)");
 		b2.addColorStop(0.5, "rgba(28,78,128,0)");
 		// b.addColorStop(0.5, "#F00");

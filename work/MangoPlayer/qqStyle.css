@@ -61,7 +61,7 @@ a img {
   }
 }
 .on {
-  background-image: url('../images/dot_on.png') !important;
+  /*background-image: url('../images/dot_on.png') !important;*/
   background-repeat: no-repeat !important;
 }
 @media (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx) {
@@ -115,6 +115,7 @@ a img {
 }
 #bg div div {
   position: absolute;
+  z-index: -1 !important;
 }
 #bg {
   opacity: 0;
