@@ -3,13 +3,15 @@
 	window.AudioContext = window.AudioContext || window.webkitAudioContext || window.mozAudioContext || window.oAudioContext || window.msAudioContext;
 	if(!AudioContext){return;}
 
-
 	//动画，类似setTimeout的递归调用实现动画
 	window.requestAnimationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame;//j
 
 		var contex = new AudioContext(),  //创建一个audio上下文
 		analyser = contex.createAnalyser(), //r 创建一个分析节点analyser 能对信号进行频域和时域上的分析
-		oAudio = new Audio(window.location.search.substring(1) || mp3), //t 创建一个audio元素
+		mp3 = window.location.search.substring(1) || mp3;
+		mp3Name = ['卷 珠 帘','季 节','Intro'],
+		oAudio = new Audio(mp3+'.mp3'), //t 创建一个audio元素
+		
 		source = contex.createMediaElementSource(oAudio), //k 创建音频源
 		frequency = analyser.frequencyBinCount / 2,  //analyser.frequencyBinCount 取样频率 默认1024  fftSize 是指频率分析下的快速傅里叶变换大小，他的值被限定在 32-2048 的 2 的整数次方
 		u8arr = new Uint8Array(frequency),  //长度为frequency的Uint8Array字节数组
@@ -24,6 +26,8 @@
 		barMargin = 6, //柱间距
 		barNumber = width / (barWidth + barMargin) | 0, //柱个数
 		frequencyLength = frequency / barNumber | 0;  //frequency对应到柱个数的步长
+
+		document.querySelector('#tit').innerHTML = mp3Name[window.location.search.substring(1)-1] || mp3Name[2];
 		for(var i=0; i<aBarGradient.length; i++){
 			aBarGradient[i].addColorStop(0, "#369");
 			aBarGradient[i].addColorStop(1, "#000");
@@ -52,10 +56,13 @@
 			}
 			requestAnimationFrame(draw);
 		}
-		oAudio.addEventListener("playing", draw, false);
+		// oAudio.addEventListener("playing", draw, false);
 		oAudio.addEventListener("play", function(){
-			$('#bg').addClass('on');
-			$('#show').addClass('on');
+			// $('#bg').addClass('on');
+			// $('#show').addClass('on');
+			document.querySelector('#bg').setAttribute('class','on')
+			document.querySelector('#show').setAttribute('class','on')
+			draw();
 		}, false);
 		oAudio.addEventListener("ended",function() {
 			// aContex2D[0].clearRect(0, 0, width, height);
@@ -68,4 +75,4 @@
 	document.querySelector("#canvas2"),
 	document.querySelector("#canvas3"),
 	document.querySelector("#canvas4")
-],'03.mp3');
+],'03');
