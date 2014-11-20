@@ -27,7 +27,7 @@
 		barNumber = width / (barWidth + barMargin) | 0, //柱个数
 		frequencyLength = frequency / barNumber | 0;  //frequency对应到柱个数的步长
 
-		document.querySelector('#tit').innerHTML = mp3Name[window.location.search.substring(1)-1] || mp3Name[2];
+		document.querySelector('#tit').innerHTML = '<a href="?0'+((mp3-0+1)>mp3Name.length?1:(mp3-0+1))+'">'+(mp3Name[window.location.search.substring(1)-1] || mp3Name[2])+'</a>';
 		for(var i=0; i<aBarGradient.length; i++){
 			aBarGradient[i].addColorStop(0, "#369");
 			aBarGradient[i].addColorStop(1, "#000");
