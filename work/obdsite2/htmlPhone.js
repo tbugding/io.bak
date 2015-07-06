@@ -1,1 +1,0 @@
-var htmlPhone = '<img class="imgPhone" src="02.jpg" alt="">';
